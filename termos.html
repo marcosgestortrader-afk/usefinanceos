@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Termos de Uso · FinanceOS</title>
+<meta name="description" content="As regras de uso do FinanceOS: planos, cobrança, cancelamento, garantia de 7 dias, o que o app faz e o que não faz.">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="icon-192.png">
+<meta name="theme-color" content="#0b0b1e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080816; --bg2:#0e0e26; --panel:#141433; --line:#2a2a52;
+  --txt:#f8fafc; --muted:#9aa0c7;
+  --purple:#7c3aed; --aqua:#06b6d4;
+  --grad-orbita:linear-gradient(135deg,#7c3aed,#06b6d4);
+  --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+  --head:'Sora','Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--txt);line-height:1.6;
+  background:radial-gradient(1100px 560px at 84% -12%,rgba(124,58,237,.26),transparent 58%),
+             radial-gradient(900px 520px at -10% 6%,rgba(6,182,212,.14),transparent 56%),var(--bg);
+  -webkit-font-smoothing:antialiased}
+a{color:#a5b4fc;text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,.wordmark{font-family:var(--head);letter-spacing:-.02em;line-height:1.15}
+.wrap{max-width:820px;margin:0 auto;padding:0 22px}
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(8,8,22,.7);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav .wrap{display:flex;align-items:center;gap:14px;height:62px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{width:34px;height:34px;border-radius:9px}
+.wordmark{font-size:19px;font-weight:800}
+.wordmark b{background:var(--grad-orbita);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav .sp{flex:1}
+.nav a.lnk{color:var(--muted);font-weight:600;font-size:14px;padding:8px 12px;border-radius:10px}
+.nav a.lnk:hover{color:var(--txt);text-decoration:none}
+header.top{padding:54px 0 26px}
+.eyebrow{font-family:var(--head);font-weight:700;font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--aqua)}
+header h1{font-size:clamp(30px,5vw,44px);font-weight:800;margin:12px 0 10px}
+header p.lead{color:var(--muted);font-size:17px;max-width:62ch}
+.date{display:inline-block;margin-top:14px;font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+.essencial{margin:26px 0 8px;padding:20px 22px;border-radius:18px;background:linear-gradient(135deg,rgba(124,58,237,.16),rgba(6,182,212,.10));border:1px solid rgba(124,58,237,.35)}
+.essencial h2{font-size:18px;margin-bottom:10px}
+.essencial ul{padding-left:20px;display:grid;gap:6px}
+.essencial li{color:#e2e8f0}
+.toc{margin:22px 0 8px;padding:16px 20px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid var(--line)}
+.toc b{display:block;font-size:13px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.toc ol{padding-left:20px;columns:2;column-gap:28px;font-size:14.5px}
+.toc li{break-inside:avoid;margin:3px 0}
+main section{padding:26px 0 6px;border-top:1px solid rgba(255,255,255,.06);margin-top:22px}
+main section:first-of-type{border-top:0;margin-top:0}
+main h2{font-size:24px;margin-bottom:12px}
+main h3{font-size:17px;margin:20px 0 8px;color:#e2e8f0}
+main p{margin:0 0 12px;max-width:72ch}
+main ul{padding-left:22px;margin:0 0 14px;display:grid;gap:6px;max-width:72ch}
+main li b,main p b{color:var(--txt)}
+.tbl{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14.5px}
+.tbl th,.tbl td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{color:var(--muted);font-weight:600;font-size:12.5px;letter-spacing:.5px;text-transform:uppercase}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.fill{background:rgba(245,181,61,.22);color:#fde68a;border-radius:6px;padding:1px 6px;font-weight:600}
+.contato{margin:26px 0 8px;padding:20px 22px;border-radius:18px;background:var(--panel);border:1px solid var(--line)}
+.contato h2{font-size:20px;margin-bottom:8px}
+.contato p{margin-bottom:6px}
+footer{padding:40px 0 48px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center;justify-content:space-between}
+@media(max-width:600px){
+  .toc ol{columns:1}
+  header.top{padding:38px 0 20px}
+  .tbl th,.tbl td{padding:9px 8px}
+}
+@media print{
+  body{background:#fff;color:#111}
+  .nav,footer{display:none}
+  a{color:#111}
+}
+</style>
+</head>
+<body>
+
+<div class="nav"><div class="wrap">
+  <a class="brand" href="./"><img src="icon-192.png" alt=""><span class="wordmark">Finance<b>OS</b></span></a>
+  <span class="sp"></span>
+  <a class="lnk" href="./">Página inicial</a>
+  <a class="lnk" href="privacidade.html">Privacidade</a>
+  <a class="lnk" href="/app">Entrar no app</a>
+</div></div>
+
+<header class="top"><div class="wrap">
+  <div class="eyebrow">Combinado é combinado</div>
+  <h1>Termos de Uso</h1>
+  <p class="lead">As regras do FinanceOS em português claro: o que você contrata, quanto custa, como cancela, o que o app faz e o que ele não faz.</p>
+  <span class="date">Última atualização: 23 de setembro de 2026</span>
+
+  <div class="essencial">
+    <h2>O essencial, em 6 linhas</h2>
+    <ul>
+      <li><b>Assinatura sem fidelidade.</b> Mensal, semestral ou anual. Renova sozinha no fim de cada período, no cartão ou no Pix Automático, até você cancelar. Cancela quando quiser pela Kiwify e usa até o fim do período que já pagou.</li>
+      <li><b>Seu preço não sobe.</b> Enquanto a assinatura estiver ativa e renovando, o valor do seu plano fica travado. No mensal, o valor travado é R$ 19,90: os R$ 14,90 valem só para o primeiro mês.</li>
+      <li><b>7 dias de garantia.</b> Não gostou? Peça o reembolso em até 7 dias depois de contratar e devolvemos tudo, sem perguntas.</li>
+      <li><b>O app organiza, não decide por você.</b> Ele não é banco, não dá conselho de investimento e não prescreve treino nem dieta.</li>
+      <li><b>Seus dados continuam seus.</b> Você baixa um backup completo quando quiser, enquanto a assinatura estiver ativa. Como cuidamos deles está na <a href="privacidade.html">política de privacidade</a>.</li>
+      <li><b>Uso pessoal, maiores de 18 anos.</b> Uma conta por pessoa. Não vale copiar, revender ou compartilhar o acesso.</li>
+    </ul>
+  </div>
+
+  <div class="toc"><b>Nesta página</b>
+    <ol>
+      <li><a href="#quem">Quem somos e como aceitar</a></li>
+      <li><a href="#oque">O que é o FinanceOS (e o que não é)</a></li>
+      <li><a href="#conta">Sua conta</a></li>
+      <li><a href="#planos">Planos, cobrança e renovação</a></li>
+      <li><a href="#cancelar">Cancelamento e garantia de 7 dias</a></li>
+      <li><a href="#uso">Uso permitido</a></li>
+      <li><a href="#conteudo">Modelos de treino, dieta e alimentos</a></li>
+      <li><a href="#dados">Seus dados e o backup</a></li>
+      <li><a href="#disponibilidade">Disponibilidade e mudanças no app</a></li>
+      <li><a href="#responsabilidade">Responsabilidade</a></li>
+      <li><a href="#encerramento">Encerramento da conta</a></li>
+      <li><a href="#mudancas">Mudanças nestes termos</a></li>
+      <li><a href="#contato">Contato e lei aplicável</a></li>
+    </ol>
+  </div>
+</div></header>
+
+<main><div class="wrap">
+
+<section id="quem">
+  <h2>1. Quem somos e como aceitar</h2>
+  <p>O FinanceOS é oferecido por <b>Marcos Rodrigues Vitorino da Silva</b> (empresário individual), CNPJ <b>62.652.704/0001-04</b>, com endereço em Quadra 32, Conjunto D, Lote 06, Paranoá, CEP 71573-204, Brasília, DF, e-mail <a href="mailto:marcosgestortrader@gmail.com">marcosgestortrader@gmail.com</a>. Nestes termos, "nós" somos essa empresa e "você" é quem usa o app.</p>
+  <p>Ao criar uma conta ou assinar um plano, você concorda com estes termos e com a <a href="privacidade.html">política de privacidade</a>. Se não concordar com alguma parte, não use o app: é simples assim, e sem ressentimentos.</p>
+</section>
+
+<section id="oque">
+  <h2>2. O que é o FinanceOS (e o que não é)</h2>
+  <p>O FinanceOS é um aplicativo web para você organizar o seu dinheiro (entradas, saídas, contas fixas, cartões, metas, dívidas e patrimônio) e, se quiser, a sua rotina e a sua saúde (hábitos, diário, treino, alimentação e ciclo). Ele funciona no navegador do computador e pode ser instalado na tela do celular.</p>
+  <p><b>O que ele não é:</b></p>
+  <ul>
+    <li><b>Não é banco nem corretora.</b> Não movimenta dinheiro, não se conecta à sua conta bancária e não guarda número, validade nem código de segurança de cartão. Dos seus cartões, ele só guarda o que você cadastra para controlar a fatura: apelido, banco, limite e dia de fechamento.</li>
+    <li><b>Não dá conselho de investimento.</b> As projeções (quando a meta fica pronta, quanto rende guardando por mês, quando a dívida quita) são contas feitas com os números que você digitou, para você enxergar cenários. Elas não são recomendação e não garantem resultado.</li>
+    <li><b>Não prescreve treino nem dieta.</b> Quem prescreve dieta é o nutricionista e quem prescreve treino é o profissional de educação física. O app guarda e acompanha o plano que você ou o seu profissional montou. Os modelos prontos são referência para começar e ajustar com quem te acompanha.</li>
+    <li><b>Não é método contraceptivo nem diagnóstico.</b> O calendário do ciclo faz uma estimativa a partir das datas que você registra. Ele não serve para evitar ou planejar gravidez nem substitui consulta médica.</li>
+    <li><b>Não substitui profissionais.</b> Contador, consultor financeiro, médico, nutricionista e educador físico continuam sendo quem responde pelas decisões da área deles.</li>
+  </ul>
+</section>
+
+<section id="conta">
+  <h2>3. Sua conta</h2>
+  <ul>
+    <li>Você entra com e-mail e senha. Crie a conta com o <b>mesmo e-mail da compra</b>: é ele que libera o acesso.</li>
+    <li>A senha é sua. Não a compartilhe, e saia da conta ao usar aparelhos de outras pessoas. O que for feito na sua conta com a sua senha conta como feito por você, a não ser que o acesso indevido venha de falha nossa ou que você já tenha nos avisado do problema. Se desconfiar que alguém entrou na sua conta, troque a senha na hora e nos chame.</li>
+    <li>O FinanceOS é para <b>maiores de 18 anos</b>.</li>
+    <li>Uma conta é de uma pessoa. Se você quiser que outra pessoa use, ela assina a dela.</li>
+  </ul>
+</section>
+
+<section id="planos">
+  <h2>4. Planos, cobrança e renovação</h2>
+  <div class="tbl-wrap"><table class="tbl">
+    <tr><th>Plano</th><th>Valor</th><th>Renova</th></tr>
+    <tr><td>Mensal</td><td>R$ 19,90 por mês (o primeiro mês por R$ 14,90 na oferta de lançamento)</td><td>Todo mês</td></tr>
+    <tr><td>Semestral</td><td>R$ 99,90 a cada 6 meses</td><td>A cada 6 meses</td></tr>
+    <tr><td>Anual</td><td>R$ 179,90 à vista (cartão ou Pix Automático) ou em até 12x no cartão, com acréscimo do parcelamento (hoje, 12x de R$ 18,61, R$ 223,32 no total)</td><td>A cada 12 meses</td></tr>
+  </table></div>
+  <ul>
+    <li>A cobrança é feita pela <b>Kiwify</b>, por cartão de crédito ou Pix Automático. Os dados de pagamento ficam com a Kiwify e com o seu banco; nós não os recebemos.</li>
+    <li><b>Anual parcelado:</b> a Kiwify cobra o valor do ano de uma vez e a operadora do cartão divide em parcelas na sua fatura. O parcelamento vai até 12x no cartão e tem acréscimo: a Kiwify soma cerca de 3,49% ao mês ao valor (hoje, 12x de R$ 18,61, R$ 223,32 no total, contra R$ 179,90 à vista). Nós recebemos o valor à vista; o acréscimo do parcelamento é pago por quem escolhe parcelar. O valor de cada parcela e o total aparecem no checkout antes de você confirmar.</li>
+    <li><b>Renovação automática.</b> No cartão, os planos renovam automaticamente no fim de cada período, até você cancelar. No <b>Pix Automático</b>, você autoriza a cobrança uma única vez no app do seu banco e as renovações são debitadas automaticamente na data de vencimento, também até você cancelar; o banco avisa antes de cada débito, e você pode cancelar a autorização por lá a qualquer momento. Se uma renovação não for paga (cartão recusado, saldo insuficiente ou limite do Pix Automático abaixo do valor), a Kiwify tenta de novo por alguns dias; se continuar sem pagamento, a assinatura é cancelada e o acesso para, sem nenhuma cobrança extra. Se você cancelar a autorização no app do banco, tratamos como cancelamento normal: você usa até o fim do período que já pagou. Para voltar, é só assinar de novo (no Pix Automático, com uma nova autorização no app do banco).</li>
+    <li><b>Preço travado:</b> enquanto a sua assinatura estiver ativa e renovando, o valor do seu plano não sobe. Vale o valor do plano na tabela do dia em que você assinou (no mensal, R$ 19,90: a oferta de R$ 14,90 é só para o primeiro mês). Se você cancelar e voltar depois, ou trocar de plano, vale a tabela daquele momento. Podemos mudar a tabela para assinaturas novas a qualquer hora, e isso não muda o valor de quem já assinou.</li>
+    <li>Promoções e cupons têm as regras que forem informadas na hora da oferta.</li>
+    <li>O acesso é liberado automaticamente depois do pagamento confirmado. Pix costuma confirmar em minutos; cartão, na hora. Se travar, chame o suporte.</li>
+  </ul>
+</section>
+
+<section id="cancelar">
+  <h2>5. Cancelamento e garantia de 7 dias</h2>
+  <ul>
+    <li><b>Cancelar:</b> a qualquer momento, pela sua conta na Kiwify (o e-mail de compra tem o link) ou pelo nosso suporte; no Pix Automático, cancelar a autorização no app do seu banco também interrompe as renovações. Não tem multa nem fidelidade. Cancelando, você continua usando até o fim do período que já pagou, e não é cobrado de novo. Para não ser cobrado na renovação, cancele antes da data de renovação, que aparece na sua conta da Kiwify e no e-mail da compra. No anual parcelado, as parcelas que ainda faltam continuam na fatura do cartão, porque o ano inteiro já foi cobrado de uma vez (veja a seção 4).</li>
+    <li><b>Garantia de 7 dias:</b> se em até 7 dias corridos depois de uma contratação você achar que o app não é para você, peça o reembolso pelo suporte ou pela Kiwify. É o direito de arrependimento do art. 49 do Código de Defesa do Consumidor. Devolvemos o valor integral, pelo mesmo meio de pagamento, sem burocracia. Se você pedir pela Kiwify, o sistema confirma na hora. Se pedir pelo suporte, confirmamos o recebimento e acionamos o estorno na Kiwify em até 1 dia útil. O dinheiro volta no prazo do seu banco ou da operadora: no Pix, costuma levar poucos dias; no cartão, costuma aparecer em uma das próximas faturas, e no anual parcelado o estorno é do valor inteiro. Isso vale para cada contratação nova: a primeira compra, uma troca de plano e uma nova assinatura depois de ter cancelado. A renovação automática do mesmo plano não é compra nova e segue a regra de cancelamento acima.</li>
+    <li><b>Contestação no cartão (chargeback):</b> se você contestar uma cobrança direto com a operadora do cartão, o pagamento daquele período é desfeito e o acesso fica suspenso até a situação se resolver. Seus dados continuam guardados no prazo normal (seção 8). Se tiver qualquer problema com a cobrança, chame o suporte primeiro: devolvemos o que for devido sem você precisar acionar o cartão.</li>
+  </ul>
+</section>
+
+<section id="uso">
+  <h2>6. Uso permitido</h2>
+  <p>Você pode usar o FinanceOS para o seu próprio controle, em quantos aparelhos quiser, com a sua conta. Você não pode:</p>
+  <ul>
+    <li>copiar, revender, alugar, redistribuir ou disponibilizar o app ou partes dele;</li>
+    <li>compartilhar o acesso ou criar contas para outras pessoas;</li>
+    <li>tentar burlar o controle de acesso, a assinatura ou a segurança;</li>
+    <li>usar o app para atividade ilegal ou para prejudicar outras pessoas.</li>
+  </ul>
+  <p>O app, o nome FinanceOS, o desenho das telas, os textos e os modelos prontos são nossos ou usados com licença. O que você digita (seus lançamentos, hábitos, registros) é seu.</p>
+</section>
+
+<section id="conteudo">
+  <h2>7. Modelos de treino, dieta e alimentos</h2>
+  <p>O app traz modelos prontos de treino e de refeições, por nível e objetivo, e uma tabela de alimentos com porção e valores nutricionais aproximados. Eles existem para você <b>começar com um exemplo</b>, não para substituir orientação profissional.</p>
+  <ul>
+    <li>Antes de seguir qualquer modelo, converse com o seu médico, nutricionista ou educador físico, principalmente se você tem alguma condição de saúde, está grávida ou usa medicamentos.</li>
+    <li>Os valores nutricionais são aproximados e podem variar por marca e preparo.</li>
+    <li>Você é responsável por como usa esses modelos. Nós não respondemos por lesões, problemas de saúde ou resultados de treino e dieta.</li>
+  </ul>
+</section>
+
+<section id="dados">
+  <h2>8. Seus dados e o backup</h2>
+  <ul>
+    <li>Tudo o que o app faz com os seus dados está na <a href="privacidade.html">política de privacidade</a>, que faz parte destes termos.</li>
+    <li>Você pode baixar um backup completo em Ajustes › Conta e dados › Backup (no computador, também no menu da sua conta) a qualquer momento. Recomendamos fazer isso de vez em quando, e sempre antes de cancelar.</li>
+    <li>Depois que a assinatura acaba, os seus dados ficam guardados por pelo menos 12 meses, para você poder voltar. Sem assinatura ativa o app não abre, então baixe o backup antes de a assinatura vencer. Se não deu tempo, peça uma cópia pelo suporte dentro desses 12 meses, que a gente manda sem custo.</li>
+    <li>Os números do app dependem do que você digita. Confira os lançamentos: o app não tem como saber se um valor foi digitado errado.</li>
+  </ul>
+</section>
+
+<section id="disponibilidade">
+  <h2>9. Disponibilidade e mudanças no app</h2>
+  <ul>
+    <li>Trabalhamos para o app estar no ar o tempo todo, mas pode haver instabilidade ou manutenção. Para abrir o app e entrar na sua conta é preciso estar com internet e com o serviço no ar, porque ele confere a sua assinatura a cada abertura. Se a internet cair com o app já aberto, ele continua funcionando com a cópia guardada no seu aparelho e sincroniza o que mudou quando a conexão voltar.</li>
+    <li>O FinanceOS melhora com frequência. Podemos mudar, acrescentar ou retirar funções. Se retirarmos uma área principal (dinheiro, rotina ou saúde) dentro de um período que você já pagou, avisamos dentro do app e por e-mail com pelo menos 30 dias de antecedência, e você pode cancelar e receber de volta a parte proporcional do que pagou.</li>
+    <li>Os avisos de vencimento no celular dependem de você permitir notificações e do sistema do seu aparelho. No iPhone, eles aparecem quando você abre o app instalado.</li>
+  </ul>
+</section>
+
+<section id="responsabilidade">
+  <h2>10. Responsabilidade</h2>
+  <p>O FinanceOS é uma ferramenta de organização: ele guarda, mostra e calcula o que você digita. Por isso:</p>
+  <ul>
+    <li>Não respondemos por decisões financeiras, de saúde ou de qualquer outra área que você tome com base nos números e nas projeções do app. Elas não são recomendação nem garantia de resultado (veja a <a href="#oque">seção 2</a>).</li>
+    <li>Não respondemos por dados digitados errado nem por registros que você mesmo apagou. O app não tem como conferir isso por você, e apagar não tem volta; por isso vale manter o backup em dia (Ajustes › Conta e dados › Backup).</li>
+    <li>Não respondemos por falhas da sua internet, do seu aparelho ou do seu navegador, nem por caso fortuito ou força maior, que são eventos fora do nosso controle.</li>
+    <li>Se o app falhar por um problema nosso ou de um serviço que contratamos para ele funcionar (hospedagem, banco de dados, pagamento, fontes e bibliotecas listados na política de privacidade), respondemos como o Código de Defesa do Consumidor manda: você pode pedir a correção do problema ou a devolução proporcional do período afetado, além da reparação do dano que ficar comprovado. O acerto com o serviço que falhou é problema nosso, não seu.</li>
+  </ul>
+  <p>Nada aqui reduz os direitos que o Código de Defesa do Consumidor garante a você.</p>
+</section>
+
+<section id="encerramento">
+  <h2>11. Encerramento da conta</h2>
+  <ul>
+    <li><b>Por você:</b> cancele a assinatura quando quiser. Para apagar a conta e os dados de vez, peça pelo contato abaixo, como explica a política de privacidade.</li>
+    <li><b>Por nós:</b> podemos suspender ou encerrar uma conta em caso de fraude, compartilhamento de acesso, tentativa de burlar a assinatura ou uso que prejudique o serviço ou outras pessoas. Avisamos por e-mail com o motivo, salvo quando a lei ou a segurança não permitirem, e você pode responder. Nos casos sem fraude, devolvemos a parte proporcional do período pago e não usado. Uma cobrança contestada só suspende o acesso; não apaga a conta.</li>
+    <li>Se um dia o FinanceOS deixar de existir, avisamos por e-mail e dentro do app com pelo menos 30 dias de antecedência para você baixar o backup, e devolvemos a parte proporcional do período pago e não usado.</li>
+  </ul>
+</section>
+
+<section id="mudancas">
+  <h2>12. Mudanças nestes termos</h2>
+  <p>Podemos atualizar estes termos. Avisamos dentro do app e por e-mail com pelo menos 30 dias de antecedência, dizendo o que mudou. Mudanças que piorem alguma condição para você (o que está incluído, regras de cancelamento) só valem a partir da renovação seguinte; no período que você já pagou, vale a versão que você aceitou. Se não concordar, cancele antes de a mudança valer. Continuar usando depois do prazo é a sua forma de aceitar. A data no topo mostra sempre a versão atual.</p>
+</section>
+
+<div class="contato" id="contato">
+  <h2>13. Contato e lei aplicável</h2>
+  <p>Suporte e dúvidas: <a href="mailto:marcosgestortrader@gmail.com">marcosgestortrader@gmail.com</a> ou WhatsApp <a href="https://wa.me/5561991674530">(61) 99167-4530</a>. Confirmamos o recebimento na hora, pelo mesmo canal, e respondemos pedidos de cancelamento, reembolso e problemas de cobrança em até 5 dias (normalmente no mesmo dia útil). Pedidos sobre seus dados pessoais (acesso, cópia, exclusão) seguem o prazo da política de privacidade.</p>
+  <p>Estes termos seguem as leis do Brasil, em especial o Código de Defesa do Consumidor e o Marco Civil da Internet. Qualquer disputa pode ser resolvida no foro da sua cidade, como o Código de Defesa do Consumidor garante. Antes disso, chame a gente: quase tudo se resolve numa conversa.</p>
+</div>
+
+</div></main>
+
+<footer><div class="wrap">
+  <span>© 2026 FinanceOS · Controle · Visão · Crescimento</span>
+  <span><a href="./">Página inicial</a> · <a href="privacidade.html">Privacidade</a> · <a href="/app">Entrar no app</a></span>
+</div></footer>
+
+</body>
+</html>

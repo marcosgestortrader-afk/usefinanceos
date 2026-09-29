@@ -7,9 +7,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="manifest" href="manifest.json">
+<link rel="manifest" href="/app/manifest.json">
 <meta name="theme-color" content="#050A14">
-<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="/app/icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -5387,7 +5387,7 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
       <button class="btn-primary" id="authBtn">Entrar</button>
       <div class="login-msg" id="loginMsg"></div>
       <button class="btn-assinar hidden" id="assinarBtn">Assinar ou renovar acesso</button>
-      <div class="auth-legal">Ao entrar ou criar a conta, você concorda com os <a class="legal-link" href="https://financeosapp-two.vercel.app/termos.html" target="_blank" rel="noopener">Termos de uso</a> e a <a class="legal-link" href="https://financeosapp-two.vercel.app/privacidade.html" target="_blank" rel="noopener">Política de privacidade</a>.<br><span class="app-version" style="opacity:.55;font-size:11px"></span></div>
+      <div class="auth-legal">Ao entrar ou criar a conta, você concorda com os <a class="legal-link" href="/termos" target="_blank" rel="noopener">Termos de uso</a> e a <a class="legal-link" href="/privacidade" target="_blank" rel="noopener">Política de privacidade</a>.<br><span class="app-version" style="opacity:.55;font-size:11px"></span></div>
     </div>
   </div>
 </div>
@@ -6616,7 +6616,7 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
         <button type="button" data-acao="logoutBtn" class="hidden"><span data-ic="logout"></span> Sair da conta</button>
       </div>
       <div class="av-dias" id="avDiasWrap"><span data-ic="bell"></span><label for="avDias">Avisar do vencimento com antecedência de</label><select id="avDias" aria-label="Dias de antecedência do aviso"><option value="0">no dia</option><option value="1">1 dia</option><option value="2" selected>2 dias</option><option value="3">3 dias</option><option value="5">5 dias</option><option value="7">7 dias</option><option value="10">10 dias</option><option value="15">15 dias</option></select></div>
-      <div class="aj-legal">Como cuidamos dos seus dados: <a class="legal-link" href="https://financeosapp-two.vercel.app/privacidade.html" target="_blank" rel="noopener">Política de privacidade</a> · <a class="legal-link" href="https://financeosapp-two.vercel.app/termos.html" target="_blank" rel="noopener">Termos de uso</a></div>
+      <div class="aj-legal">Como cuidamos dos seus dados: <a class="legal-link" href="/privacidade" target="_blank" rel="noopener">Política de privacidade</a> · <a class="legal-link" href="/termos" target="_blank" rel="noopener">Termos de uso</a></div>
     </div>
     <!-- Dados de exemplo -->
     <div class="section-head tight"><h2>Dados de exemplo</h2></div>
@@ -7185,7 +7185,7 @@ const SUPABASE_ANON_KEY = "sb_publishable_UT3JXTS5_4iSN8dFidy_5Q_YaM-Y6Ul";   //
    Preencha com SEU contato. Deixe vazio p/ esconder o botão.
    WhatsApp: só números, com DDI 55. Ex: "5511999998888" */
 const APP_NOME         = "FinanceOS";                          // <-- NOME DO APP (sua marca). Só você muda aqui; o cliente não altera.
-const APP_VERSION      = "2026-09-25.223";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
+const APP_VERSION      = "2026-09-29.224";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
 const SUPORTE_WHATSAPP = "5561991674530";                      // WhatsApp do suporte (Marco)
 const SUPORTE_EMAIL    = "atendimento@thrustmarketing.com.br"; // e-mail do suporte
 const KIWIFY_CHECKOUT_URL = "/";       // nossa página de vendas (raiz do site) com os 3 planos
@@ -8500,7 +8500,7 @@ async function ativarAvisos(){
     if(reg.periodicSync){ let ok=true; try{ const st=await navigator.permissions.query({name:'periodic-background-sync'}); ok=(st.state==='granted'); }catch(e){}
       if(ok)await reg.periodicSync.register('avisos-vencimento',{minInterval:12*60*60*1000}); }
     const {titulo,corpo}=_avTexto(itens);
-    await reg.showNotification(itens.length?titulo:'Avisos ligados ✓',{body:itens.length?corpo:'Vou te avisar quando uma conta estiver perto de vencer.',icon:'./icon-192.png',badge:'./icon-192.png',tag:'financeos-venc'});
+    await reg.showNotification(itens.length?titulo:'Avisos ligados ✓',{body:itens.length?corpo:'Vou te avisar quando uma conta estiver perto de vencer.',icon:'/app/icon-192.png',badge:'/app/icon-192.png',tag:'financeos-venc'});
   }catch(e){}
   _avBotao(); toast('Avisos ligados. Deixe o app instalado na tela de início pra receber melhor.');
 }
@@ -9083,7 +9083,7 @@ function _consDar(k){ if(!STATE.consent||typeof STATE.consent!=='object')STATE.c
 function _consModal(){
   let m=document.getElementById('consModal'); if(m)return m;
   m=document.createElement('div'); m.className='modal-bg hidden'; m.id='consModal';
-  m.innerHTML='<div class="modal cons-modal"><div class="cons-ic">🔒</div><h3 id="consTitulo"></h3><p class="cons-body" id="consTexto"></p><p class="cons-link"><a href="https://financeosapp-two.vercel.app/privacidade.html" target="_blank" rel="noopener">Ler a política de privacidade</a></p><div class="modal-actions"><button type="button" class="btn-cancel" id="consNao">Agora não</button><button type="button" class="btn-save" id="consSim">Entendi e aceito</button></div></div>';
+  m.innerHTML='<div class="modal cons-modal"><div class="cons-ic">🔒</div><h3 id="consTitulo"></h3><p class="cons-body" id="consTexto"></p><p class="cons-link"><a href="/privacidade" target="_blank" rel="noopener">Ler a política de privacidade</a></p><div class="modal-actions"><button type="button" class="btn-cancel" id="consNao">Agora não</button><button type="button" class="btn-save" id="consSim">Entendi e aceito</button></div></div>';
   document.body.appendChild(m); return m;
 }
 let _consCb=null, _consRecusa=null;
@@ -14238,7 +14238,7 @@ document.getElementById('installBtn')?.addEventListener('click',async()=>{
 window.addEventListener('appinstalled',()=>{document.getElementById('installBtn')?.classList.add('hidden');toast('FinanceOS instalado! 🎉');});
 if('serviceWorker' in navigator){ window.addEventListener('load',()=>{
   const hadController = !!navigator.serviceWorker.controller; // já tinha SW antigo controlando?
-  navigator.serviceWorker.register('sw.js').then(reg=>{ if(reg&&reg.update)reg.update(); }).catch(()=>{});
+  navigator.serviceWorker.register('/app/sw.js').then(reg=>{ if(reg&&reg.update)reg.update(); }).catch(()=>{});
   if(hadController){ // se uma versão nova assumir, recarrega 1x sozinho p/ aplicar na hora
     let refreshing=false;
     navigator.serviceWorker.addEventListener('controllerchange',()=>{ if(refreshing)return; refreshing=true; location.reload(); });

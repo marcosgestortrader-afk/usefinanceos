@@ -1,6 +1,6 @@
 /* FinanceOS service worker: cache do app shell p/ abrir rapido e funcionar offline */
-const CACHE = 'financeos-v231';
-const CORE = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png'];
+const CACHE = 'financeos-v232';
+const CORE = ['/app', '/app/', '/app/index.html', '/app/manifest.json', '/app/icon-192.png', '/app/icon-512.png'];
 
 // A hospedagem (Vercel) redireciona /index.html -> / (308). Uma resposta "redirecionada"
 // NAO pode ser devolvida pelo SW numa navegacao: o navegador recusa com
@@ -45,7 +45,7 @@ self.addEventListener('fetch', e => {
   // e a pagina recarrega 1x sozinha (controllerchange no index.html). Offline: usa o cache.
   if (isHTML) {
     e.respondWith((async () => {
-      const cached = (await caches.match(req)) || (await caches.match('./index.html')) || (await caches.match('./'));
+      const cached = (await caches.match(req)) || (await caches.match('/app')) || (await caches.match('/app/index.html')) || (await caches.match('/app/'));
       const net = fetch(req).then(async res => {
         if (res && res.ok) {
           const limpo = await semRedirect(res);
@@ -84,7 +84,7 @@ async function _avAvisar(){
   const lim=(a.dias!=null&&a.dias!=='')?Math.max(0,Math.min(15,+a.dias||0)):1; // dias de antecedência escolhidos em Ajustes (0 = só no dia); agenda antiga sem o campo fica em 1
   if(!a.itens.some(i => i.falta <= lim)) return;
   await self.registration.showNotification(a.titulo || 'Vencimento chegando', {
-    body: a.corpo || '', icon: './icon-192.png', badge: './icon-192.png', tag: 'financeos-venc', renotify: true, data: { url: './' }
+    body: a.corpo || '', icon: '/app/icon-192.png', badge: '/app/icon-192.png', tag: 'financeos-venc', renotify: true, data: { url: '/app' }
   });
   a.avisadoEm = key; await _avGravar(a);
 }
@@ -95,6 +95,6 @@ self.addEventListener('notificationclick', e => {
   e.notification.close();
   e.waitUntil(self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then(lista => {
     for(const c of lista){ if('focus' in c) return c.focus(); }
-    return self.clients.openWindow('./');
+    return self.clients.openWindow('/app');
   }));
 });

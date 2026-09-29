@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de Privacidade · FinanceOS</title>
+<meta name="description" content="Como o FinanceOS coleta, usa, guarda e protege os seus dados, e como você exerce os seus direitos pela LGPD.">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="icon-192.png">
+<meta name="theme-color" content="#0b0b1e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080816; --bg2:#0e0e26; --panel:#141433; --line:#2a2a52;
+  --txt:#f8fafc; --muted:#9aa0c7;
+  --purple:#7c3aed; --aqua:#06b6d4; --amber:#f5b53d;
+  --grad-orbita:linear-gradient(135deg,#7c3aed,#06b6d4);
+  --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+  --head:'Sora','Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--txt);line-height:1.6;
+  background:radial-gradient(1100px 560px at 84% -12%,rgba(124,58,237,.26),transparent 58%),
+             radial-gradient(900px 520px at -10% 6%,rgba(6,182,212,.14),transparent 56%),var(--bg);
+  -webkit-font-smoothing:antialiased}
+a{color:#a5b4fc;text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,.wordmark{font-family:var(--head);letter-spacing:-.02em;line-height:1.15}
+.wrap{max-width:820px;margin:0 auto;padding:0 22px}
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(8,8,22,.7);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav .wrap{display:flex;align-items:center;gap:14px;height:62px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{width:34px;height:34px;border-radius:9px}
+.wordmark{font-size:19px;font-weight:800}
+.wordmark b{background:var(--grad-orbita);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav .sp{flex:1}
+.nav a.lnk{color:var(--muted);font-weight:600;font-size:14px;padding:8px 12px;border-radius:10px}
+.nav a.lnk:hover{color:var(--txt);text-decoration:none}
+header.top{padding:54px 0 26px}
+.eyebrow{font-family:var(--head);font-weight:700;font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--aqua)}
+header h1{font-size:clamp(30px,5vw,44px);font-weight:800;margin:12px 0 10px}
+header p.lead{color:var(--muted);font-size:17px;max-width:62ch}
+.date{display:inline-block;margin-top:14px;font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+.essencial{margin:26px 0 8px;padding:20px 22px;border-radius:18px;background:linear-gradient(135deg,rgba(124,58,237,.16),rgba(6,182,212,.10));border:1px solid rgba(124,58,237,.35)}
+.essencial h2{font-size:18px;margin-bottom:10px}
+.essencial ul{padding-left:20px;display:grid;gap:6px}
+.essencial li{color:#e2e8f0}
+.toc{margin:22px 0 8px;padding:16px 20px;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid var(--line)}
+.toc b{display:block;font-size:13px;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.toc ol{padding-left:20px;columns:2;column-gap:28px;font-size:14.5px}
+.toc li{break-inside:avoid;margin:3px 0}
+main section{padding:26px 0 6px;border-top:1px solid rgba(255,255,255,.06);margin-top:22px}
+main section:first-of-type{border-top:0;margin-top:0}
+main h2{font-size:24px;margin-bottom:12px}
+main h3{font-size:17px;margin:20px 0 8px;color:#e2e8f0}
+main p{margin:0 0 12px;max-width:72ch}
+main ul{padding-left:22px;margin:0 0 14px;display:grid;gap:6px;max-width:72ch}
+main li b{color:var(--txt)}
+main p b{color:var(--txt)}
+.tbl{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14.5px}
+.tbl th,.tbl td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{color:var(--muted);font-weight:600;font-size:12.5px;letter-spacing:.5px;text-transform:uppercase}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.nota{padding:14px 16px;border-radius:14px;background:rgba(124,58,237,.10);border:1px solid rgba(124,58,237,.35);color:#e2e8f0;font-size:14.5px;margin:12px 0 16px;max-width:72ch}
+.nota b{color:#fff}
+.fill{background:rgba(245,181,61,.22);color:#fde68a;border-radius:6px;padding:1px 6px;font-weight:600}
+.contato{margin:26px 0 8px;padding:20px 22px;border-radius:18px;background:var(--panel);border:1px solid var(--line)}
+.contato h2{font-size:20px;margin-bottom:8px}
+.contato p{margin-bottom:6px}
+footer{padding:40px 0 48px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center;justify-content:space-between}
+@media(max-width:600px){
+  .toc ol{columns:1}
+  header.top{padding:38px 0 20px}
+  .tbl th,.tbl td{padding:9px 8px}
+}
+@media print{
+  body{background:#fff;color:#111}
+  .nav,footer{display:none}
+  a{color:#111}
+}
+</style>
+</head>
+<body>
+
+<div class="nav"><div class="wrap">
+  <a class="brand" href="./"><img src="icon-192.png" alt=""><span class="wordmark">Finance<b>OS</b></span></a>
+  <span class="sp"></span>
+  <a class="lnk" href="./">Página inicial</a>
+  <a class="lnk" href="termos.html">Termos de uso</a>
+  <a class="lnk" href="/app">Entrar no app</a>
+</div></div>
+
+<header class="top"><div class="wrap">
+  <div class="eyebrow">Transparência</div>
+  <h1>Política de Privacidade</h1>
+  <p class="lead">Aqui está, em português claro, o que o FinanceOS faz com os seus dados: o que coleta, para que usa, onde guarda, com quem compartilha e como você manda em tudo isso.</p>
+  <span class="date">Última atualização: 22 de setembro de 2026 (versão 2026-09-22)</span>
+
+  <div class="essencial">
+    <h2>O essencial, em 6 linhas</h2>
+    <ul>
+      <li><b>Seus dados são seus.</b> Usamos só para o app funcionar e para dar suporte. Não vendemos, não usamos em anúncios e não fazemos perfil de consumo.</li>
+      <li><b>Sem rastreadores.</b> O app e este site não têm cookies de propaganda, pixel de anúncio nem ferramenta de estatística.</li>
+      <li><b>Dinheiro, rotina e saúde ficam na sua conta.</b> Uma cópia no seu aparelho e outra na nuvem, com regras que impedem outros clientes de ler o que é seu. Quem cuida do FinanceOS só acessa para suporte e manutenção (seção 4).</li>
+      <li><b>Dados de saúde só entram com a sua autorização.</b> O app pede um aceite antes do primeiro registro de peso, treino, dieta, diário ou ciclo, e você pode apagar quando quiser.</li>
+      <li><b>Pagamento é na Kiwify.</b> O número do seu cartão nunca passa por nós.</li>
+      <li><b>Você pode baixar uma cópia de tudo e apagar seus registros pelo próprio app</b>, quando quiser. Para excluir a conta de vez, é só nos chamar por e-mail ou WhatsApp.</li>
+    </ul>
+  </div>
+
+  <div class="toc"><b>Nesta página</b>
+    <ol>
+      <li><a href="#quem">Quem cuida dos seus dados</a></li>
+      <li><a href="#dados">Quais dados coletamos</a></li>
+      <li><a href="#uso">Para que usamos</a></li>
+      <li><a href="#onde">Onde ficam e com quem compartilhamos</a></li>
+      <li><a href="#tempo">Por quanto tempo guardamos</a></li>
+      <li><a href="#direitos">Seus direitos e como usá-los</a></li>
+      <li><a href="#seguranca">Como protegemos</a></li>
+      <li><a href="#cookies">Cookies e armazenamento no aparelho</a></li>
+      <li><a href="#menores">Menores de idade</a></li>
+      <li><a href="#mudancas">Mudanças nesta política</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ol>
+  </div>
+</div></header>
+
+<main><div class="wrap">
+
+<section id="quem">
+  <h2>1. Quem cuida dos seus dados</h2>
+  <p>O FinanceOS é um aplicativo web de controle financeiro, rotina e saúde, oferecido por assinatura. O responsável pelo tratamento dos seus dados (o "controlador", no vocabulário da Lei Geral de Proteção de Dados, Lei 13.709/2018) é:</p>
+  <p><b>FinanceOS</b>, mantido por <b>Marcos Rodrigues Vitorino da Silva</b> (empresário individual), CNPJ <b>62.652.704/0001-04</b>, com endereço em Quadra 32, Conjunto D, Lote 06, Paranoá, CEP 71573-204, Brasília, DF.</p>
+  <p>Encarregado pelo tratamento de dados (a pessoa que responde por privacidade): Marcos Rodrigues Vitorino da Silva, e-mail <a href="mailto:marcosgestortrader@gmail.com">marcosgestortrader@gmail.com</a>, WhatsApp <a href="https://wa.me/5561991674530">(61) 99167-4530</a>.</p>
+</section>
+
+<section id="dados">
+  <h2>2. Quais dados coletamos</h2>
+  <p>Só o que você digita ou registra. O FinanceOS não busca informação sobre você em bancos, cartões ou outros serviços: nada de conectar conta bancária, ler extrato ou acessar contatos e localização.</p>
+
+  <h3>Dados da conta</h3>
+  <ul>
+    <li><b>Nome, e-mail e senha.</b> A senha é guardada de forma criptografada pelo serviço de login (Supabase). Nem nós conseguimos vê-la.</li>
+    <li><b>Foto de perfil</b>, se você escolher colocar uma. Ela é reduzida no seu aparelho e fica guardada junto com os seus dados.</li>
+    <li><b>Sexo</b> (homem, mulher ou prefiro não dizer), se você responder na área de Saúde ou em Ajustes › Minha conta. Serve só para mostrar ou esconder a aba de ciclo menstrual e para filtrar os modelos de treino e dieta.</li>
+  </ul>
+
+  <h3>Dados financeiros que você lança</h3>
+  <ul>
+    <li>Lançamentos: descrição, valor, data, tipo (renda, necessidade ou desejo), categoria e subcategoria, forma de pagamento, se está pago, observações e, se você anexar, a foto do comprovante.</li>
+    <li>Contas fixas, orçamento, reserva, metas do mês e do ano, dívidas, bens e patrimônio, e os sonhos do Mural (título, valor e capa).</li>
+    <li>Cartões: apelido, banco, limite e dia de fechamento. <b>Nunca o número do cartão, validade ou código de segurança.</b> O app não pede e não guarda esses dados.</li>
+    <li>Fotos de comprovantes, se você anexar. Elas são reduzidas no seu aparelho antes de serem guardadas.</li>
+  </ul>
+
+  <h3>Dados de rotina e saúde (dados sensíveis)</h3>
+  <p>A área de Rotina e Saúde é opcional. Se você usar, o app guarda o que você registrar:</p>
+  <ul>
+    <li>Hábitos, tarefas, diário e como foi o seu dia (humor).</li>
+    <li>Treinos, exercícios, cargas e tempo de sessão; peso e medidas.</li>
+    <li>Plano de refeições, refeições marcadas e água.</li>
+    <li>Ciclo menstrual: datas de menstruação, fluxo e sintomas, apenas para quem ligar essa função.</li>
+  </ul>
+  <p>Pela LGPD, dados de saúde são <b>dados pessoais sensíveis</b>, com proteção reforçada. No FinanceOS, eles só são guardados com a sua autorização (a lei chama isso de <b>consentimento</b>), dada de forma específica: na primeira vez que você abre a área de Saúde, escreve no Diário ou liga o acompanhamento do ciclo, o app mostra um aviso curto com a finalidade e você confirma que quer registrar essas informações. Guardamos na sua conta a data desse aceite e a versão desta política.</p>
+  <p>Você pode voltar atrás quando quiser: basta apagar o registro, limpar a tela inteira (rotina, treino, dieta ou ciclo), usar Apagar tudo nos Ajustes ou pedir pelo nosso contato. Se não autorizar, essas telas ficam desligadas e o restante do app (dinheiro, hábitos e tarefas) funciona normalmente. Esses dados servem só para mostrar o seu próprio acompanhamento no app, e para nada mais.</p>
+
+  <h3>Dados da assinatura</h3>
+  <ul>
+    <li>A compra é feita na <b>Kiwify</b>, que processa o pagamento (cartão ou Pix Automático) e tem política de privacidade própria. A Kiwify nos repassa os dados da compra: <b>nome, e-mail, CPF, telefone, plano, valor, datas e status do pedido</b>.</li>
+    <li>No banco do app guardamos só o <b>e-mail</b>, <b>se a assinatura está ativa</b>, o <b>status</b> e <b>até quando vale o acesso</b>, para liberar ou bloquear a entrada automaticamente. Os demais dados da compra ficam no painel da Kiwify, onde os consultamos para emitir nota fiscal, tratar reembolsos, dar suporte e cumprir obrigações fiscais e do consumidor.</li>
+    <li>Os dados do seu cartão ficam só com a Kiwify e nunca passam por nós.</li>
+  </ul>
+
+  <h3>Dados técnicos</h3>
+  <ul>
+    <li>Preferências do app. A última aba aberta e o menu recolhido ficam só no seu navegador. O tema claro ou escuro e os ajustes dos avisos (ligado ou não e dias de antecedência) fazem parte dos seus dados e são gravados junto com eles, inclusive na nuvem.</li>
+    <li>A agenda de vencimentos usada para os avisos (nome, valor e dia das contas dos próximos dias), guardada no seu aparelho. Com o app instalado, ele lê essa agenda para mostrar o aviso mesmo fechado.</li>
+    <li>Ao carregar o app, o seu navegador acessa os provedores listados na seção 4 (hospedagem, fontes e bibliotecas). Como em qualquer site, eles recebem o endereço IP do aparelho para entregar os arquivos.</li>
+  </ul>
+
+  <h3>Recursos que usam o seu aparelho</h3>
+  <ul>
+    <li><b>Lançar por voz:</b> usa o reconhecimento de voz do seu próprio navegador. O áudio pode ser processado pelo fabricante do navegador (por exemplo, Google no Chrome ou Apple no Safari). O FinanceOS não grava nem guarda áudio: recebe só o texto que vira o lançamento, que você confere antes de salvar.</li>
+    <li><b>PDF de treino e de dieta:</b> o arquivo é lido dentro do seu aparelho. O PDF não é enviado para os nossos servidores; só o plano que você confirmar é guardado como parte dos seus dados.</li>
+    <li><b>Avisos de vencimento:</b> só funcionam se você permitir notificações. Você pode desligar no app ou nas permissões do navegador.</li>
+    <li><b>Câmera e galeria:</b> usadas apenas quando você escolhe anexar um comprovante, colocar uma foto de perfil ou uma capa em um sonho do Mural. O app não abre a câmera por conta própria: é o seu navegador que oferece a câmera ou a galeria, e você escolhe. As imagens são reduzidas no seu aparelho e ficam guardadas junto com os seus dados, no aparelho e na nuvem. Se você colar o link de uma imagem da internet como capa de um sonho, o seu navegador busca essa imagem no site de origem sempre que a capa aparece na tela, e esse site recebe o endereço IP do aparelho.</li>
+  </ul>
+</section>
+
+<section id="uso">
+  <h2>3. Para que usamos</h2>
+  <p>A coluna "Base legal" mostra o motivo que a lei aceita para cada uso. "Execução do contrato" quer dizer que é o que você contratou ao assinar; "consentimento" é a autorização que você dá; "legítimo interesse" é o mínimo necessário para atender você bem; "obrigação legal" é o que a lei nos obriga a guardar.</p>
+  <div class="tbl-wrap"><table class="tbl">
+    <tr><th>Uso</th><th>Dados envolvidos</th><th>Base legal (LGPD)</th></tr>
+    <tr><td>Fazer o app funcionar: mostrar seus números, gráficos, metas, rotina e saúde</td><td>Conta, financeiros, rotina e saúde</td><td>Execução do contrato (art. 7º, V) e, para dados de saúde, consentimento (art. 11, I)</td></tr>
+    <tr><td>Sincronizar seus dados entre computador e celular</td><td>Todos os dados da sua conta</td><td>Execução do contrato (art. 7º, V) e, para dados de saúde, consentimento (art. 11, I)</td></tr>
+    <tr><td>Liberar ou bloquear o acesso conforme a assinatura</td><td>E-mail e status da assinatura</td><td>Execução do contrato</td></tr>
+    <tr><td>Enviar avisos de conta a vencer no seu aparelho</td><td>Contas fixas e lançamentos pendentes</td><td>Consentimento (você liga os avisos)</td></tr>
+    <tr><td>Dar suporte quando você nos procurar</td><td>E-mail, nome, o que você relatar e, se for preciso para resolver, os dados da sua conta</td><td>Execução do contrato, legítimo interesse (art. 7º, IX) e, se você nos enviar algo sobre saúde, consentimento (art. 11, I)</td></tr>
+    <tr><td>Cumprir obrigações legais, como guardar registros de compra</td><td>E-mail e dados da assinatura</td><td>Obrigação legal (art. 7º, II)</td></tr>
+  </table></div>
+  <p><b>O que nunca fazemos:</b> vender ou alugar seus dados; usá-los para anúncios; montar perfil de consumo; usar seus lançamentos, treinos, dietas ou diário para treinar inteligência artificial; compartilhar com terceiros fora dos provedores da seção 4.</p>
+</section>
+
+<section id="onde">
+  <h2>4. Onde ficam e com quem compartilhamos</h2>
+  <h3>No seu aparelho</h3>
+  <p>O app guarda uma cópia dos seus dados no armazenamento do navegador (o que permite usar sem internet e abrir rápido). Ao sair da conta, o app apaga essa cópia daquele aparelho. "Apagar tudo", em Ajustes, zera os seus registros no aparelho e na nuvem. Se preferir, você também pode limpar os dados do site nas configurações do navegador.</p>
+  <h3>Na nuvem</h3>
+  <p>Seus dados são gravados na <b>Supabase</b>, o serviço de banco de dados e login que usamos. Cada conta tem um registro próprio, protegido por regras no próprio banco de dados (o nome técnico é segurança por linha, ou RLS) que só deixam a sua conta ler e gravar o que é seu. Nem outro cliente, nem o app de outra pessoa conseguem acessar. Se faltar internet, o app continua funcionando com a cópia do aparelho e envia o que mudou assim que a conexão voltar.</p>
+  <p>Quem cuida do FinanceOS tem acesso administrativo ao banco, para suporte e manutenção. Na prática, isso quer dizer que, se for preciso, conseguimos ver os dados da sua conta, inclusive os de rotina e saúde: eles não são criptografados de ponta a ponta (não ficam em uma cifra que só você abre). Esse acesso serve apenas para resolver um problema que você mesmo trouxer ao suporte ou para manter o serviço funcionando. Fora isso, ninguém abre os seus dados.</p>
+  <h3>Provedores que ajudam o app a funcionar</h3>
+  <p>Compartilhamos dados apenas com serviços necessários para entregar o FinanceOS, cada um só com o que precisa:</p>
+  <div class="tbl-wrap"><table class="tbl">
+    <tr><th>Serviço</th><th>Para quê</th><th>O que recebe</th></tr>
+    <tr><td>Supabase</td><td>Login e banco de dados</td><td>Nome, e-mail, senha criptografada e os dados da sua conta</td></tr>
+    <tr><td>Kiwify</td><td>Pagamento e assinatura</td><td>Dados da compra (nome, e-mail, CPF, telefone e os dados do cartão ou do Pix). A Kiwify responde por esses dados com política própria e nos repassa o que está descrito na seção 2</td></tr>
+    <tr><td>Vercel</td><td>Hospedagem do site e do app</td><td>Endereço IP e dados técnicos de acesso, como em qualquer site</td></tr>
+    <tr><td>Google Fonts, cdnjs (Cloudflare) e jsDelivr</td><td>Fontes e bibliotecas que desenham a tela</td><td>Endereço IP ao carregar os arquivos</td></tr>
+  </table></div>
+  <p>Supabase e Vercel tratam dados em nosso nome e sob as nossas instruções (são "operadores", no vocabulário da LGPD). A Supabase inclui o acordo de tratamento de dados (DPA) nos termos de serviço dela, que valem para nós; a Vercel segue os termos e a política de privacidade dela. Kiwify e os serviços de fontes e bibliotecas tratam por conta própria, cada um segundo a sua política de privacidade.</p>
+  <p><b>Onde os dados ficam.</b> O banco de dados da Supabase que guarda a sua conta e os seus registros fica em servidores nos Estados Unidos (região Ohio, da AWS). A hospedagem do site e do app (Vercel) e os serviços de fontes e bibliotecas também podem atender você a partir de servidores fora do Brasil. Essa transferência internacional é necessária para prestar o serviço que você contratou (LGPD, art. 33, IX) e acontece sob os compromissos de segurança e confidencialidade que esses provedores assumem nos contratos deles. Os seus direitos e a nossa responsabilidade continuam os mesmos, onde quer que o servidor esteja.</p>
+  <p>Também podemos compartilhar dados se uma lei ou uma ordem de autoridade exigir, sempre no limite do que for pedido.</p>
+</section>
+
+<section id="tempo">
+  <h2>5. Por quanto tempo guardamos</h2>
+  <ul>
+    <li><b>Enquanto a sua conta existir.</b> Se a assinatura acabar, seus dados continuam guardados por no mínimo 12 meses, para você poder voltar sem perder nada.</li>
+    <li><b>Depois de 12 meses sem assinatura ativa</b>, a conta pode ser apagada, com todos os dados. Antes disso, avisamos por e-mail com pelo menos 30 dias de antecedência. Nesse prazo você pode renovar a assinatura ou pedir uma cópia dos seus dados pelo nosso contato. Se preferir guardar a cópia você mesmo, use Ajustes › Backup antes de a assinatura vencer, porque o app não abre sem assinatura ativa.</li>
+    <li><b>Se você pedir a exclusão</b>, apagamos a conta e todos os dados da nuvem em até 15 dias. No aparelho, a cópia some ao sair da conta ou ao usar Apagar tudo em Ajustes.</li>
+    <li><b>Registros de compra</b> (plano, datas e valores) ficam na Kiwify, onde temos acesso pelo painel de vendas, por até 5 anos depois do fim da assinatura, prazo de prescrição do Código de Defesa do Consumidor e de guarda dos documentos fiscais, mesmo depois da exclusão da conta. No nosso banco fica só o seu e-mail com o status e a validade da assinatura.</li>
+  </ul>
+</section>
+
+<section id="direitos">
+  <h2>6. Seus direitos e como usá-los</h2>
+  <p>A LGPD (art. 18) garante a você os direitos abaixo, e o FinanceOS cumpre todos eles:</p>
+  <ul>
+    <li><b>Saber</b> se tratamos seus dados e <b>acessar</b> tudo o que temos.</li>
+    <li><b>Corrigir</b> dados incompletos ou errados.</li>
+    <li><b>Levar seus dados</b> para onde quiser (portabilidade).</li>
+    <li><b>Apagar</b> seus dados e a sua conta.</li>
+    <li><b>Pedir a anonimização, o bloqueio ou a eliminação</b> de dados que você considere desnecessários, excessivos ou tratados fora da lei.</li>
+    <li><b>Retirar o consentimento</b> para dados de saúde e avisos, sem prejudicar o resto do app. Você também pode simplesmente não dar esse consentimento: nesse caso, a área de Saúde, o Diário e o ciclo ficam desligados e o restante do app funciona normalmente.</li>
+    <li><b>Saber com quem compartilhamos</b> (está na seção 4).</li>
+    <li><b>Discordar</b> de um uso que você considere indevido (a lei chama isso de "se opor") e <b>reclamar</b> à Autoridade Nacional de Proteção de Dados (ANPD), o órgão do governo que fiscaliza a LGPD.</li>
+  </ul>
+  <h3>Muita coisa você faz sozinho, dentro do app</h3>
+  <ul>
+    <li><b>Ver e corrigir:</b> tudo o que existe na sua conta aparece nas telas do app e pode ser editado.</li>
+    <li><b>Copiar ou levar:</b> Backup (em Ajustes ou no menu da sua conta) gera um arquivo .json com todos os seus dados, inclusive fotos e registros de saúde; Exportar planilha gera em CSV (abre no Excel e no Google Planilhas) os lançamentos do mês que está na tela; Relatório abre o resumo do mês para imprimir ou salvar como PDF pelo navegador.</li>
+    <li><b>Apagar o conteúdo:</b> cada tela tem a opção de limpar (lançamentos do mês, rotina, treino, dieta, ciclo). Ajustes › Conta e dados › Apagar tudo apaga todos os seus registros (dinheiro, rotina e saúde), no aparelho e na nuvem. Ficam só o seu nome, a sua foto, o sexo informado e o tema, e a conta de login continua existindo para você recomeçar quando quiser. Para excluir a conta de vez, veja logo abaixo.</li>
+    <li><b>Desligar avisos:</b> em Ajustes › Avisos de vencimento, ou nas permissões do navegador.</li>
+  </ul>
+  <h3>Para apagar a conta ou pedir qualquer outra coisa</h3>
+  <p>Escreva para <a href="mailto:marcosgestortrader@gmail.com">marcosgestortrader@gmail.com</a> ou chame no WhatsApp <a href="https://wa.me/5561991674530">(61) 99167-4530</a>. Use o mesmo e-mail com que você entra no app (no WhatsApp, diga qual é esse e-mail). Respondemos em até 15 dias. Se precisarmos confirmar que é você, pedimos algo simples, como o nome cadastrado na conta ou a data da última cobrança. Nunca pedimos a sua senha.</p>
+</section>
+
+<section id="seguranca">
+  <h2>7. Como protegemos</h2>
+  <ul>
+    <li>Todo o caminho entre o seu aparelho e os servidores é protegido por criptografia (o cadeado HTTPS que aparece no navegador).</li>
+    <li>Senhas nunca ficam guardadas como texto: são embaralhadas de um jeito que não dá para desfazer, nem por nós.</li>
+    <li>No banco de dados, as regras explicadas na seção 4 garantem que cada conta só enxerga os próprios dados.</li>
+    <li>As chaves que dão poder de administração ficam só no servidor. O app no seu aparelho usa uma chave pública, que sozinha não abre os dados de ninguém.</li>
+    <li>Quem trabalha no FinanceOS só acessa os sistemas e os seus dados para manutenção ou para atender um pedido seu de suporte.</li>
+  </ul>
+  <p>Nenhum sistema é 100% imune. Se acontecer um incidente de segurança que possa trazer risco a você, avisaremos por e-mail e comunicaremos a ANPD, como a LGPD determina.</p>
+  <p>Você também faz parte da proteção: use uma senha forte e exclusiva, não a compartilhe e, ao usar aparelhos de outras pessoas, saia da conta ao terminar (isso apaga a cópia dos seus dados daquele aparelho).</p>
+</section>
+
+<section id="cookies">
+  <h2>8. Cookies e armazenamento no aparelho</h2>
+  <p>O site e o app <b>não usam cookies de propaganda, pixel de anúncio nem ferramentas de estatística</b>. O app usa apenas o armazenamento local do navegador para:</p>
+  <ul>
+    <li>manter você conectado (a chave de sessão do login, para não ter que digitar a senha toda vez);</li>
+    <li>guardar a cópia dos seus dados e as suas preferências, para abrir rápido e funcionar sem internet;</li>
+    <li>guardar a agenda de vencimentos dos avisos (nome, valor e dia das contas dos próximos dias), que o app instalado lê para mostrar o aviso mesmo fechado;</li>
+    <li>guardar, quando você restaura um backup, uma cópia dos dados que estavam no app antes da restauração, por segurança;</li>
+    <li>guardar os arquivos do próprio app (cache do navegador), para ele abrir sem internet.</li>
+  </ul>
+  <p>Ao sair da conta, o app apaga daquele aparelho a sessão, a cópia dos dados, as preferências, a agenda de avisos e a cópia da restauração. Os arquivos do app (cache) não têm dados seus e saem quando você limpa os dados do site no navegador.</p>
+</section>
+
+<section id="menores">
+  <h2>9. Menores de idade</h2>
+  <p>O FinanceOS é feito para maiores de 18 anos e não é destinado a crianças ou adolescentes. Não pedimos a idade no cadastro, então contamos com você. Se soubermos que uma conta foi criada por menor de 18 anos, apagamos a conta e os dados. Pais e responsáveis podem pedir isso pelo contato da seção 11.</p>
+</section>
+
+<section id="mudancas">
+  <h2>10. Mudanças nesta política</h2>
+  <p>Se mudarmos algo importante (por exemplo, um provedor novo ou um uso novo dos dados), avisaremos dentro do app e por e-mail antes de valer. Se a mudança exigir um novo consentimento, pediremos a sua confirmação antes de aplicar. A data no topo desta página mostra sempre a versão atual.</p>
+</section>
+
+<div class="contato" id="contato">
+  <h2>11. Contato</h2>
+  <p>Dúvidas, pedidos ou reclamações sobre privacidade:</p>
+  <p>E-mail: <a href="mailto:marcosgestortrader@gmail.com">marcosgestortrader@gmail.com</a></p>
+  <p>WhatsApp: <a href="https://wa.me/5561991674530">(61) 99167-4530</a></p>
+  <p>Autoridade Nacional de Proteção de Dados (ANPD): <a href="https://www.gov.br/anpd" rel="noopener" target="_blank">gov.br/anpd</a></p>
+</div>
+
+</div></main>
+
+<footer><div class="wrap">
+  <span>© 2026 FinanceOS · Controle · Visão · Crescimento</span>
+  <span><a href="./">Página inicial</a> · <a href="termos.html">Termos de uso</a> · <a href="/app">Entrar no app</a></span>
+</div></footer>
+
+</body>
+</html>
