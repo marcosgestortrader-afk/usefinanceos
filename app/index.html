@@ -892,6 +892,10 @@ tbody tr:hover{background:var(--panel2)}
 .modal select,.modal input,.modal textarea{width:100%;padding:11px 13px;background:var(--bg2);border:1px solid var(--line);border-radius:11px;color:var(--txt);font-size:14px;outline:none}
 .modal select:focus,.modal input:focus,.modal textarea:focus{border-color:var(--purple)}
 .modal .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tx-mais{display:block;width:100%;margin-top:12px;padding:10px 0;text-align:center;font:inherit;font-size:13px;font-weight:600;color:var(--muted);background:none;border:0;border-top:1px solid var(--line);border-radius:0;cursor:pointer}
+.tx-mais:hover{color:var(--txt)}
+#viewMonth.sem-dados:not(.editando) .ini-bloco[data-bloco="hero"],#viewMonth.sem-dados:not(.editando) .ini-bloco[data-bloco="orcamento"],#viewMonth.sem-dados:not(.editando) .ini-bloco[data-bloco="graficos"]{display:none}
+#lphCta{margin-top:10px}
 .modal-actions{display:flex;gap:10px;margin-top:20px;position:sticky;bottom:0;background:var(--panel);padding-top:12px;margin-bottom:-4px;padding-bottom:4px}
 /* botões Salvar/Cancelar sempre visíveis quando o modal rola (celular com teclado aberto) */
 .modal-actions button{flex:1;padding:12px;border-radius:12px;font-weight:700;font-size:14px}
@@ -2399,11 +2403,11 @@ input[type=color]::-moz-color-swatch{border:0;border-radius:9px}
 .dt-mp.fut{opacity:.55}
 .dt-mp.ok{border-color:rgba(34,197,94,.5);background:rgba(34,197,94,.08)}
 .dt-mp-d{font-size:11px;font-weight:800;line-height:1.1}
-.dt-mp-d small{display:block;font-size:10px;color:var(--muted);font-weight:600;margin-top:2px}
+.dt-mp-d small{display:block;font-size:11px;color:var(--muted);font-weight:600;margin-top:2px}
 .dt-mp-dots{display:flex;flex-wrap:wrap;gap:3px;justify-content:center;margin:7px 0 5px;min-height:10px}
 .dt-mp-dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.12);display:block}
 .dt-mp-dots i.on{background:var(--pos)}
-.dt-mp-livre{font-size:10px;color:var(--muted)}
+.dt-mp-livre{font-size:11px;color:var(--muted)}
 .dt-mp-n{font-size:11px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
 .dt-mp.ok .dt-mp-n{color:var(--pos)}
 .dt-wk span.livre{opacity:.35}
@@ -5513,6 +5517,7 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
     <div class="lph-main">
       <div class="lph-lbl"><span>💸</span> <span id="lphLbl">Livre pra hoje</span></div>
       <div class="lph-sub" id="lphSub"></div>
+      <button type="button" class="btn-add sm hidden" id="lphCta">Configurar agora</button>
     </div>
   </div>
   <!-- STREAK: DIA REGISTRADO -->
@@ -6706,11 +6711,14 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
       <div class="field"><label>Forma de pagamento</label><select id="mForma"></select></div>
       <div class="field"><label>Pago / Recebido?</label><select id="mPago"><option value="true">Sim</option><option value="false">Não</option></select></div>
     </div>
+    <button type="button" class="tx-mais" id="mMaisBtn" aria-expanded="false" aria-controls="mMaisBox">Mais opções ▾</button>
+    <div class="hidden" id="mMaisBox">
     <div class="field" id="mSubField" style="display:none"><label>Subcategoria</label><select id="mSub"></select></div>
     <div class="field" id="mMetaField" style="display:none"><label>Meta destinada (opcional)</label><select id="mMeta"></select></div>
     <div class="field" id="mParcelasField"><label>Parcelar em (vezes)</label><input type="number" id="mParcelas" min="1" max="60" value="1"><div style="font-size:11px;color:var(--muted);margin-top:4px">Se > 1, o valor total é dividido e distribuído, uma parcela por mês.</div></div>
     <div class="field"><label>Observações</label><input type="text" id="mObs" placeholder="Opcional"></div>
     <div class="field"><label>Comprovante (foto, opcional)</label><input type="file" id="mAnexo" accept="image/*"><div id="mAnexoPreview" style="margin-top:8px"></div></div>
+    </div>
     <div class="modal-actions">
       <button class="btn-cancel" id="mCancel">Cancelar</button>
       <button class="btn-save" id="mSave">Salvar</button>
@@ -7186,7 +7194,7 @@ const SUPABASE_ANON_KEY = "sb_publishable_UT3JXTS5_4iSN8dFidy_5Q_YaM-Y6Ul";   //
    Preencha com SEU contato. Deixe vazio p/ esconder o botão.
    WhatsApp: só números, com DDI 55. Ex: "5511999998888" */
 const APP_NOME         = "FinanceOS";                          // <-- NOME DO APP (sua marca). Só você muda aqui; o cliente não altera.
-const APP_VERSION      = "2026-10-02.226";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
+const APP_VERSION      = "2026-10-02.227";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
 const SUPORTE_WHATSAPP = "5561991674530";                      // WhatsApp do suporte (Marco)
 const SUPORTE_EMAIL    = "atendimento@thrustmarketing.com.br"; // e-mail do suporte
 const KIWIFY_CHECKOUT_URL = "/";       // nossa página de vendas (raiz do site) com os 3 planos
@@ -7589,6 +7597,8 @@ function _hojeInfo(){
   const diasRestantes=ehMesAtual?(diasNoMes-diaHoje+1):diasNoMes;
   return {ehMesAtual,diasNoMes,diaHoje,diasRestantes,hojeKey:monthKey(VIEW.year,VIEW.month)+'-'+String(diaHoje).padStart(2,'0')};
 }
+function _semDadosNenhum(){ try{ return !(STATE.fixas&&STATE.fixas.length)&&!Object.values(STATE.months||{}).some(m=>m&&m.tx&&m.tx.length); }catch(e){ return false; } }
+document.getElementById('lphCta')?.addEventListener('click',()=>showOnboarding());
 function _lphFit(el){ if(!el)return; const f=()=>el.classList.toggle('fit',(el.textContent||'').replace(/\s/g,'').length>9); f(); setTimeout(f,950); } // valor grande cabe na bolinha
 function renderLivreHoje(d){
   const card=document.getElementById('lphCard'); if(!card)return;
@@ -7611,7 +7621,7 @@ function renderLivreHoje(d){
   const estourou=restante<0;
   lblEl.textContent=info.ehMesAtual?'Livre pra hoje':('Livre por dia em '+MESES[VIEW.month].toLowerCase());
   const alvoDia=d.entradas/info.diasNoMes;
-  const cor=estourou?'var(--rose)':(porDia<alvoDia*0.5?'var(--dc-gold)':'var(--dc-green)');
+  const cor=(estourou||usadoHoje>porDia)?'var(--rose)':(porDia<alvoDia*0.5?'var(--dc-gold)':'var(--dc-green)'); // passou do teto de hoje: o número acompanha o anel vermelho
   valEl.style.color=cor;
   countUp(valEl,estourou?0:porDia);
   if(estourou){
@@ -7837,7 +7847,7 @@ function bindBloco4(){
    e escolhe Metade ou Inteiro. Ordem e tamanhos ficam em STATE.layoutInicio.
    Os números escalam sozinhos pelo tamanho do bloco (container queries no CSS).
    ============================================================ */
-const INI_ORDEM_PADRAO=['trilhos','retro','topo','semana','importa','hero','ritmo','metas','orcamento','graficos','faturas','curiosidades']; // trilhos e retro (condicionais) sobem quando aparecem
+const INI_ORDEM_PADRAO=['topo','trilhos','retro','semana','importa','hero','ritmo','metas','orcamento','graficos','faturas','curiosidades']; // Livre pra hoje sempre primeiro; trilhos e retro (condicionais) entram logo abaixo quando aparecem
 let iniEditando=false, _iniDrag=null, _iniPtr=null, _iniAuto=null, _iniY=0;
 function _iniBlocos(){ return [...document.querySelectorAll('#viewMonth .ini-bloco')]; }
 function aplicarLayoutInicio(){
@@ -8012,6 +8022,8 @@ function render(){
   const _y=window.scrollY; if(!_renderSemScroll)requestAnimationFrame(()=>{ if(Math.abs(window.scrollY-_y)>40&&!_renderSemScroll)window.scrollTo(0,_y); });  if(ensureMonthFixas(VIEW.year,VIEW.month)) saveState();
   const d = calc();
   { const mk=monthKey(VIEW.year,VIEW.month); if(txFilters._mk!==mk){ txFilters._mk=mk; txFilters.showAll=false; } } // "Mostrar mais" volta ao trocar de mês
+  // conta sem nenhum lançamento nem fixa: o Início esconde os blocos que só mostrariam zeros e oferece a configuração inicial
+  { const novo=_semDadosNenhum(), vm=document.getElementById('viewMonth'), cta=document.getElementById('lphCta'); if(vm)vm.classList.toggle('sem-dados',novo); if(cta)cta.classList.toggle('hidden',!novo); }
   // topo
   renderGreeting(d);
   renderRetroMes();
@@ -8173,6 +8185,8 @@ function renderRecent(d){
 
 function renderCards(d){
   const row=document.getElementById('cardsRow'); row.innerHTML="";
+  // cartões ainda de fábrica e sem nenhuma compra: o bloco some do Início até a pessoa usar ou configurar um cartão
+  { const semUso=d.cards.every(c=>!(c.total>0)&&!(c.limite>0)&&!c.banco&&DEFAULT_CARDS.includes(c.name)); row.classList.toggle('hidden',semUso); const lbl=row.previousElementSibling; if(lbl&&lbl.classList.contains('dash-label'))lbl.classList.toggle('hidden',semUso); }
   d.cards.forEach((c,i)=>{
     const el=document.createElement('div'); el.className="ccard c"+((i%4)+1);
     let lim='';
@@ -8767,6 +8781,7 @@ function openTxModal(id){
     pendingAnexo=null;
   }
   renderAnexoPreview();
+  { const t=id?findTx(id):null; _txMais(!!(t&&(t.subcategoria||t.metaId||t.obs||t.anexo))); } // novo abre enxuto; ao editar, abre se já houver algo preenchido ali
   document.getElementById('mParcelasField').style.display = id ? 'none' : 'block';
   document.getElementById('mParcelas').value = 1;
   refreshPrettySelects(document.getElementById('txModal'));
@@ -8775,6 +8790,8 @@ function openTxModal(id){
   _txHist=null; _txSugTocado=false; _txSugUltK=''; try{ _txSugRender(); }catch(e){}
 }
 function closeTxModal(){document.getElementById('txModal').classList.add('hidden');editingId=null;}
+function _txMais(aberto){ const box=document.getElementById('mMaisBox'), btn=document.getElementById('mMaisBtn'); if(!box||!btn)return; box.classList.toggle('hidden',!aberto); btn.textContent=aberto?'Menos opções ▴':'Mais opções ▾'; btn.setAttribute('aria-expanded',aberto?'true':'false'); }
+document.getElementById('mMaisBtn')?.addEventListener('click',()=>_txMais(document.getElementById('mMaisBox').classList.contains('hidden')));
 /* ---- Lançar por voz (Web Speech API) ---- */
 function parseVoz(txt){
   txt=(txt||'').toLowerCase();
@@ -11434,7 +11451,8 @@ function _greetChip(){
   { const ss=_sessAtiva(); if(ss){ chip.classList.add('warn'); chip.textContent='Treino '+(ss.nome?_treinoNomeFmt(ss.nome).replace(/^Treino /,''):'')+' em andamento · '+_sessFmt(); return; } }
   if(s.feito){ chip.classList.add('ok'); chip.textContent='Treino de hoje feito ✓ · '+s.semFeitos+' de '+s.meta+' na semana'; return; }
   const rest=s.meta-s.semFeitos;
-  if(rest>0&&rest>=s.diasRestantes){ chip.classList.add('warn'); const t1=rest===1?'Falta 1 treino':'Faltam '+rest+' treinos'; const t2=s.diasRestantes===1?'sobra 1 dia':'sobram '+s.diasRestantes+' dias'; chip.textContent=t1+' e '+t2+(s.proximo?' · próximo: '+_treinoNomeFmt(s.proximo):' nesta semana'); return; }
+  const usaTreino=!!s.proximo||!!(STATE.treinos&&Object.keys(STATE.treinos).length); // só cobra a meta de quem já montou ou registrou treino (a meta semanal nasce em 3 pra todo mundo)
+  if(usaTreino&&rest>0&&rest>=s.diasRestantes){ chip.classList.add('warn'); const t1=rest===1?'Falta 1 treino':'Faltam '+rest+' treinos'; const t2=s.diasRestantes===1?'sobra 1 dia':'sobram '+s.diasRestantes+' dias'; chip.textContent=t1+' e '+t2+(s.proximo?' · próximo: '+_treinoNomeFmt(s.proximo):' nesta semana'); return; }
   chip.classList.add('hidden');
 }
 function twBindStatic(){
