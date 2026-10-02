@@ -2651,7 +2651,7 @@ body{font-family:var(--font);font-size:14px;line-height:1.5;-webkit-font-smoothi
   background:rgba(109,93,251,.16);border:1px solid var(--fos-line2)}
 .promo-t{font-size:12.5px;line-height:1.45;color:var(--fos-t2);position:relative;z-index:2}
 .promo-wave{position:absolute;right:-14px;bottom:-6px;width:150px;opacity:.5;pointer-events:none;z-index:1}
-.side-ver{text-align:center;font-size:11px;color:var(--fos-t3);margin-top:12px}
+.side-ver{text-align:center;font-size:11px;color:var(--fos-t3);margin-top:auto;padding-top:12px}
 .side-mini .sidebar{width:72px;flex:0 0 72px;padding-left:10px;padding-right:10px}
 .side-mini .brand-txt,.side-mini .promo,.side-mini .side-ver{display:none}
 .side-mini .brand{justify-content:center;padding-bottom:14px}
@@ -5432,11 +5432,6 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
       <button data-view="ajustes"><span class="ni" data-ic="settings"></span> Ajustes</button>
     </nav>
 
-    <div class="promo">
-      <div class="promo-ic">💎</div>
-      <div class="promo-t">Disciplina hoje,<br>liberdade sempre.</div>
-      <svg class="promo-wave" viewBox="0 0 160 70" fill="none" aria-hidden="true"><path d="M0 46c26-4 34-24 60-24s38 22 62 18 38-16 38-16" stroke="rgba(129,140,248,.55)" stroke-width="1.4"/><path d="M0 58c26-4 34-20 60-20s38 18 62 14 38-12 38-12" stroke="rgba(56,189,248,.35)" stroke-width="1.2"/></svg>
-    </div>
     <div class="side-ver app-version"></div>
   </aside>
 
@@ -7191,7 +7186,7 @@ const SUPABASE_ANON_KEY = "sb_publishable_UT3JXTS5_4iSN8dFidy_5Q_YaM-Y6Ul";   //
    Preencha com SEU contato. Deixe vazio p/ esconder o botão.
    WhatsApp: só números, com DDI 55. Ex: "5511999998888" */
 const APP_NOME         = "FinanceOS";                          // <-- NOME DO APP (sua marca). Só você muda aqui; o cliente não altera.
-const APP_VERSION      = "2026-10-02.225";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
+const APP_VERSION      = "2026-10-02.226";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
 const SUPORTE_WHATSAPP = "5561991674530";                      // WhatsApp do suporte (Marco)
 const SUPORTE_EMAIL    = "atendimento@thrustmarketing.com.br"; // e-mail do suporte
 const KIWIFY_CHECKOUT_URL = "/";       // nossa página de vendas (raiz do site) com os 3 planos
