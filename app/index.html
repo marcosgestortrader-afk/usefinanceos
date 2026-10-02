@@ -19,7 +19,7 @@
      BIBLIOTECAS (CDNs) - funcionam direto no Netlify
      ============================================================ -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" defer></script>
-<script>addEventListener('load',function(){try{if(window.Chart){if(typeof aplicarEstiloGraficos==='function')aplicarEstiloGraficos();var r=document.getElementById('appRoot');if(r&&!r.classList.contains('hidden')&&typeof render==='function')render();}}catch(e){}});setTimeout(function(){var s=document.getElementById('bootSplash');if(s)s.classList.add('hide');},8000);</script>
+<script>addEventListener('load',function(){try{if(window.Chart){if(typeof aplicarEstiloGraficos==='function')aplicarEstiloGraficos();Chart.defaults.color=document.documentElement.dataset.theme==='light'?'#475569':'#9aa0c7';var r=document.getElementById('appRoot');if(r&&!r.classList.contains('hidden')&&typeof render==='function')render();}}catch(e){}});setTimeout(function(){var s=document.getElementById('bootSplash');if(s)s.classList.add('hide');},8000);</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
@@ -218,6 +218,10 @@ h1,h2,h3,h4,h5,.wordmark,#brandName,.k-val,.panel h3,.greet-txt h2,.dp-title,.mo
 .btn-primary:hover{filter:brightness(1.1)}
 .btn-assinar{width:100%;margin-top:10px;padding:12px;border-radius:12px;background:var(--grad-impulso);color:#fff;font-weight:800;font-size:15px;transition:.15s}
 .btn-assinar:hover{filter:brightness(1.08)}
+.auth-ou{display:flex;align-items:center;gap:10px;margin:14px 0 12px;color:var(--muted);font-size:12px}
+.auth-ou::before,.auth-ou::after{content:"";flex:1;height:1px;background:var(--line)}
+.btn-google{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;padding:12px;border-radius:12px;background:#fff;color:#1f1f1f;border:1px solid #dadce0;font-weight:600;font-size:15px;transition:.15s}
+.btn-google:hover{background:#f1f3f4}
 .login-msg{margin-top:14px;text-align:center;font-size:13px;min-height:18px}
 .login-msg.err{color:var(--red)}
 .login-msg.ok{color:var(--green)}
@@ -5385,6 +5389,8 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
         </div>
       </div>
       <button class="btn-primary" id="authBtn">Entrar</button>
+      <div class="auth-ou hidden" id="authOu">ou</div>
+      <button type="button" class="btn-google hidden" id="googleBtn"><svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span>Entrar com Google</span></button>
       <div class="login-msg" id="loginMsg"></div>
       <button class="btn-assinar hidden" id="assinarBtn">Assinar ou renovar acesso</button>
       <div class="auth-legal">Ao entrar ou criar a conta, você concorda com os <a class="legal-link" href="/termos" target="_blank" rel="noopener">Termos de uso</a> e a <a class="legal-link" href="/privacidade" target="_blank" rel="noopener">Política de privacidade</a>.<br><span class="app-version" style="opacity:.55;font-size:11px"></span></div>
@@ -7185,10 +7191,11 @@ const SUPABASE_ANON_KEY = "sb_publishable_UT3JXTS5_4iSN8dFidy_5Q_YaM-Y6Ul";   //
    Preencha com SEU contato. Deixe vazio p/ esconder o botão.
    WhatsApp: só números, com DDI 55. Ex: "5511999998888" */
 const APP_NOME         = "FinanceOS";                          // <-- NOME DO APP (sua marca). Só você muda aqui; o cliente não altera.
-const APP_VERSION      = "2026-09-29.224";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
+const APP_VERSION      = "2026-10-02.225";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
 const SUPORTE_WHATSAPP = "5561991674530";                      // WhatsApp do suporte (Marco)
 const SUPORTE_EMAIL    = "atendimento@thrustmarketing.com.br"; // e-mail do suporte
 const KIWIFY_CHECKOUT_URL = "/";       // nossa página de vendas (raiz do site) com os 3 planos
+const LOGIN_GOOGLE = false;            // true = mostra "Entrar com Google". Só ligue depois de ativar o provedor Google no Supabase (Authentication > Providers).
 /* ===== PLANOS (paywall dentro do app; o anual vem pré-selecionado) =====
    Edite preço, textos e link aqui. url = checkout da Kiwify de cada plano. */
 const PLANOS = [
@@ -8112,7 +8119,7 @@ function sparkSeries(metric){
 }
 function hexA(h,a){const n=parseInt(h.slice(1),16);return `rgba(${(n>>16)&255},${(n>>8)&255},${n&255},${a})`;}
 function drawSpark(canvasId,key,vals,color){
-  const ctx=document.getElementById(canvasId);if(!ctx)return;
+  const ctx=document.getElementById(canvasId);if(!ctx||typeof Chart==='undefined')return;
   if(charts[key])charts[key].destroy();
   const grad=ctx.getContext('2d').createLinearGradient(0,0,0,Math.max(68,ctx.clientHeight||0));
   grad.addColorStop(0,hexA(color,.5));
@@ -8232,6 +8239,7 @@ function renderTx(d){
   document.getElementById('txCount').textContent = filtrando ? (list.length+" de "+total) : (total+" lançamento"+(total!==1?"s":""));
   if(list.length===0){
     empty.classList.remove('hidden');
+    const mais=document.getElementById('txMore'); if(mais)mais.hidden=true;
     const msg=document.getElementById('txEmptyMsg');
     if(msg)msg.innerHTML = filtrando ? "Nenhum lançamento encontrado com esses filtros." : "Nenhum lançamento neste mês ainda.<br>Lance o que entrou e o que saiu e o Livre pra hoje acende na hora.";
     return;
@@ -8541,7 +8549,7 @@ function applyTheme(t,rerender){ try{ aplicarEstiloGraficos(); }catch(e){}
   document.documentElement.dataset.theme = dark?'dark':'light';
   try{localStorage.setItem('cf_theme',dark?'dark':'light');}catch(e){}
   if(typeof STATE!=='undefined' && STATE) STATE.theme=dark?'dark':'light';
-  Chart.defaults.color = dark ? '#9aa0c7' : '#475569';
+  if(typeof Chart!=='undefined') Chart.defaults.color = dark ? '#9aa0c7' : '#475569'; // a biblioteca carrega depois (defer): se ainda não chegou, a cor entra no 'load' lá no topo
   chartGrid = dark ? '#20203f' : 'rgba(15,23,42,.10)';
   ringTrack = dark ? '#23234a' : '#e2e8f0';
   const ic=document.getElementById('themeIcon'); if(ic) ic.innerHTML=svgIcon(dark?'sun':'moon');
@@ -8627,7 +8635,7 @@ let chartGrid='#20203f';
 let ringTrack='#23234a';
 
 function drawGauge(v,color){
-  const ctx=document.getElementById('gaugeChart');
+  const ctx=document.getElementById('gaugeChart'); if(typeof Chart==='undefined')return;
   if(charts.gauge)charts.gauge.destroy();
   const gaugeBg=(context)=>{
     if(context.dataIndex===1)return document.documentElement.getAttribute('data-theme')==='light'?'rgba(15,23,42,.09)':'rgba(255,255,255,.06)';
@@ -8650,7 +8658,7 @@ function drawGauge(v,color){
 }
 
 function drawCatChart(d){
-  const ctx=document.getElementById('catChart');
+  const ctx=document.getElementById('catChart'); if(typeof Chart==='undefined')return;
   if(charts.cat)charts.cat.destroy();
   const poupInv=d.m.tx.filter(t=>t.tipo==='Poupança'&&t.categoria==='Investimento').reduce((a,t)=>a+(+t.valor||0),0);
   const poupOnly=Math.max(0,d.poup-poupInv);
@@ -8695,7 +8703,7 @@ function drawCatChart(d){
   const tag=document.getElementById('catTag'); if(tag) tag.textContent=nz.length+' categorias';
 }
 function drawIoChart(d){
-  const ctx=document.getElementById('ioChart');
+  const ctx=document.getElementById('ioChart'); if(typeof Chart==='undefined')return;
   if(charts.io)charts.io.destroy();
   const days=new Date(VIEW.year,VIEW.month+1,0).getDate();
   const labels=[],inArr=[],outArr=[];
@@ -8716,7 +8724,7 @@ function drawIoChart(d){
   const fo=document.getElementById('flowOut'); if(fo) fo.textContent=money(d.saidas);
 }
 function drawDailyChart(d){
-  const ctx=document.getElementById('dailyChart');
+  const ctx=document.getElementById('dailyChart'); if(typeof Chart==='undefined')return;
   if(charts.daily)charts.daily.destroy();
   const days=new Date(VIEW.year,VIEW.month+1,0).getDate();
   const labels=[],vals=[];
@@ -8758,7 +8766,7 @@ function openTxModal(id){
     pendingAnexo=t.anexo||null;
   }else{
     mDesc.value=""; document.getElementById('mDataTx').value=defaultDateForView(); mVal.value=""; mTipo.value="Necessidades";
-    mCat.value="Contas"; mForma.value="Pix"; mPago.value="false"; mObs.value="";
+    mCat.value="Contas"; mForma.value="Pix"; mPago.value=String(document.getElementById('mDataTx').value<=todayISO()); mObs.value=""; // hoje ou antes: já pago; data futura: a pagar
     document.getElementById('mMeta').value="";
     updateSubSelect('');
     pendingAnexo=null;
@@ -9578,6 +9586,14 @@ function showLogin(){
       loginMsg('🎉 Pagamento confirmado! Crie sua conta com o MESMO e-mail da compra pra acessar.','ok');
     }
   }catch(e){}
+  // voltou do Google com erro (cancelou, negou permissão): avisa e limpa o endereço
+  try{
+    const p=new URLSearchParams(location.hash.replace(/^#/,'')+'&'+location.search.replace(/^\?/,''));
+    if(p.get('error')||p.get('error_description')){
+      loginMsg('O login com Google não foi concluído. Tente de novo ou use e-mail e senha.','err');
+      history.replaceState(null,'',location.pathname);
+    }
+  }catch(e){}
 }
 // preview da tela de login no modo demo: #login mostra, remover o hash volta pro app (funciona na hora, sem F5)
 window.addEventListener('hashchange',()=>{
@@ -9607,7 +9623,8 @@ async function onLogin(user){
     }catch(e){ /* tabela 'assinaturas' ainda não criada: ignora e mantém o gate de perfis */ }
   }
   if(!liberado){
-    loginMsg("Seu acesso está inativo. Assine ou renove para entrar.","err");
+    const viaGoogle=!!(user.app_metadata&&user.app_metadata.provider==='google');
+    loginMsg(viaGoogle?('Não achamos assinatura no e-mail '+(user.email||'')+'. Entre com o mesmo e-mail da compra, ou assine.'):"Seu acesso está inativo. Assine ou renove para entrar.","err");
     mostrarAssinar();
     await sb.auth.signOut();
     showLogin();
@@ -12305,8 +12322,8 @@ function renderSuaSemana(){
     const nEl0=document.getElementById('swNota'); if(nEl0){ nEl0.querySelector('b').textContent=m.nota; nEl0.style.setProperty('--rc',_notaCor(m.nota)); }
     const cc=[
       {i:'💸',v:money(m.gasto),l:'saiu na semana'},
-      {i:'✅',v:m.diasAval>0?(m.diasDentro+' de '+m.diasAval):'-',l:'dias dentro do Livre pra hoje'},
-      {i:'🎯',v:(m.pctHab!=null?Math.round(m.pctHab*100)+'%':'-'),l:'dos hábitos batidos'},
+      m.diasAval>0?{i:'✅',v:m.diasDentro+' de '+m.diasAval,l:'dias dentro do Livre pra hoje'}:{i:'✅',v:'Sem dados',l:'do Livre pra hoje nesta semana'},
+      m.pctHab!=null?{i:'🎯',v:Math.round(m.pctHab*100)+'%',l:'dos hábitos batidos'}:{i:'🎯',v:'Sem hábitos',l:'cadastre um na Rotina'},
     ];
     document.getElementById('swGrid').innerHTML=cc.map(c=>'<div class="sw-cell"><span class="sw-i">'+c.i+'</span><div><b>'+c.v+'</b><small>'+c.l+'</small></div></div>').join('');
     set('swFoot','O balanço da semana abre no domingo.');
@@ -12322,8 +12339,8 @@ function renderSuaSemana(){
   const cells=[
     {i:'💸',v:money(m.gasto),l:dif==null?'gasto na semana':(dif<=0?Math.abs(dif)+'% a menos que a semana anterior':dif+'% a mais que a semana anterior'),c:dif==null?'':(dif<=0?'pos':'neg')},
     {i:'🏷️',v:m.topCats.length?escapeHtml(m.topCats[0].c):'sem gastos',l:m.topCats.length>1?('depois: '+m.topCats.slice(1).map(x=>escapeHtml(x.c)).join(', ')):'categoria campeã'},
-    {i:'✅',v:m.diasAval>0?(m.diasDentro+' de '+m.diasAval):'-',l:'dias dentro do Livre pra hoje'},
-    {i:'🎯',v:(m.pctHab!=null?Math.round(m.pctHab*100)+'%':'-')+' · '+m.treinosSemana+' 🏋️',l:'hábitos batidos · treinos'},
+    m.diasAval>0?{i:'✅',v:m.diasDentro+' de '+m.diasAval,l:'dias dentro do Livre pra hoje'}:{i:'✅',v:'Sem dados',l:'do Livre pra hoje nesta semana'},
+    m.pctHab!=null?{i:'🎯',v:Math.round(m.pctHab*100)+'% · '+m.treinosSemana+' 🏋️',l:'hábitos batidos · treinos'}:{i:'🎯',v:m.treinosSemana+' 🏋️',l:'treinos · sem hábitos cadastrados'},
     {i:'😊',v:hf?hf.e+' '+hf.l:'sem registro',l:'humor médio no diário'},
     {i:'📅',v:m.venc.length?(m.venc.length+(m.venc.length===1?' conta':' contas')):'nada vencendo',l:m.venc.length?(money(vt)+' nos próximos 7 dias'):'nos próximos 7 dias'},
   ];
@@ -13951,7 +13968,7 @@ function renderMetasAnuais(){
 
 /* gráficos genéricos (reutilizados nas telas novas) */
 function drawGaugeOn(canvasId,key,v,color){
-  const ctx=document.getElementById(canvasId);
+  const ctx=document.getElementById(canvasId); if(typeof Chart==='undefined')return;
   if(charts[key])charts[key].destroy();
   const gaugeBg=(context)=>{
     if(context.dataIndex===1)return document.documentElement.getAttribute('data-theme')==='light'?'rgba(15,23,42,.09)':'rgba(255,255,255,.06)';
@@ -13967,7 +13984,7 @@ function drawGaugeOn(canvasId,key,v,color){
   lbl.textContent=Math.round(v)+"%";lbl.style.color=color;
 }
 function drawLineOn(canvasId,key,labels,vals,color){
-  const ctx=document.getElementById(canvasId);
+  const ctx=document.getElementById(canvasId); if(typeof Chart==='undefined')return;
   if(charts[key])charts[key].destroy();
   charts[key]=new Chart(ctx,{type:'line',data:{labels,datasets:[{data:vals,borderColor:color,backgroundColor:color+'22',fill:true,tension:.35,pointRadius:2,pointBackgroundColor:color}]},
     options:{maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>money(c.raw)}}},scales:{y:{ticks:{callback:v=>'R$'+v},grid:{color:chartGrid}},x:{grid:{display:false}}}}});
@@ -14168,6 +14185,7 @@ function setAuthMode(m){
   const t=document.getElementById('authTitle'), s=document.getElementById('authSub');
   if(t)t.textContent=isLogin?'Bem-vindo de volta 👋':'Crie sua conta 🚀';
   if(s)s.textContent=isLogin?'Entre para acessar seu painel.':'Leva menos de 1 minuto.';
+  const g=document.querySelector('#googleBtn span'); if(g)g.textContent=isLogin?'Entrar com Google':'Criar conta com Google';
   loginMsg('','');
 }
 function traduzErroAuth(msg){
@@ -14207,6 +14225,17 @@ async function doAuth(){
     setAuthMode('login');
     loginMsg('Conta criada! Confirme seu e-mail (olhe sua caixa de entrada) e depois é só entrar.','ok');
   }
+}
+async function doGoogle(){
+  if(!AUTH_ON)return;
+  loginMsg('Abrindo o Google...','');
+  const {error}=await sb.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+'/app'}});
+  if(error)loginMsg('Não foi possível abrir o login do Google. Tente com e-mail e senha.','err');
+}
+if(LOGIN_GOOGLE&&AUTH_ON){
+  document.getElementById('authOu')?.classList.remove('hidden');
+  const gb=document.getElementById('googleBtn');
+  if(gb){ gb.classList.remove('hidden'); gb.addEventListener('click',doGoogle); }
 }
 document.getElementById('tabLogin')?.addEventListener('click',()=>setAuthMode('login'));
 document.getElementById('tabSignup')?.addEventListener('click',()=>setAuthMode('signup'));
