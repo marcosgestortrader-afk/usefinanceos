@@ -5315,32 +5315,25 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
     color:#C7CDFF!important;text-shadow:0 1px 2px rgba(5,10,20,.95),0 2px 10px rgba(5,10,20,.8)!important}
   #dtHeroEx .ok{color:#86efac!important}
 }
+/* ===== Bloco 141: logo igual ao icone do app (icon-512). O desenho ja traz o fundo em degrade,
+   entao a caixinha escura por tras some e o SVG ocupa a caixa inteira (login, barra lateral e topo do celular) ===== */
+.auth-logo,.brand .logo{background:none!important;border:0!important;padding:0!important;overflow:hidden}
+.fos-logo{width:100%!important;height:100%!important}
 </style>
 </head>
 <body>
 <div id="bootSplash"><div class="bs-name">Finance<span>OS</span></div><div class="bs-spin"></div></div>
 
-<!-- ===== símbolo do logo FinanceOS (foguete + barras de crescimento + órbita), definido 1x e usado via <use> ===== -->
+<!-- ===== símbolo do logo FinanceOS (mesmo desenho do icon-512.png: linha de crescimento sobre degradê roxo→azul→verde-água), definido 1x e usado via <use> ===== -->
 <svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
   <defs>
-    <linearGradient id="fosBars" x1="0" y1="1" x2="0.25" y2="0">
-      <stop offset="0" stop-color="#7c3aed"/><stop offset="0.55" stop-color="#3b82f6"/><stop offset="1" stop-color="#06b6d4"/>
-    </linearGradient>
-    <linearGradient id="fosOrbit" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#22c55e"/><stop offset="0.5" stop-color="#06b6d4"/><stop offset="1" stop-color="#8b5cf6"/>
+    <linearGradient id="fosFundo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7c3aed"/><stop offset="0.5" stop-color="#2f6ff5"/><stop offset="1" stop-color="#14b8a6"/>
     </linearGradient>
     <symbol id="fosLogo" viewBox="0 0 48 48">
-      <ellipse cx="23" cy="26" rx="19" ry="8.6" transform="rotate(-26 23 26)" fill="none" stroke="url(#fosOrbit)" stroke-width="2.1" opacity="0.9"/>
-      <rect x="11.6" y="27.5" width="5.3" height="10.5" rx="2.4" fill="url(#fosBars)"/>
-      <rect x="19.6" y="21" width="5.3" height="17" rx="2.4" fill="url(#fosBars)"/>
-      <rect x="27.6" y="14" width="5.3" height="24" rx="2.4" fill="url(#fosBars)"/>
-      <g transform="translate(31 5.5) rotate(40)">
-        <path d="M3.6 0 C6 0 7.8 2.4 7.8 5.5 C7.8 8 6.9 10.1 6 11.4 L1.2 11.4 C0.3 10.1 -0.6 8 -0.6 5.5 C-0.6 2.4 1.2 0 3.6 0 Z" fill="#f8fafc"/>
-        <circle cx="3.6" cy="5.3" r="1.5" fill="#3b82f6"/>
-        <path d="M-0.6 9.6 L-3 13.2 L0.2 11.8 Z" fill="#06b6d4"/>
-        <path d="M7.8 9.6 L10.2 13.2 L7 11.8 Z" fill="#06b6d4"/>
-        <path d="M1.8 11.8 L5.4 11.8 L3.6 15.6 Z" fill="#f43f5e"/>
-      </g>
+      <rect width="48" height="48" rx="10.5" fill="url(#fosFundo)"/>
+      <path d="M14.8 13.8V34.2H34.4" fill="none" stroke="#fff" stroke-opacity="0.6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M15.8 30.2L22 23.5L26.9 26.9L34.5 16.6" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
   </defs>
 </svg>
@@ -7194,7 +7187,7 @@ const SUPABASE_ANON_KEY = "sb_publishable_UT3JXTS5_4iSN8dFidy_5Q_YaM-Y6Ul";   //
    Preencha com SEU contato. Deixe vazio p/ esconder o botão.
    WhatsApp: só números, com DDI 55. Ex: "5511999998888" */
 const APP_NOME         = "FinanceOS";                          // <-- NOME DO APP (sua marca). Só você muda aqui; o cliente não altera.
-const APP_VERSION      = "2026-10-03.228";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
+const APP_VERSION      = "2026-10-03.229";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
 const SUPORTE_WHATSAPP = "5561991674530";                      // WhatsApp do suporte (Marco)
 const SUPORTE_EMAIL    = "atendimento@thrustmarketing.com.br"; // e-mail do suporte
 const KIWIFY_CHECKOUT_URL = "/";       // nossa página de vendas (raiz do site) com os 3 planos
