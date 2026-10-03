@@ -5332,6 +5332,9 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
   #viewMonth .grid.dash3>.panel:last-child{grid-column:1 / -1}
   #viewAnnual .grid.kpis{grid-template-columns:repeat(2,minmax(0,1fr))!important}   /* Ano: 4 cards em 2 x 2 */
   #viewSaude .tw-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}      /* Treino e Dieta: 4 cards em 2 x 2 */
+  /* "Suas faturas": em vez de tira rolavel (4 cards de 228px, 2 fora da tela), os 4 cartoes em 2 x 2 com espaco entre eles */
+  #viewMonth .cards-row{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;overflow:visible!important;gap:18px!important;padding-bottom:0!important}
+  #viewMonth .cards-row>.ccard{min-width:0!important;max-width:none!important;width:auto!important;flex:none!important}
   /* os 3 cards do topo (Entradas, Saidas, Saldo) cabem lado a lado: viram 3 colunas iguais em vez de tira rolavel com vazio a direita */
   #viewMonth .kpis-primary{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;overflow:visible!important;gap:14px!important}
   #viewMonth .kpis-primary>.kpi,#viewMonth .kpis-primary>.kpi.has-spark{min-width:0!important;max-width:none!important;flex:none!important;width:auto!important}
@@ -7222,7 +7225,7 @@ const SUPABASE_ANON_KEY = "sb_publishable_UT3JXTS5_4iSN8dFidy_5Q_YaM-Y6Ul";   //
    Preencha com SEU contato. Deixe vazio p/ esconder o botão.
    WhatsApp: só números, com DDI 55. Ex: "5511999998888" */
 const APP_NOME         = "FinanceOS";                          // <-- NOME DO APP (sua marca). Só você muda aqui; o cliente não altera.
-const APP_VERSION      = "2026-10-03.233";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
+const APP_VERSION      = "2026-10-03.234";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
 const SUPORTE_WHATSAPP = "5561991674530";                      // WhatsApp do suporte (Marco)
 const SUPORTE_EMAIL    = "atendimento@thrustmarketing.com.br"; // e-mail do suporte
 const KIWIFY_CHECKOUT_URL = "/";       // nossa página de vendas (raiz do site) com os 3 planos
