@@ -202,7 +202,7 @@ h1,h2,h3,h4,h5,.wordmark,#brandName,.k-val,.panel h3,.greet-txt h2,.dp-title,.mo
 #voiceTxBtn.gravando{background:rgba(244,63,94,.16)!important;border-color:rgba(244,63,94,.5)!important;color:#f43f5e!important;animation:pulseVoz 1s infinite}
 @keyframes pulseVoz{0%,100%{box-shadow:0 0 0 0 rgba(244,63,94,.45)}50%{box-shadow:0 0 0 7px rgba(244,63,94,0)}}
 /* tabelas viram cards no celular (em vez de rolar de lado) */
-@media(max-width:768px){
+@media(max-width:1000px){
   .tbl-scroll{overflow-x:visible}
   .tbl-scroll table,.tbl-scroll tbody,.tbl-scroll tr,.tbl-scroll td{display:block;width:auto;min-width:0;box-sizing:border-box;max-width:100%}
   .tbl-scroll thead{position:absolute;left:-9999px;top:-9999px}
@@ -990,7 +990,7 @@ tbody tr:hover{background:var(--panel2)}
 .hub-btn:hover{background:var(--panel2)}
 .hub-btn svg{width:18px;height:18px;color:var(--purple)}
 .hub-logout{color:#f87171}
-@media(max-width:768px){.mobile-hub{display:block}}
+@media(max-width:1000px){.mobile-hub{display:block}}
 
 /* ============================================================
    TEMA CLARO
@@ -1458,7 +1458,7 @@ html{scrollbar-gutter:stable} /* barra de rolagem sempre com espaço reservado: 
 .notif-item{display:flex;gap:10px;padding:9px 8px;border-radius:10px;font-size:13px;align-items:flex-start;line-height:1.35}
 .notif-item:hover{background:var(--panel2)}
 .notif-item .ni-ic{font-size:16px;flex-shrink:0}
-@media(max-width:768px){.notif-panel{top:74px;right:14px;left:14px;width:auto}}
+@media(max-width:1000px){.notif-panel{top:74px;right:14px;left:14px;width:auto}}
 .dash-label svg{width:15px;height:15px}
 .panel h3 svg{width:15px;height:15px;flex-shrink:0}
 .thermo .label svg{width:14px;height:14px;vertical-align:-2px;margin-right:5px}
@@ -1496,7 +1496,7 @@ html{scrollbar-gutter:stable} /* barra de rolagem sempre com espaço reservado: 
    ============================================================ */
 .mtop{display:none}
 .bottomnav{display:none}
-@media(max-width:768px){
+@media(max-width:1000px){
   .sidebar{display:none!important}
   .mainarea{padding:0 14px 96px;max-width:100%}
   /* header mobile */
@@ -1570,7 +1570,7 @@ html{scrollbar-gutter:stable} /* barra de rolagem sempre com espaço reservado: 
 .gr-icon{font-size:16px;margin:0;line-height:1}
 .gr-vals b{display:block;font-size:15px}
 .gr-link{background:none;border:0;padding:0;cursor:pointer;color:#c9a6ff;font:inherit;font-size:12px;font-weight:700}
-@media(max-width:768px){.goal-ringcard{padding:14px 12px}.gr-ring{width:84px;height:84px}.gr-ring-in{width:64px;height:64px}.gr-ring-in b{font-size:18px}.gr-actions{opacity:1}}
+@media(max-width:1000px){.goal-ringcard{padding:14px 12px}.gr-ring{width:84px;height:84px}.gr-ring-in{width:64px;height:64px}.gr-ring-in b{font-size:18px}.gr-actions{opacity:1}}
 .res-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
 .res-strip>div{padding:0 16px;border-left:1px solid var(--line);min-width:0}
 .res-strip>div:first-child{padding-left:0;border-left:0}
@@ -1581,7 +1581,7 @@ html{scrollbar-gutter:stable} /* barra de rolagem sempre com espaço reservado: 
 .res-note{font-size:12px;color:var(--muted);margin-top:8px}
 .reserva-result{display:block}
 .reserva-grid .field{margin:0}
-@media(max-width:768px){.res-strip{grid-template-columns:1fr 1fr}.res-strip>div:nth-child(3){grid-column:1/-1;border-left:0;padding:12px 0 0;margin-top:12px;border-top:1px solid var(--line)}.reserva-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:1000px){.res-strip{grid-template-columns:1fr 1fr}.res-strip>div:nth-child(3){grid-column:1/-1;border-left:0;padding:12px 0 0;margin-top:12px;border-top:1px solid var(--line)}.reserva-grid{grid-template-columns:1fr 1fr}}
 .maq-chips{margin-bottom:16px}
 .maq-chip{padding:6px 12px;font-size:12px}
 .maq-data{font-size:clamp(24px,4vw,32px);margin-top:4px}
@@ -1691,7 +1691,7 @@ html{scrollbar-gutter:stable} /* barra de rolagem sempre com espaço reservado: 
 .tw-med-acts .btn-ghost{white-space:nowrap}
 .btn-add.off{opacity:.45;pointer-events:none}
 .tw-med{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-@media(max-width:768px){.tw-med{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:1000px){.tw-med{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .tw-mcard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 13px;cursor:pointer;min-width:0}
 .tw-mcard.open{grid-column:1/-1}
 .tw-mcard.arq{opacity:.7}
@@ -2144,7 +2144,7 @@ tbody td{font-size:var(--fs-body);line-height:1.4}
 [data-theme="light"] .sw-cell.neg small{color:#be123c}
 [data-theme="light"] .rt-tabs,[data-theme="light"] .dv-order .step{background:var(--panel2)}
 .btn-seeall::after{content:" ›"}
-@media(max-width:768px){#exportCsvBtn,#importCsvBtn{display:none}}
+@media(max-width:1000px){#exportCsvBtn,#importCsvBtn{display:none}}
 .task-done{padding:0 12px;margin-top:14px}
 .task-done>summary{padding:12px 0}
 .task-done>.task-item{margin:0 0 8px}
@@ -2260,7 +2260,7 @@ tbody td{font-size:var(--fs-body);line-height:1.4}
   .lc-card .lc-val{font-size:16px;margin-top:6px}
   .lc-card .lc-sub{display:none}
 }
-@media(max-width:768px){
+@media(max-width:1000px){
   #viewLancamentos .tbl-scroll tr{display:flex;flex-wrap:wrap;align-items:center;gap:2px 8px;padding:10px 12px;margin-bottom:8px;border-radius:12px}
   #viewLancamentos .tbl-scroll td{display:block;padding:0;text-align:left;border:0!important;margin:0}
   #viewLancamentos .tbl-scroll td::before{display:none}
@@ -2495,7 +2495,7 @@ input[type=color]::-moz-color-swatch{border:0;border-radius:9px}
 .goal-ringcard .gr-left,.goal-ringcard .gr-done{min-height:2.9em;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.35}
 /* o link (ou a projeção) desce pro rodapé do card, então todos ficam na mesma altura */
 .goal-ringcard .gr-proj{margin-top:auto;padding-top:4px}
-@media(max-width:768px){.goal-ringcard .gr-left,.goal-ringcard .gr-done{min-height:3.4em}}
+@media(max-width:1000px){.goal-ringcard .gr-left,.goal-ringcard .gr-done{min-height:3.4em}}
 
 /* ---- Bloco 34: consulta de alimentos ---- */
 #alimWrap{margin:16px 0}
@@ -4391,7 +4391,7 @@ body{overflow-x:clip}
    passam a usar a MESMA largura, entao param de ficar desencontrados.
    ============================================================================ */
 .mainarea>*,.mainarea>div[id^="view"]{max-width:clamp(1480px,93%,2480px);margin-left:auto;margin-right:auto}
-@media(max-width:768px){ .mainarea>*,.mainarea>div[id^="view"]{max-width:100%} }
+@media(max-width:1000px){ .mainarea>*,.mainarea>div[id^="view"]{max-width:100%} }
 
 /* ============================================================================
    Bloco 79: acabamento da tabela de habitos.
@@ -4566,7 +4566,7 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
       icone deixa de ocupar uma coluna e vai pra cima do texto, senao o valor
       nao cabe.
    ============================================================================ */
-@media(max-width:768px){
+@media(max-width:1000px){
   .mainarea .topbar{padding:10px 14px 12px!important}
   .mtop{padding:16px 14px 8px!important}
   .mainarea .topbar .top-actions{display:none!important}
@@ -4619,7 +4619,7 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
   #viewFixas .dv-stat .lbl:first-child{font-size:9.5px}
   .bc label{font-size:10.5px!important}
 }
-@media(max-width:768px){
+@media(max-width:1000px){
   #viewFixas .tbl-scroll tr{display:flex;flex-wrap:nowrap;align-items:center;gap:8px;padding:10px 12px;margin-bottom:8px;border-radius:12px}
   #viewFixas .tbl-scroll td{display:block;padding:0;margin:0;border:0!important;text-align:left}
   #viewFixas .tbl-scroll td::before{display:none}
@@ -4680,7 +4680,7 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
    - Etiquetas dos titulos de painel ("2 categorias") ficam menores e na mesma
      linha do titulo.
    ============================================================================ */
-@media(max-width:768px){
+@media(max-width:1000px){
   #budgetTag{display:none!important}
   .panel>h3{font-size:15px}
   .panel>h3 .tag{font-size:11px;padding:2px 7px;white-space:nowrap}
@@ -4696,7 +4696,7 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
      pra todo titulo caber numa linha.
    - "Mais": quando sobra um botao sozinho na ultima linha, ele ocupa a linha.
    ============================================================================ */
-@media(max-width:768px){
+@media(max-width:1000px){
   #habitosList{border:0!important;background:none!important;box-shadow:none!important;padding:0!important}
   #habitosList .hab-card{background:var(--fos-card)!important;border:1px solid var(--fos-line)!important;
     border-radius:var(--fos-r-card)!important;margin:0 0 10px!important;padding:14px!important;box-shadow:var(--fos-sombra)}
@@ -4718,7 +4718,7 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
      "Novo lancamento" ocupa a linha e o "Lancar por voz" fica no canto direito.
    - Rotina > Semana: os 4 cards de resumo em 2 colunas (eram empilhados).
    ============================================================================ */
-@media(max-width:768px){
+@media(max-width:1000px){
   .mainarea>div[id^="view"]>.section-head{row-gap:14px}
   .mainarea>div[id^="view"]>.section-head .btn-add,.mainarea>div[id^="view"]>.section-head .btn-ghost{min-height:42px}
   .mainarea>div[id^="view"]>.section-head:first-child+.view-sub{margin-top:6px}
@@ -4767,7 +4767,7 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
 
 /* 5) titulos dos paineis de Treino e Dieta num estilo so */
 .tw-rot-head>span:first-child,.tw-cg-panel>.section-head h2,.tw-sess-panel>.section-head h2{font-family:'Sora',var(--font);font-size:16px;font-weight:600;letter-spacing:-.1px;color:var(--fos-t1)}
-@media(max-width:768px){.tw-rot-head>span:first-child,.tw-cg-panel>.section-head h2,.tw-sess-panel>.section-head h2{font-size:15px}}
+@media(max-width:1000px){.tw-rot-head>span:first-child,.tw-cg-panel>.section-head h2,.tw-sess-panel>.section-head h2{font-size:15px}}
 
 /* 6) numeros dos cards de Treino/Dieta/Ciclo na escala dos outros no celular */
 @media(max-width:860px){.tw-val{font-size:25px}}
@@ -4780,7 +4780,7 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
 
 /* 9) tema claro: sem faixa branca atras dos cards de habito no celular;
       glossario com a sombra suave do redesign */
-@media(max-width:768px){[data-theme="light"] #habitosList{background:none!important}}
+@media(max-width:1000px){[data-theme="light"] #habitosList{background:none!important}}
 [data-theme="light"] .gloss{box-shadow:var(--fos-sombra)}
 
 /* 10) quadradinho de icone dos cards de numero: preenchido (nao vazado) e
@@ -4792,10 +4792,10 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
 @media(max-width:560px){.lc-card::after,#viewFixas .dv-stat::after{left:calc(50% - 9px);top:18px}}
 
 /* 11) coluna Valor alinhada a direita nas tabelas (computador) */
-@media(min-width:769px){#viewLancamentos thead th[data-sort="valor"],#viewLancamentos tbody td[data-label="Valor"],#viewFixas thead th:nth-child(4),#viewFixas tbody td[data-label="Valor"],#viewPatrimonio thead th:nth-child(3),#viewPatrimonio tbody td:nth-child(3){text-align:right}}
+@media(min-width:1001px){#viewLancamentos thead th[data-sort="valor"],#viewLancamentos tbody td[data-label="Valor"],#viewFixas thead th:nth-child(4),#viewFixas tbody td[data-label="Valor"],#viewPatrimonio thead th:nth-child(3),#viewPatrimonio tbody td:nth-child(3){text-align:right}}
 
 /* 12) etiqueta do titulo do painel alinhada com o texto do titulo (computador) */
-@media(min-width:769px){.panel h3:has([data-ic]) .tag{padding-left:45px}}
+@media(min-width:1001px){.panel h3:has([data-ic]) .tag{padding-left:45px}}
 
 /* 13) icone do "Seu patrimonio" no centro do quadradinho */
 .pt-net{position:relative}
@@ -4883,7 +4883,7 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
    largura toda e o conteudo dela continua alinhado com a coluna dos cards
    (padding lateral = o mesmo vao que centraliza o conteudo, mais 24px).
    ============================================================================ */
-@media(min-width:769px){
+@media(min-width:1001px){
   .mainarea>.topbar{max-width:none;
     padding-left:max(24px,calc((100% - clamp(1480px,93%,2480px))/2 + 24px));
     padding-right:max(24px,calc((100% - clamp(1480px,93%,2480px))/2 + 24px))}
@@ -4901,7 +4901,7 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
       branco no branco, setas de variacao, marco do patrimonio, "Pendentes",
       links de painel, dias da dieta, texto apagado).
    ============================================================================ */
-@media(max-width:768px){
+@media(max-width:1000px){
   .icon-btn,.pago-toggle,.hab-minus,.meta-item .del,.kb-btn{min-width:36px;min-height:36px}
   .tw-chip,.lib-chip,.dt-agua-acts .tw-chip{min-height:36px}
   .ts-link,.panel-link,#twPular,#twHeroVer,#orcAjustar,#iniOrgBtn{min-height:36px;display:inline-flex;align-items:center}
@@ -4910,7 +4910,7 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
   .tr-row.tw-sess .tw-sess-n{flex:1 1 0;min-width:0}
   .tr-row.tw-sess .tw-sess-n small{white-space:normal;overflow:visible;text-overflow:clip}
 }
-@media(min-width:769px) and (max-width:1600px){
+@media(min-width:1001px) and (max-width:1600px){
   .donut-wrap{flex-direction:column;align-items:stretch;gap:14px}
   .donut-box{margin:0 auto}
 }
@@ -4925,7 +4925,7 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
    area de toque das caixinhas da dieta (a caixa continua com 26px, o toque
    ganha 6px de folga em volta). Chip ativo dos filtros de treino no claro
    com o gradiente escrito por extenso (a variavel nao chegava ali). */
-@media(max-width:768px){
+@media(max-width:1000px){
   .rt-tabs button,#sdTabs button,.aj-tabs button,.task-psel .psel-btn,.tw-pill,#dtAguaEdit,#twProxEdit,#twMetaSemEdit{min-height:36px}
   .dt-ref-chk{position:relative}
   .dt-ref-chk::after{content:'';position:absolute;inset:-6px}
@@ -4936,11 +4936,11 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
    Bloco 106: varredura geral, achados confirmados pelos ceticos.
    ============================================================================ */
 /* celular: a barra de baixo cobria o rodape (e o link "Limpar mes") */
-@media(max-width:768px){.mainarea{padding-bottom:calc(90px + env(safe-area-inset-bottom,0px))}}
+@media(max-width:1000px){.mainarea{padding-bottom:calc(90px + env(safe-area-inset-bottom,0px))}}
 /* computador com menu aberto (1181 a 1440px): a frase de efeito do hero cobria o titulo */
 @media(min-width:1181px) and (max-width:1440px){#rtTreino .tw-hero>.tw-frase,#dtHero>.tw-frase{display:none!important}}
 /* Lancamentos entre 769 e 1440px: os 4 botoes juntos numa linha abaixo do titulo, a direita */
-@media(min-width:769px) and (max-width:1440px){#viewLancamentos>.section-head .spacer{flex:0 0 100%;height:0;margin:-8px 0 0}#viewLancamentos>.section-head #exportCsvBtn{margin-left:auto}}
+@media(min-width:1001px) and (max-width:1440px){#viewLancamentos>.section-head .spacer{flex:0 0 100%;height:0;margin:-8px 0 0}#viewLancamentos>.section-head #exportCsvBtn{margin-left:auto}}
 /* Ciclo no computador: os dois botoes lado a lado, no tamanho do texto */
 @media(min-width:861px){#ciHero .tw-hero-acts{flex-direction:row;flex-wrap:wrap;margin-top:16px}#ciHero .tw-hero-acts .btn-add,#ciHero .tw-hero-sec{flex:0 0 auto;width:auto}}
 /* tema claro: cores que so existiam pro escuro */
@@ -5072,7 +5072,7 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
 .htm-chips .tw-chip.on{background:var(--grad-orbita,linear-gradient(135deg,#7c3aed,#06b6d4));color:#fff;border-color:transparent}
 .htm-acts{justify-content:center;flex-wrap:wrap;gap:8px}
 .htm-dica{font-size:12px;color:var(--fos-t3);margin-top:10px;line-height:1.4}
-@media(max-width:768px){.hab-timer{min-height:36px}}
+@media(max-width:1000px){.hab-timer{min-height:36px}}
 
 /* Bloco 114: lugar do chip do cronometro na grade do habito (PC: embaixo do nome; celular: ultima linha do card) */
 @media(min-width:1181px){.hab-card .hab-timer{grid-column:2;grid-row:2;justify-self:start;align-self:start;margin:0 0 6px}}
@@ -5099,13 +5099,13 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
    blocos "pela metade" do Inicio com a mesma altura.
    ============================================================================ */
 .hab-name .hab-timer{margin:0;vertical-align:middle;font-size:12px;padding:4px 9px;min-height:28px;line-height:1.1}
-@media(max-width:768px){.hab-name .hab-timer{min-height:36px}}
+@media(max-width:1000px){.hab-name .hab-timer{min-height:36px}}
 /* (bloco 120) as abas voltaram ao tamanho original em todas as telas */
 /* (bloco 120) o esticamento dos blocos pela metade foi desfeito: cada bloco tem a altura do proprio conteudo */
 
 
 /* Bloco 119: chip do cronometro com a altura da linha do nome no PC (a linha do habito fica igual as outras) */
-@media(min-width:769px){.hab-name .hab-timer{min-height:24px;padding:2px 9px}}
+@media(min-width:1001px){.hab-name .hab-timer{min-height:24px;padding:2px 9px}}
 
 /* ============================================================================
    Bloco 121: botoes da meta na mesma linha; Inicio com igualacao suave dos blocos pela metade.
@@ -5145,7 +5145,7 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
    Bloco 125: no celular, o botao "+ Nova ..." fica na lateral direita da linha do titulo e os chips de contagem
    descem pra linha de baixo (antes o botao caia sozinho na segunda linha, encostado na esquerda).
    ============================================================================ */
-@media(max-width:768px){
+@media(max-width:1000px){
   .mainarea>div[id^="view"]:not(#viewLancamentos)>.section-head:has(.count:not(.hidden)){align-items:center}
   .mainarea>div[id^="view"]:not(#viewLancamentos)>.section-head:has(.count:not(.hidden))::after{content:'';order:7;flex:0 0 100%;height:0;margin-top:-14px}
   .mainarea>div[id^="view"]:not(#viewLancamentos)>.section-head .count{order:8;margin-right:auto}
@@ -5167,7 +5167,7 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
 @media(max-width:1180px){
   .hab-card .hab-week{max-width:none!important;width:100%;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}
 }
-@media(max-width:768px){
+@media(max-width:1000px){
   .dia-moods{width:100%;justify-content:space-between}
   .tw-days{justify-content:space-between;align-items:flex-end}
   .tw-days-in{flex:1 1 auto;justify-content:space-between;max-width:none;margin-right:10px}
@@ -5319,6 +5319,10 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
    entao a caixinha escura por tras some e o SVG ocupa a caixa inteira (login, barra lateral e topo do celular) ===== */
 .auth-logo,.brand .logo{background:none!important;border:0!important;padding:0!important;overflow:hidden}
 .fos-logo{width:100%!important;height:100%!important}
+/* ===== Bloco 142: iPad em pe. O layout de celular (barra de botoes embaixo, "+" no meio, sem menu lateral) valia
+   so ate 768px; entre 769 e 1000px (iPad em pe, 820/834px) caia numa regra antiga do shell que empilhava a barra
+   lateral no topo sem menu. Agora o limite do celular e 1000px: todos os @media de 768/769 (CSS e JS) viraram
+   1000/1001. Deitado (1024px+) o iPad continua com a barra lateral do PC. ===== */
 </style>
 </head>
 <body>
@@ -7187,7 +7191,7 @@ const SUPABASE_ANON_KEY = "sb_publishable_UT3JXTS5_4iSN8dFidy_5Q_YaM-Y6Ul";   //
    Preencha com SEU contato. Deixe vazio p/ esconder o botão.
    WhatsApp: só números, com DDI 55. Ex: "5511999998888" */
 const APP_NOME         = "FinanceOS";                          // <-- NOME DO APP (sua marca). Só você muda aqui; o cliente não altera.
-const APP_VERSION      = "2026-10-03.229";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
+const APP_VERSION      = "2026-10-03.230";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
 const SUPORTE_WHATSAPP = "5561991674530";                      // WhatsApp do suporte (Marco)
 const SUPORTE_EMAIL    = "atendimento@thrustmarketing.com.br"; // e-mail do suporte
 const KIWIFY_CHECKOUT_URL = "/";       // nossa página de vendas (raiz do site) com os 3 planos
@@ -8248,7 +8252,7 @@ function renderTx(d){
   }
   empty.classList.add('hidden');
   // celular: mostra 10 e um "Mostrar mais" (a tela do Mês passava de 10 mil pixels de altura)
-  const mobile=!!(window.matchMedia&&matchMedia('(max-width:768px)').matches), LIM=10;
+  const mobile=!!(window.matchMedia&&matchMedia('(max-width:1000px)').matches), LIM=10;
   const shown=(mobile&&!txFilters.showAll)?list.slice(0,LIM):list;
   shown.forEach(t=>{
     const tr=document.createElement('tr');
@@ -10018,7 +10022,7 @@ window.addEventListener('resize',()=>{ clearTimeout(_acT); _acT=setTimeout(()=>{
 /* titulos de bloco no celular: encolhem ate caber numa linha (minimo 13px).
    O titulo da tela (o primeiro, grande) fica de fora; os heros tambem (sao frases). */
 function _ajustarTitulos(){
-  const cel=window.innerWidth<=768;
+  const cel=window.innerWidth<=1000;
   document.querySelectorAll('.section-head h2,.section-head h3,.panel>h3,.cs-t,.tw-mes-h,.dash-label').forEach(el=>{
     if(!cel){ if(el.dataset.fit){ el.style.fontSize=''; delete el.dataset.fit; } return; }
     if(el.closest('.mainarea>div[id^="view"]>.section-head:first-child'))return;
