@@ -1,5 +1,5 @@
 /* FinanceOS service worker: cache do app shell p/ abrir rapido e funcionar offline */
-const CACHE = 'financeos-v239';
+const CACHE = 'financeos-v240';
 const CORE = ['/app', '/app/', '/app/index.html', '/app/manifest.json', '/app/icon-192.png', '/app/icon-512.png'];
 
 // A hospedagem (Vercel) redireciona /index.html -> / (308). Uma resposta "redirecionada"
