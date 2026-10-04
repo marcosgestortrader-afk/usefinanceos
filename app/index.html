@@ -7225,7 +7225,7 @@ const SUPABASE_ANON_KEY = "sb_publishable_UT3JXTS5_4iSN8dFidy_5Q_YaM-Y6Ul";   //
    Preencha com SEU contato. Deixe vazio p/ esconder o botão.
    WhatsApp: só números, com DDI 55. Ex: "5511999998888" */
 const APP_NOME         = "FinanceOS";                          // <-- NOME DO APP (sua marca). Só você muda aqui; o cliente não altera.
-const APP_VERSION      = "2026-10-03.234";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
+const APP_VERSION      = "2026-10-04.235";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
 const SUPORTE_WHATSAPP = "5561991674530";                      // WhatsApp do suporte (Marco)
 const SUPORTE_EMAIL    = "atendimento@thrustmarketing.com.br"; // e-mail do suporte
 const KIWIFY_CHECKOUT_URL = "/";       // nossa página de vendas (raiz do site) com os 3 planos
@@ -7233,7 +7233,7 @@ const LOGIN_GOOGLE = true;             // true = mostra "Entrar com Google". Só
 /* ===== PLANOS (paywall dentro do app; hoje só o acesso vitalício, compra única) =====
    Edite preço, textos e link aqui. url = checkout da Kiwify de cada plano. */
 const PLANOS = [
-  {id:'vitalicio', nome:'Acesso vitalício', preco:'R$ 89,90', por:' pagamento único', detalhe:'À vista no Pix ou no cartão, ou em até 12x no cartão (com acréscimo)', economia:'Sem mensalidade, sem renovação', selo:'Oferta de lançamento', destaque:true, url:'CHECKOUT_VITALICIO'},
+  {id:'vitalicio', nome:'Acesso vitalício', preco:'R$ 89,90', por:' pagamento único', detalhe:'À vista no Pix ou no cartão, ou em até 12x no cartão (com acréscimo)', economia:'Sem mensalidade, sem renovação', selo:'Oferta de lançamento', destaque:true, url:'https://pay.kiwify.com.br/ZLpUxIS'},
 ];
 
 const AUTH_ON = SUPABASE_URL.length > 0 && SUPABASE_ANON_KEY.length > 0;
