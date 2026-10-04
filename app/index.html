@@ -7033,8 +7033,8 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
   <div class="modal pw">
     <div class="pw-head">
       <div class="pw-eyebrow">FinanceOS</div>
-      <h3 id="pwTitle">Escolha seu plano</h3>
-      <p class="pw-sub" id="pwSub">Tudo liberado em qualquer plano. <b>Seu preço nunca sobe enquanto você renovar.</b></p>
+      <h3 id="pwTitle">Garanta seu acesso vitalício</h3>
+      <p class="pw-sub" id="pwSub">Pagamento único. <b>Sem mensalidade e sem renovação.</b></p>
     </div>
     <div class="pw-planos" id="pwPlanos"></div>
     <ul class="pw-inclui">
@@ -7042,10 +7042,10 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
       <li>Rotina: hábitos, tarefas e diário</li>
       <li>Saúde: treino e dieta do seu jeito</li>
       <li>Sincroniza no celular e no computador</li>
-      <li>7 dias de garantia em qualquer plano</li>
+      <li>7 dias de garantia</li>
     </ul>
-    <button type="button" class="btn-primary pw-cta" id="pwCta">Assinar o plano anual</button>
-    <div class="pw-foot"><button type="button" class="pw-link" id="pwClose">Já assinei, voltar</button><span class="pw-safe">Pagamento seguro pela Kiwify</span></div>
+    <button type="button" class="btn-primary pw-cta" id="pwCta">Garantir meu acesso vitalício</button>
+    <div class="pw-foot"><button type="button" class="pw-link" id="pwClose">Já comprei, voltar</button><span class="pw-safe">Pagamento seguro pela Kiwify</span></div>
   </div>
 </div>
 <!-- STREAK: detalhes da sequência -->
@@ -7230,12 +7230,10 @@ const SUPORTE_WHATSAPP = "5561991674530";                      // WhatsApp do su
 const SUPORTE_EMAIL    = "atendimento@thrustmarketing.com.br"; // e-mail do suporte
 const KIWIFY_CHECKOUT_URL = "/";       // nossa página de vendas (raiz do site) com os 3 planos
 const LOGIN_GOOGLE = true;             // true = mostra "Entrar com Google". Só ligue depois de ativar o provedor Google no Supabase (Authentication > Providers).
-/* ===== PLANOS (paywall dentro do app; o anual vem pré-selecionado) =====
+/* ===== PLANOS (paywall dentro do app; hoje só o acesso vitalício, compra única) =====
    Edite preço, textos e link aqui. url = checkout da Kiwify de cada plano. */
 const PLANOS = [
-  {id:'anual',     nome:'Anual',     preco:'R$ 14,99', por:'/mês', detalhe:'R$ 179,90 à vista ou em até 12x no cartão (com acréscimo)', economia:'Economize 25%',        selo:'Mais escolhido', destaque:true, url:'https://pay.kiwify.com.br/BylYRiq'},
-  {id:'semestral', nome:'Semestral', preco:'R$ 16,65', por:'/mês', detalhe:'R$ 99,90 a cada 6 meses',       economia:'Economize 16%',        url:'https://pay.kiwify.com.br/i7B0dp7'},
-  {id:'mensal',    nome:'Mensal',    preco:'R$ 19,90', por:'/mês', detalhe:'1º mês por R$ 14,90',           economia:'Cancele quando quiser', url:'https://pay.kiwify.com.br/x5C9k0G'},
+  {id:'vitalicio', nome:'Acesso vitalício', preco:'R$ 89,90', por:' pagamento único', detalhe:'À vista no Pix ou no cartão, ou em até 12x no cartão (com acréscimo)', economia:'Sem mensalidade, sem renovação', selo:'Oferta de lançamento', destaque:true, url:'CHECKOUT_VITALICIO'},
 ];
 
 const AUTH_ON = SUPABASE_URL.length > 0 && SUPABASE_ANON_KEY.length > 0;
@@ -9668,7 +9666,7 @@ async function onLogin(user){
   }
   if(!liberado){
     const viaGoogle=!!(user.app_metadata&&user.app_metadata.provider==='google');
-    loginMsg(viaGoogle?('Não achamos assinatura no e-mail '+(user.email||'')+'. Entre com o mesmo e-mail da compra, ou assine.'):"Seu acesso está inativo. Assine ou renove para entrar.","err");
+    loginMsg(viaGoogle?('Não achamos assinatura no e-mail '+(user.email||'')+'. Entre com o mesmo e-mail da compra, ou garanta o seu acesso.'):"Seu acesso está inativo. Garanta o acesso vitalício pra entrar.","err");
     mostrarAssinar();
     await sb.auth.signOut();
     showLogin();
@@ -9701,13 +9699,13 @@ function renderPaywall(){
     '</button>').join('');
   box.querySelectorAll('.pw-plano').forEach(b=>b.onclick=()=>{ pwSel=b.dataset.id; renderPaywall(); });
   const p=PLANOS.find(x=>x.id===pwSel); const cta=document.getElementById('pwCta');
-  if(cta&&p)cta.textContent='Assinar o plano '+p.nome.toLowerCase();
+  if(cta&&p)cta.textContent='Garantir meu acesso vitalício';
 }
 function abrirPaywall(motivo){
   const m=document.getElementById('paywallModal'); if(!m)return;
   const t=document.getElementById('pwTitle'), s=document.getElementById('pwSub');
-  if(motivo==='inativo'){ if(t)t.textContent='Seu acesso está inativo'; if(s)s.innerHTML='Assine ou renove pra voltar a usar. <b>Seu preço nunca sobe enquanto você renovar.</b>'; }
-  else { if(t)t.textContent='Escolha seu plano'; if(s)s.innerHTML='Tudo liberado em qualquer plano. <b>Seu preço nunca sobe enquanto você renovar.</b>'; }
+  if(motivo==='inativo'){ if(t)t.textContent='Seu acesso está inativo'; if(s)s.innerHTML='Garanta o acesso vitalício pra voltar a usar. <b>Pagamento único, sem mensalidade.</b>'; }
+  else { if(t)t.textContent='Garanta seu acesso vitalício'; if(s)s.innerHTML='Tudo liberado, pra sempre. <b>Pagamento único, sem mensalidade.</b>'; }
   const pm=document.getElementById('profileModal'); if(pm)pm.classList.add('hidden');
   renderPaywall(); m.classList.remove('hidden');
 }
