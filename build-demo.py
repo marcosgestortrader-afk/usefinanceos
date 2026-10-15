@@ -37,6 +37,7 @@ body.demo-embed #demoBar{display:none}
 </div>
 <script>
 try{ if(window.self!==window.top)document.body.classList.add('demo-embed'); }catch(e){}
+try{ window._consTem=function(){ return true; }; }catch(e){} /* demo: sem o aviso de LGPD (dados de exemplo) */
 </script>
 '''
 rep('</body>', BANNER + '</body>')
