@@ -906,20 +906,28 @@ tbody tr:hover{background:var(--panel2)}
 .tx-mais:hover{color:var(--txt)}
 #viewMonth.sem-dados:not(.editando) .ini-bloco[data-bloco="hero"],#viewMonth.sem-dados:not(.editando) .ini-bloco[data-bloco="orcamento"],#viewMonth.sem-dados:not(.editando) .ini-bloco[data-bloco="graficos"]{display:none}
 #lphCta{margin-top:10px}
-/* primeiros passos: checklist de quem acabou de entrar */
-.pp{margin:14px 0 18px;padding:16px 18px;border-radius:16px;background:linear-gradient(135deg,rgba(124,58,237,.14),rgba(6,182,212,.08));border:1px solid rgba(124,58,237,.35)}
-.pp-head{display:flex;align-items:flex-start;gap:10px}
-.pp-head .icon-btn{margin-left:auto}
-.pp-t{font-family:var(--font-head);font-weight:800;font-size:16px}
+/* primeiros passos: checklist de quem acabou de entrar (linha inteira da grade do Inicio; some no modo Organizar) */
+.pp{grid-column:1/-1;margin:0 0 4px;padding:14px 18px 16px;border-radius:18px;background:linear-gradient(135deg,rgba(124,58,237,.12),rgba(6,182,212,.06)),var(--panel);border:1px solid rgba(124,58,237,.32)}
+#viewMonth.editando .pp{display:none}
+.pp-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.pp-tt{min-width:0}
+.pp-t{font-family:var(--font-head);font-weight:800;font-size:16px;letter-spacing:-.2px}
 .pp-s{font-size:12.5px;color:var(--muted);margin-top:2px}
-.pp-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px;margin-top:12px}
-.pp-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:rgba(0,0,0,.18);border:1px solid var(--line);text-align:left;color:var(--txt);cursor:pointer;font:inherit;min-width:0}
-.pp-item:hover{border-color:rgba(124,58,237,.6)}
-.pp-item.done{opacity:.62;cursor:default}
-.pp-item .pp-chk{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;flex:0 0 auto;font-size:12px;font-weight:800}
+.pp-bar{flex:1 1 120px;max-width:260px;height:7px;border-radius:7px;background:rgba(255,255,255,.08);overflow:hidden}
+.pp-bar i{display:block;height:100%;width:0;border-radius:7px;background:var(--grad-orbita);transition:width .4s}
+.pp-x{width:30px;height:30px;flex:0 0 auto;margin-left:auto;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--muted);font-size:18px;line-height:1;cursor:pointer;display:grid;place-items:center}
+.pp-x:hover{color:var(--txt);border-color:var(--purple)}
+.pp-list{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:12px}
+@media(max-width:1180px){.pp-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.pp-list{grid-template-columns:1fr}}
+.pp-item{display:flex;align-items:flex-start;gap:10px;padding:11px 12px;border-radius:13px;background:rgba(0,0,0,.16);border:1px solid var(--line);text-align:left;color:var(--txt);cursor:pointer;font:inherit;min-width:0;transition:border-color .15s,transform .15s}
+.pp-item:hover{border-color:rgba(124,58,237,.6);transform:translateY(-1px)}
+.pp-item.done{opacity:.55;cursor:default}
+.pp-item.done:hover{transform:none;border-color:var(--line)}
+.pp-item .pp-chk{width:22px;height:22px;border-radius:50%;border:2px solid rgba(124,58,237,.6);display:grid;place-items:center;flex:0 0 auto;font-size:12px;font-weight:800;margin-top:1px}
 .pp-item.done .pp-chk{background:var(--pos);border-color:var(--pos);color:#fff}
 .pp-item b{display:block;font-size:13.5px;line-height:1.25}
-.pp-item small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.pp-item small{display:block;color:var(--muted);font-size:12px;margin-top:3px;line-height:1.3}
 #iniChip{cursor:pointer}
 .modal-actions{display:flex;gap:10px;margin-top:20px;position:sticky;bottom:0;background:var(--panel);padding-top:12px;margin-bottom:-4px;padding-bottom:4px}
 /* botões Salvar/Cancelar sempre visíveis quando o modal rola (celular com teclado aberto) */
@@ -4880,7 +4888,9 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
 }
 /* Inicio no computador: o botao "Organizar" na linha do titulo (a referencia do
    posicionamento e a borda da tela, 24px acima do titulo; 24 + (38-31)/2 = 27) */
-@media(min-width:900px){#viewMonth>.ini-tools{top:27px}}
+@media(min-width:900px){#viewMonth>.ini-tools{top:27px}
+  #viewMonth.editando>.ini-tools{position:static;width:100%;margin:0 0 14px;justify-content:flex-end}
+  #viewMonth.editando>.section-head{padding-right:0}}
 /* Ano: os 4 cards em 2 colunas de verdade (a regra generica do bloco 77, mais
    forte, ainda empilhava) e o podio no raio do pacote */
 @media(max-width:560px){#viewAnnual .grid.kpis{grid-template-columns:1fr 1fr!important}}
@@ -5579,7 +5589,7 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
     </div>
   </div>
   <section class="pp hidden" id="primeirosPassos">
-    <div class="pp-head"><div><div class="pp-t">Primeiros passos</div><div class="pp-s" id="ppSub"></div></div><button type="button" class="icon-btn" id="ppFechar" title="Esconder">✕</button></div>
+    <div class="pp-head"><div class="pp-tt"><div class="pp-t">Primeiros passos</div><div class="pp-s" id="ppSub"></div></div><div class="pp-bar"><i id="ppBar"></i></div><button type="button" class="pp-x" id="ppFechar" title="Esconder" aria-label="Esconder">×</button></div>
     <div class="pp-list" id="ppList"></div>
   </section>
   <section class="ini-bloco" data-bloco="topo" data-nome="Livre pra hoje e Dia registrado">
@@ -7275,7 +7285,7 @@ const SUPABASE_ANON_KEY = "sb_publishable_UT3JXTS5_4iSN8dFidy_5Q_YaM-Y6Ul";   //
    Preencha com SEU contato. Deixe vazio p/ esconder o botão.
    WhatsApp: só números, com DDI 55. Ex: "5511999998888" */
 const APP_NOME         = "FinanceOS";                          // <-- NOME DO APP (sua marca). Só você muda aqui; o cliente não altera.
-const APP_VERSION      = "2026-10-15.239";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
+const APP_VERSION      = "2026-10-15.240";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
 const SUPORTE_WHATSAPP = "5561991674530";                      // WhatsApp do suporte (Marco)
 const SUPORTE_EMAIL    = "atendimento@thrustmarketing.com.br"; // e-mail do suporte
 const KIWIFY_CHECKOUT_URL = "/";       // nossa página de vendas (raiz do site) com os 3 planos
@@ -7691,7 +7701,8 @@ function renderPrimeirosPassos(){
   const feitos=itens.filter(i=>i.ok).length;
   if(feitos===itens.length){ STATE.ppOk=true; el.classList.add('hidden'); return; }
   el.classList.remove('hidden');
-  const sub=document.getElementById('ppSub'); if(sub)sub.textContent=feitos+' de '+itens.length+' · uns 5 minutos e o app começa a trabalhar pra você';
+  const sub=document.getElementById('ppSub'); if(sub)sub.textContent=feitos+' de '+itens.length+' feitos · uns 5 minutos e o app começa a trabalhar pra você';
+  const bar=document.getElementById('ppBar'); if(bar)bar.style.width=Math.round(feitos/itens.length*100)+'%';
   const list=document.getElementById('ppList');
   list.innerHTML=itens.map(i=>'<button type="button" class="pp-item'+(i.ok?' done':'')+'" data-k="'+i.k+'"'+(i.ok?' disabled':'')+'><span class="pp-chk">'+(i.ok?'✓':'')+'</span><span><b>'+i.t+'</b><small>'+i.s+'</small></span></button>').join('');
   list.querySelectorAll('.pp-item:not(.done)').forEach(b=>b.onclick=()=>{ const it=itens.find(x=>x.k===b.dataset.k); if(it)it.go(); });
