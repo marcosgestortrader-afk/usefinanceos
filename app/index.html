@@ -711,6 +711,16 @@ h1,h2,h3,h4,h5,.wordmark,#brandName,.k-val,.panel h3,.greet-txt h2,.dp-title,.mo
 .hb-regra small{display:block;font-size:12px;color:var(--muted);margin-top:2px;line-height:1.4}
 .hab-rate{display:inline-block;margin-left:8px;font-size:12px;font-weight:700;color:var(--muted);background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:2px 8px;vertical-align:2px}
 .hab-warn{font-size:12px;color:#f59e0b;font-weight:700;margin-top:5px}
+/* habitos a evitar: Evitei / Ocorreu e dias limpos */
+.hab-group-lbl{margin:16px 0 8px;font-weight:800;font-size:12.5px;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.hab-group-lbl .hab-group-sub{font-weight:600;text-transform:none;letter-spacing:0;font-size:12px;opacity:.85}
+.hab-list>.hab-group-lbl:first-child{margin-top:0}
+.hab-avoid{display:flex;gap:6px;flex:0 0 auto;grid-column:1;grid-row:1}
+.hab-av{padding:8px 11px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--txt);font-weight:700;font-size:12.5px;cursor:pointer;white-space:nowrap;transition:.15s}
+.hab-av.ok.on{background:var(--pos);border-color:var(--pos);color:#fff}
+.hab-av.no.on{background:#f43f5e;border-color:#f43f5e;color:#fff}
+.hab-card.fail{border-color:rgba(244,63,94,.45);background:linear-gradient(135deg,rgba(244,63,94,.08),transparent)}
+.hab-dot.bad{background:#f43f5e;opacity:.85}
 .hab-card.obrig{border-color:rgba(245,158,11,.5)}
 .hab-dot.off{opacity:.3}
 .nivel-chip{background:linear-gradient(135deg,rgba(245,158,11,.16),rgba(124,58,237,.16))!important;color:var(--txt)!important;border-color:rgba(245,158,11,.4)!important}
@@ -3911,6 +3921,16 @@ details.colapso>summary .cs-s{color:var(--fos-t2);font-size:13.5px}
 .hab-name{grid-column:2;grid-row:1}
 .hab-pct{grid-column:3;grid-row:1}
 .hab-cells{grid-column:3;grid-row:1}
+/* habitos a evitar na mesma grade: botoes na coluna 1, status ocupa progresso+concluidos */
+.hab-card.evitar>.hab-avoid{grid-column:1;grid-row:1}
+.hab-card.evitar .hab-sub{grid-column:3 / 5;grid-row:1;white-space:normal;line-height:1.3}
+.hab-card.evitar .hab-warn{grid-column:1 / -1}
+@media(max-width:1180px){.hab-card.evitar .hab-sub{grid-column:1 / -1;grid-row:3}.hab-card.evitar .hab-streak{grid-column:3;grid-row:3}}
+@media(min-width:1181px){ /* tabela larga: a 1a coluna tem 76px, entao os dois botoes ficam empilhados numa coluna de 96px */
+  .hab-card.evitar{grid-template-columns:96px minmax(0,1.9fr) minmax(150px,1.2fr) 108px 118px 158px 42px}
+  .hab-card.evitar>.hab-avoid{flex-direction:column;gap:4px;width:96px}
+  .hab-card.evitar .hab-av{padding:6px 8px;font-size:12px;text-align:center;width:100%}
+}
 .hab-sub{grid-column:4;grid-row:1}
 .hab-streak{grid-column:5;grid-row:1}
 .hab-week{grid-column:6;grid-row:1}
@@ -6101,7 +6121,7 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
       </div>
       <div id="habitosList" class="hab-list"></div>
       <div class="empty hidden" id="habitosEmpty" style="background:var(--panel);border:1px solid var(--line);border-radius:16px">
-        <div class="big">🔥</div>Nenhum hábito ainda.<br>Comece com um só, tipo ler 10 minutos. Marcar todo dia vira sequência. Treino, água e refeições ficam na tela Saúde.<div><button type="button" class="btn-add" id="habEmptyBtn" style="margin-top:14px;display:inline-flex">Adicionar meu primeiro hábito</button></div>
+        <div class="big">🔥</div>Nenhum hábito ainda.<br>Comece com um só, tipo ler 10 minutos. Marcar todo dia vira sequência. Dá pra criar também algo a evitar (açúcar, delivery, rede social): o app conta os dias limpos. Treino, água e refeições ficam na tela Saúde.<div><button type="button" class="btn-add" id="habEmptyBtn" style="margin-top:14px;display:inline-flex">Adicionar meu primeiro hábito</button></div>
       </div>
       <details class="colapso hidden" id="habMapaWrap" style="margin-top:16px">
         <summary><span class="cs-t">Constância nas últimas semanas</span><span class="cs-s">Um quadradinho por dia, verde quando você marcou</span><span class="cs-arrow" aria-hidden="true">›</span></summary>
@@ -6892,17 +6912,24 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
 <div class="modal-bg hidden" id="habitoModal">
   <div class="modal">
     <h3 id="habitoModalTitle">＋ Novo hábito</h3>
+    <div class="field" style="margin-bottom:12px"><label>Tipo</label>
+      <div class="hb-freq" id="hbTipo">
+        <button type="button" data-t="fazer" class="on">Construir um hábito</button>
+        <button type="button" data-t="evitar">Evitar algo</button>
+      </div>
+      <div class="ts-hint" id="hbTipoHint">Construir: você marca quando fez. Evitar: todo dia você marca "evitei" ou "ocorreu", e o app conta os dias limpos.</div>
+    </div>
     <div class="sug-row" id="sugHabitosModal" style="margin:2px 0 14px"></div>
     <div class="row2">
       <div class="field"><label>Emoji</label><input type="text" id="hbEmoji" maxlength="2" placeholder="📚" style="text-align:center;font-size:20px"></div>
       <div class="field"><label>Nome do hábito</label><input type="text" id="hbNome" placeholder="Ex: Ler, Meditar, Dormir cedo..."></div>
     </div>
     <div class="emoji-pick" id="hbEmojiPick"></div>
-    <div class="row2">
+    <div class="row2" id="hbMetaRow">
       <div class="field"><label>Meta por dia (opcional)</label><input type="number" id="hbMeta" min="0" placeholder="Ex: 8"></div>
       <div class="field"><label>Unidade</label><input type="text" id="hbUnidade" placeholder="copos, min, km..."></div>
     </div>
-    <div style="font-size:11px;color:var(--muted);margin:-6px 0 12px">Sem meta = hábito simples (só marcar feito). Com meta, você registra a quantidade (ex: 6 de 8 copos) e conta quando bate a meta.</div>
+    <div style="font-size:11px;color:var(--muted);margin:-6px 0 12px" id="hbMetaHint">Sem meta = hábito simples (só marcar feito). Com meta, você registra a quantidade (ex: 6 de 8 copos) e conta quando bate a meta.</div>
     <div class="field"><label>Prioridade</label>
       <div class="hb-freq hb-pri" id="hbPri">
         <button type="button" data-p="alta">Alta</button>
@@ -6911,7 +6938,7 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
       </div>
       <div class="ts-hint">Serve pra você saber o que não pode faltar na semana. Aparece na aba Semana.</div>
     </div>
-    <div class="field"><label>Com que frequência?</label>
+    <div class="field" id="hbFreqField"><label>Com que frequência?</label>
       <div class="hb-freq" id="hbFreq">
         <button type="button" data-f="diario" class="on">Todo dia</button>
         <button type="button" data-f="semana">Vezes por semana</button>
@@ -7225,7 +7252,7 @@ const SUPABASE_ANON_KEY = "sb_publishable_UT3JXTS5_4iSN8dFidy_5Q_YaM-Y6Ul";   //
    Preencha com SEU contato. Deixe vazio p/ esconder o botão.
    WhatsApp: só números, com DDI 55. Ex: "5511999998888" */
 const APP_NOME         = "FinanceOS";                          // <-- NOME DO APP (sua marca). Só você muda aqui; o cliente não altera.
-const APP_VERSION      = "2026-10-08.236";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
+const APP_VERSION      = "2026-10-15.237";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
 const SUPORTE_WHATSAPP = "5561991674530";                      // WhatsApp do suporte (Marco)
 const SUPORTE_EMAIL    = "atendimento@thrustmarketing.com.br"; // e-mail do suporte
 const KIWIFY_CHECKOUT_URL = "/";       // nossa página de vendas (raiz do site) com os 3 planos
@@ -10460,7 +10487,7 @@ function ensureYearFixas(y){let a=false;for(let m=0;m<12;m++){if(ensureMonthFixa
    ROTINA: hábitos (com sequência) + tarefas
    ============================================================ */
 function _rotKey(off){ const d=new Date(); if(off)d.setDate(d.getDate()+off); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
-function habitFeito(h,dia){ const v=(h.historico||{})[dia]; const meta=+h.meta||0; return meta>0 ? ((+v||0)>=meta) : !!v; }
+function habitFeito(h,dia){ const v=(h.historico||{})[dia]; if(h&&h.evitar)return v===true; /* a evitar: true = evitei, -1 = ocorreu */ const meta=+h.meta||0; return meta>0 ? ((+v||0)>=meta) : !!v; }
 /* ---- frequência do hábito (todo dia / x vezes por semana / dias fixos), regra dos 2 dias, taxa e nível ---- */
 function habFreq(h){ const f=(h&&h.freq)||{}; const tipo=['diario','semana','dias'].includes(f.tipo)?f.tipo:'diario'; return {tipo,vezes:Math.max(1,Math.min(7,parseInt(f.vezes,10)||3)),dias:Array.isArray(f.dias)?f.dias.map(Number).filter(d=>d>=0&&d<=6):[]}; }
 function _wdOf(k){ const [y,m,d]=k.split('-').map(Number); return new Date(y,m-1,d).getDay(); }
@@ -10574,7 +10601,9 @@ function renderRotina(){  const habs=STATE.habitos||[], tars=STATE.tarefas||[];
     else{
       hEmpty.classList.add('hidden');
       const tk=_rotKey(0);
-      habs.forEach(h=>{
+      const fazer=habs.filter(h=>!h.evitar), evitar=habs.filter(h=>!!h.evitar);
+      if(evitar.length&&fazer.length){ const lb=document.createElement('div'); lb.className='hab-group-lbl'; lb.textContent='✅ Construir'; list.appendChild(lb); }
+      fazer.forEach(h=>{
         const meta=+h.meta||0, feito=habitFeito(h,tk), st=habitStreak(h), f=habFreq(h), desde=_habDesde(h);
         let week='';
         for(let k=-6;k<=0;k++){ const kk=_rotKey(k); const on=habitFeito(h,kk); week+='<span class="hab-dot'+(on?' on':(habDiaConta(h,kk,desde)?'':' off'))+'"></span>'; }
@@ -10615,6 +10644,30 @@ function renderRotina(){  const habs=STATE.habitos||[], tars=STATE.tarefas||[];
           '<button class="icon-btn del" data-id="'+h.id+'">🗑️</button>';
         list.appendChild(el);
       });
+      if(evitar.length){
+        const limpos=evitar.reduce((a,h)=>a+habitStreak(h),0);
+        const lb=document.createElement('div'); lb.className='hab-group-lbl'; lb.innerHTML='🚫 Para evitar <span class="hab-group-sub">'+(limpos?limpos+' dia'+(limpos===1?'':'s')+' limpo'+(limpos===1?'':'s')+' somando tudo':'marque como foi o dia')+'</span>'; list.appendChild(lb);
+        evitar.forEach(h=>{
+          const v=(h.historico||{})[tk], evitou=v===true, ocorreu=v===-1, st=habitStreak(h), desde=_habDesde(h);
+          let week='';
+          for(let k=-6;k<=0;k++){ const kk=_rotKey(k), vv=(h.historico||{})[kk]; week+='<span class="hab-dot'+(vv===true?' on':(vv===-1?' bad':''))+'"></span>'; }
+          const tx=habTaxa(h);
+          const rate=tx.atual!=null?('<span class="hab-rate" title="Dias evitados nas últimas 4 semanas">'+Math.round(tx.atual*100)+'%</span>'):'';
+          const obrig=!evitou&&!ocorreu&&habObrigatorioHoje(h);
+          const el=document.createElement('div');
+          el.className='hab-card evitar'+(evitou?' done':'')+(ocorreu?' fail':'')+(obrig?' obrig':'');
+          el.innerHTML='<div class="hab-avoid"><button type="button" class="hab-av ok'+(evitou?' on':'')+'" data-id="'+h.id+'" data-v="1">✓ Evitei</button><button type="button" class="hab-av no'+(ocorreu?' on':'')+'" data-id="'+h.id+'" data-v="0">✕ Ocorreu</button></div>'+
+            '<div class="hab-info"><div class="hab-name">'+(h.emoji||'🚫')+' '+escapeHtml(h.nome||'')+rate+'</div>'+
+            '<div class="hab-sub">'+(evitou?'Evitado hoje ✓':(ocorreu?'Ocorreu hoje. Amanhã a contagem recomeça.':'Como foi hoje?'))+'</div>'+
+            (obrig?'<div class="hab-warn">⚠️ Ontem escapou. Hoje é obrigatório pra manter '+st+(st===1?' dia':' dias')+' (regra dos 2 dias)</div>':'')+
+            '<div class="hab-week">'+week+'</div></div>'+
+            '<div class="hab-streak">🔥 '+st+'<small>'+(st===1?'dia sem':'dias sem')+'</small></div>'+
+            '<button class="icon-btn hab-edit" data-id="'+h.id+'" title="Editar">✏️</button>'+
+            '<button class="icon-btn del" data-id="'+h.id+'">🗑️</button>';
+          list.appendChild(el);
+        });
+        list.querySelectorAll('.hab-av').forEach(b=>b.onclick=()=>marcarEvitar(b.dataset.id,b.dataset.v==='1'));
+      }
       list.querySelectorAll('.hab-check').forEach(b=>b.onclick=()=>toggleHabito(b.dataset.id));
       list.querySelectorAll('.hab-tap').forEach(b=>b.onclick=()=>addHabitoQtd(b.dataset.id,1));
       list.querySelectorAll('.hab-minus').forEach(b=>b.onclick=()=>addHabitoQtd(b.dataset.id,-1));
@@ -10698,6 +10751,14 @@ function renderRotina(){  const habs=STATE.habitos||[], tars=STATE.tarefas||[];
   try{ renderDiaRapido(); }catch(e){}
 }
 function toggleHabito(id){ const h=(STATE.habitos||[]).find(x=>x.id===id); if(!h)return; if(!h.historico)h.historico={}; const tk=_rotKey(0); const marcou=!h.historico[tk]; if(h.historico[tk])delete h.historico[tk]; else h.historico[tk]=true; _habTs(h,tk); if(marcou)registrarDia(); saveState(); renderRotina(); if(marcou)_habitCheckAll(tk); }
+function marcarEvitar(id,evitou){
+  const h=(STATE.habitos||[]).find(x=>x.id===id); if(!h)return; if(!h.historico)h.historico={}; const tk=_rotKey(0);
+  const atual=h.historico[tk]; const alvo=evitou?true:-1;
+  if(atual===alvo)delete h.historico[tk]; else h.historico[tk]=alvo; // tocar de novo desmarca
+  _habTs(h,tk); if(h.historico[tk]!==undefined)registrarDia(); saveState(); renderRotina();
+  if(h.historico[tk]===true){ const st=habitStreak(h); toast(st>=2?(st+' dias sem '+(h.nome||'')+' 🔥'):('Evitado hoje ✓')); _habitCheckAll(tk); }
+  else if(h.historico[tk]===-1)toast('Registrado. Amanhã é outro dia.');
+}
 function addHabitoQtd(id,delta,tkAlvo){ const h=(STATE.habitos||[]).find(x=>x.id===id); if(!h)return; if(!h.historico)h.historico={}; const tk=(tkAlvo&&/^\d{4}-\d{2}-\d{2}$/.test(tkAlvo))?tkAlvo:_rotKey(0); const antes=habitFeito(h,tk); const nv=Math.max(0,(+h.historico[tk]||0)+delta); if(nv===0)delete h.historico[tk]; else h.historico[tk]=nv; _habTs(h,tk); if(nv>0&&delta>0)registrarDia(); saveState(); renderRotina(); const agora=habitFeito(h,tk); if(!antes&&agora&&delta>0){ toast((h.nome||'Hábito')+': meta batida! 🎯'); _habitCheckAll(tk); } }
 function setHabitoQtd(id){ const h=(STATE.habitos||[]).find(x=>x.id===id); if(!h)return; if(!h.historico)h.historico={}; const tk=_rotKey(0); const meta=+h.meta||0; const atual=+h.historico[tk]||0; const nv=prompt('Quanto de "'+(h.nome||'')+'" hoje?'+(h.unidade?' ('+h.unidade+', meta '+meta+')':''),atual||''); if(nv===null)return; const n=Math.max(0,parseFloat(String(nv).replace(',','.'))||0); const antes=habitFeito(h,tk); if(n===0)delete h.historico[tk]; else h.historico[tk]=n; _habTs(h,tk); if(n>0)registrarDia(); saveState(); renderRotina(); if(!antes&&habitFeito(h,tk)){ toast((h.nome||'Hábito')+': meta batida! 🎯'); _habitCheckAll(tk); } }
 function setHabitoQtdTo(id,k){ const h=(STATE.habitos||[]).find(x=>x.id===id); if(!h)return; if(!h.historico)h.historico={}; const tk=_rotKey(0); const cur=+h.historico[tk]||0; const nv=(k===cur)?k-1:k; const antes=habitFeito(h,tk); if(nv<=0)delete h.historico[tk]; else h.historico[tk]=nv; _habTs(h,tk); if(nv>0)registrarDia(); saveState(); renderRotina(); if(!antes&&habitFeito(h,tk)){ toast((h.nome||'Hábito')+': meta batida! 🎯'); _habitCheckAll(tk); } }
@@ -10717,11 +10778,31 @@ function openHabitoModal(id){
     document.querySelectorAll('#hbPri button').forEach(b=>b.classList.toggle('on',b.dataset.p===p));
     document.querySelectorAll('#hbPri button').forEach(b=>b.onclick=()=>document.querySelectorAll('#hbPri button').forEach(x=>x.classList.toggle('on',x===b))); }
   { const f=habFreq(h||{}); hbSetFreq(f.tipo); document.getElementById('hbVezes').value=f.vezes; document.querySelectorAll('#hbDias button').forEach(b=>b.classList.toggle('on',f.dias.includes(+b.dataset.d))); document.getElementById('hbRegra2').checked=!!(h&&h.regra2); }
-  if(id){const sm=document.getElementById('sugHabitosModal');if(sm)sm.innerHTML='';}else fillSugHabitos();
+  document.querySelectorAll('#hbTipo button').forEach(b=>b.onclick=()=>hbSetTipo(b.dataset.t));
+  if(id){const sm=document.getElementById('sugHabitosModal');if(sm)sm.innerHTML='';}
+  hbSetTipo(h&&h.evitar?'evitar':'fazer'); // tambem preenche as sugestoes quando e habito novo
   renderEmojiPick('hbEmojiPick','hbEmoji',EMOJI_HAB);
   document.getElementById('habitoModal').classList.remove('hidden'); setTimeout(()=>document.getElementById('hbNome').focus(),50);
 }
 function closeHabitoModal(){ document.getElementById('habitoModal').classList.add('hidden'); editingHabitoId=null; }
+let hbTipoSel='fazer';
+const SUG_EVITAR=[['🍺','Álcool'],['🍬','Açúcar'],['📱','Rede social à toa'],['🚬','Cigarro'],['🛵','Delivery'],['☕','Café depois das 15h'],['🛒','Compra por impulso'],['🎰','Aposta'],['🍟','Fast food'],['🌙','Dormir depois da meia-noite']];
+function hbSetTipo(t){
+  hbTipoSel=(t==='evitar')?'evitar':'fazer'; const ev=hbTipoSel==='evitar';
+  document.querySelectorAll('#hbTipo button').forEach(b=>b.classList.toggle('on',b.dataset.t===hbTipoSel));
+  const q=id=>document.getElementById(id);
+  if(q('hbMetaRow'))q('hbMetaRow').classList.toggle('hidden',ev); if(q('hbMetaHint'))q('hbMetaHint').classList.toggle('hidden',ev);
+  if(q('hbFreqField'))q('hbFreqField').classList.toggle('hidden',ev); if(ev)hbSetFreq('diario');
+  if(q('hbNome'))q('hbNome').placeholder=ev?'Ex: Açúcar, Delivery, Rede social...':'Ex: Ler, Meditar, Dormir cedo...';
+  const rg=document.querySelector('#hbRegraRow small'); if(rg)rg.textContent=ev?'Um deslize isolado não zera a contagem. Dois dias seguidos, sim.':'Pular um dia não quebra a sequência. Dois dias seguidos, sim. No dia seguinte ao pulo, o app avisa que é obrigatório.';
+  if(!editingHabitoId){ if(ev)fillSugEvitar(); else fillSugHabitos(); }
+}
+function fillSugEvitar(){
+  const el=document.getElementById('sugHabitosModal'); if(!el)return;
+  const livres=SUG_EVITAR.filter(s=>!(STATE.habitos||[]).some(h=>(h.nome||'')===s[1]));
+  el.innerHTML=livres.length?('<span class="sug-lbl">Sugestões:</span>'+livres.map(s=>'<button type="button" class="sug-chip" data-e="'+s[0]+'" data-n="'+escapeHtml(s[1])+'"><span class="sug-t">'+s[0]+' '+escapeHtml(s[1])+'</span></button>').join('')):'';
+  el.querySelectorAll('.sug-chip').forEach(b=>b.onclick=()=>{ document.getElementById('hbEmoji').value=b.dataset.e; document.getElementById('hbNome').value=b.dataset.n; document.getElementById('hbMeta').value=''; document.getElementById('hbUnidade').value=''; renderEmojiPick('hbEmojiPick','hbEmoji',EMOJI_HAB); el.querySelectorAll('.sug-chip').forEach(x=>x.classList.toggle('on',x===b)); });
+}
 let hbFreqSel='diario';
 function hbSetFreq(tipo){
   hbFreqSel=['diario','semana','dias'].includes(tipo)?tipo:'diario';
@@ -10743,11 +10824,12 @@ function saveHabito(){
   const freq={tipo:hbFreqSel,vezes:Math.max(1,Math.min(7,parseInt(document.getElementById('hbVezes').value,10)||3)),dias:Array.from(document.querySelectorAll('#hbDias button.on')).map(b=>+b.dataset.d)};
   if(freq.tipo==='dias'&&!freq.dias.length){ toast('Escolha pelo menos um dia da semana'); return; }
   const regra2=freq.tipo!=='semana'&&!!document.getElementById('hbRegra2').checked;
+  const evitar=hbTipoSel==='evitar'; const campos=evitar?{nome,emoji,meta:0,unidade:'',freq:{tipo:'diario',vezes:3,dias:[]},regra2:!!document.getElementById('hbRegra2').checked,prioridade,evitar:true}:{nome,emoji,meta,unidade,freq,regra2,prioridade,evitar:false};
   if(!STATE.habitos)STATE.habitos=[];
-  if(editingHabitoId){ const h=STATE.habitos.find(x=>x.id===editingHabitoId); if(h)Object.assign(h,{nome,emoji,meta,unidade,freq,regra2,prioridade}); }
-  else STATE.habitos.push({id:uid(),nome,emoji,meta,unidade,freq,regra2,prioridade,historico:{},criadoEm:_rotKey(0)});
+  if(editingHabitoId){ const h=STATE.habitos.find(x=>x.id===editingHabitoId); if(h)Object.assign(h,campos); }
+  else STATE.habitos.push(Object.assign({id:uid(),historico:{},criadoEm:_rotKey(0)},campos));
   const eraEdicao=!!editingHabitoId; // closeHabitoModal zera editingHabitoId, então decide a mensagem antes
-  saveState(); closeHabitoModal(); renderRotina(); toast(eraEdicao?'Hábito atualizado ✏️':'Hábito criado 🔥');
+  saveState(); closeHabitoModal(); renderRotina(); toast(eraEdicao?'Hábito atualizado ✏️':(hbTipoSel==='evitar'?'Pronto. Todo dia marque como foi 🚫':'Hábito criado 🔥'));
 }
 function addTarefa(){ const inp=document.getElementById('taskInput'); const texto=inp.value.trim(); if(!texto)return; if(!STATE.tarefas)STATE.tarefas=[]; STATE.tarefas.unshift({id:uid(),texto,feita:false,status:'pendente'}); inp.value=''; saveState(); renderRotina(); }
 function toggleTarefa(id){ const t=(STATE.tarefas||[]).find(x=>x.id===id); if(!t)return; t.feita=!t.feita; t.status=t.feita?'concluido':'pendente'; if(t.feita)registrarDia(); saveState(); renderRotina(); }

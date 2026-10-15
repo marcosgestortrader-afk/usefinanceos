@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FinanceOS · Seu controle financeiro completo</title>
-<meta name="description" content="Saiba exatamente quanto sobra antes de acabar o mês. Entradas, saídas, cartões e metas num painel simples, e ainda rotina, treino e dieta no mesmo app.">
+<meta name="description" content="O app que te diz quanto ainda dá pra gastar hoje, antes de passar da conta. Gastos, cartões, metas e dívidas, e ainda rotina, treino e dieta no mesmo login. R$ 49,90 uma vez, sem mensalidade.">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="theme-color" content="#0b0b1e">
@@ -157,6 +157,15 @@ section{padding:56px 0}
 .telas img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);box-shadow:0 24px 60px -30px rgba(124,58,237,.55)}
 .telas figcaption{color:var(--muted);font-size:13.5px;text-align:center;margin-top:10px}
 .aviso-saude{color:var(--muted);font-size:13.5px;line-height:1.6;max-width:76ch;margin:26px auto 0;text-align:center;border-top:1px solid var(--line);padding-top:18px}
+/* NOTA DE QUEM FEZ */
+.nota{padding-top:10px}
+.nota-box{max-width:760px;margin:0 auto;display:flex;gap:22px;align-items:flex-start;padding:28px 30px;border-radius:20px;background:var(--panel);border:1px solid var(--line)}
+.nota-ic{width:56px;height:56px;flex:0 0 auto;border-radius:14px;overflow:hidden;box-shadow:0 10px 26px rgba(124,58,237,.35)}
+.nota-ic svg{width:100%;height:100%;display:block}
+.nota-box p{color:#dfe2f5;font-size:16px;line-height:1.6;margin-top:8px}
+.nota-box p.nota-ass{color:var(--muted);font-size:14px;margin-top:12px}
+.nota-box p.nota-ass a{color:#a5b4fc;text-decoration:underline}
+@media(max-width:640px){.nota-box{flex-direction:column;gap:14px;padding:22px}}
 /* PRICING */
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch;padding-top:16px}
 @media(max-width:820px){.plans{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
@@ -247,9 +256,9 @@ footer a.flink:hover{color:var(--txt)}
 </div></nav>
 
 <header class="hero" id="top"><div class="wrap">
-  <div class="eyebrow">Oferta de lançamento · Acesso vitalício por R$ 49,90</div>
-  <h1>O salário <span class="g">sumiu de novo</span> e você não sabe pra onde foi?</h1>
-  <p class="sub">O problema não é ganhar pouco. É não enxergar pra onde o dinheiro vai. No FinanceOS cada gasto entra em um clique e o app te diz <b style="color:#fff">quanto você ainda pode gastar hoje</b>, antes de furar a meta, não depois. E no mesmo app: rotina, treino e dieta.</p>
+  <div class="eyebrow">Acesso vitalício por R$ 49,90 · paga uma vez</div>
+  <h1>Chegou no dia 20 e o dinheiro <span class="g">já acabou</span> de novo?</h1>
+  <p class="sub">Todo mundo sabe quanto ganha. O que ninguém te mostra é <b style="color:#fff">quanto ainda dá pra gastar hoje</b>, antes de passar da conta. O FinanceOS mostra. Você lança o gasto em dois toques e ele faz a conta por você. E como rotina bagunçada vira dinheiro bagunçado, ele também guarda seus hábitos, seu treino e sua dieta, no mesmo login.</p>
   <div class="cta">
     <a class="btn btn-orbita btn-lg" href="https://pay.kiwify.com.br/ZLpUxIS">Garantir meu acesso vitalício</a>
     <a class="btn btn-ghost btn-lg" href="#demo">Testar agora, sem cadastro</a>
@@ -262,24 +271,24 @@ footer a.flink:hover{color:var(--txt)}
   </div>
 
   <div class="demo-wrap" id="demo">
-    <div class="demo-top"><span class="pulse"></span> <b>Esse é o FinanceOS de verdade.</b> Clique, lance um gasto, abra a Rotina, o Treino e a Dieta. Sem cadastro.</div>
+    <div class="demo-top"><span class="pulse"></span> <b>Isso aqui é o app de verdade, não é foto.</b> Mexe à vontade: lança um gasto, abre a Rotina, o Treino, a Dieta. Não precisa de cadastro.</div>
     <div class="demo-frame"><iframe src="/demo" title="Demonstração do FinanceOS com dados de exemplo" loading="lazy" allow="clipboard-write"></iframe></div>
     <div class="demo-foot">
       <a class="btn btn-ghost btn-sm" href="/demo" target="_blank" rel="noopener">Abrir a demonstração em tela cheia</a>
-      <span class="hint">Dados de exemplo. O que você mexer aqui fica só no seu navegador.</span>
+      <span class="hint">Os números são de exemplo. O que você mexer fica só no seu navegador.</span>
     </div>
   </div>
 </div></header>
 
 <section><div class="wrap">
-  <div class="sec-head"><div class="eyebrow">Por que o FinanceOS</div><h2>Tudo o que a planilha não te dá</h2><p>Um app de verdade: rápido, na nuvem, no seu bolso e sem fórmula quebrando.</p></div>
+  <div class="sec-head"><div class="eyebrow">O que ele faz</div><h2>O que a planilha nunca fez por você</h2><p>Eu tentei planilha por anos. Fórmula quebrava, eu esquecia de preencher, e no fim do mês ela só confirmava o estrago. O app faz o contrário: avisa antes.</p></div>
   <div class="benefits">
-    <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg></div><h3>Saiba quanto sobra sem abrir planilha</h3><p>Entradas, saídas, saldo e investido do mês na tela inicial, com o resumo do ano inteiro.</p></div>
-    <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg></div><h3>Nunca mais leve susto na fatura</h3><p>Veja o gasto de cada cartão e o limite disponível antes de passar, não depois.</p></div>
-    <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.6"/></svg></div><h3>Metas, dívidas e patrimônio no lugar certo</h3><p>Monte sua reserva, veja a ordem certa pra quitar dívidas e acompanhe seu patrimônio crescer mês a mês.</p></div>
-    <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div><h3>Cadastra uma vez, nunca mais esquece</h3><p>Salário, aluguel, assinaturas: as contas fixas entram sozinhas em todos os meses.</p></div>
-    <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></svg></div><h3>Lança o gasto na hora, antes de esquecer</h3><p>Instala como app no celular e registra qualquer gasto em segundos, de onde estiver.</p></div>
-    <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div><h3>Um aviso antes de estourar</h3><p>Aviso no celular quando uma conta está pra vencer, alerta de orçamento no limite e suporte de verdade no WhatsApp.</p></div>
+    <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg></div><h3>Abriu o app, viu quanto sobra</h3><p>Entradas, saídas e o saldo do mês na primeira tela. Sem aba, sem fórmula, sem somar nada de cabeça. O ano inteiro fica um toque ao lado.</p></div>
+    <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg></div><h3>A fatura, antes de ela chegar</h3><p>Quanto já passou em cada cartão e quanto ainda tem de limite, dia a dia. Aquele susto no fechamento some.</p></div>
+    <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.6"/></svg></div><h3>Reserva, dívidas e patrimônio com número</h3><p>Diz quanto guarda por mês e o app calcula quando a reserva fica pronta. Mostra qual dívida quitar primeiro (a mais cara) e quanto o seu patrimônio mudou desde o mês passado.</p></div>
+    <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div><h3>Conta fixa entra sozinha</h3><p>Aluguel, internet, Netflix, salário: cadastra uma vez e todo mês elas já aparecem. Você só marca quando pagou.</p></div>
+    <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></svg></div><h3>Pagou o café, lançou na hora</h3><p>Dois toques no celular e pronto. Dá pra instalar na tela inicial como qualquer outro app, e também funciona no computador.</p></div>
+    <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div><h3>Aviso antes de vencer</h3><p>Conta chegando no vencimento? Orçamento do mês no limite? O app avisa no celular. E se você travar em alguma coisa, me chama no WhatsApp que eu resolvo.</p></div>
   </div>
   <div class="telas-pc">
     <figure>
@@ -309,11 +318,11 @@ footer a.flink:hover{color:var(--txt)}
      VIDA: rotina, treino e dieta. Prints reais do app (não são desenhos).
      ============================================================ -->
 <section id="vida"><div class="wrap">
-  <div class="sec-head"><div class="eyebrow">Além do dinheiro</div><h2>A vida que sustenta o seu dinheiro</h2><p>Dinheiro organizado é consequência de rotina organizada. Por isso o FinanceOS tem, no mesmo app e no mesmo login, o que nenhum controle financeiro te dá.</p></div>
+  <div class="sec-head"><div class="eyebrow">Além do dinheiro</div><h2>O resto da vida, no mesmo lugar</h2><p>Semana ruim de rotina costuma virar mês ruim de dinheiro. Por isso os hábitos, o treino e a dieta ficam dentro do FinanceOS, no mesmo login. Ele não monta treino nem dieta pra você: guarda o plano que você já tem e te dá um lugar pra marcar o que fez.</p></div>
   <div class="benefits">
-    <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><h3>Rotina que você marca em 5 segundos</h3><p>Hábitos do dia a dia, tarefas, diário e o balanço da sua semana. Você vê a sequência crescer e entende onde a semana escapou.</p></div>
-    <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div><h3>Treino com cronômetro e o seu PDF</h3><p>Carregue o PDF do seu professor e os exercícios entram no app. Inicie o treino, marque cada exercício, use o descanso entre séries e finalize com o tempo registrado.</p></div>
-    <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 2v7c0 1.1.9 2 2 2h2a2 2 0 0 0 2-2V2"/><path d="M6 2v20"/><path d="M18 2c-1.7 1-3 3.5-3 6.5 0 2.5 1 4 3 4.5v9"/></svg></div><h3>Dieta por dia da semana</h3><p>Segunda pode ser diferente de sábado. Carregue o PDF do nutricionista, marque cada refeição no dia e acompanhe água e constância.</p></div>
+    <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><h3>Rotina marcada em cinco segundos</h3><p>Hábitos e tarefas do dia, um diário de uma linha e o balanço da semana. Tem também o que você quer evitar (açúcar, delivery, rede social à toa): todo dia você marca se escapou ou não, e o app conta os dias limpos.</p></div>
+    <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div><h3>O treino do seu professor, dentro do app</h3><p>Carrega o PDF e os exercícios entram sozinhos. Na academia: inicia o treino, marca cada exercício, descansa pelo cronômetro e finaliza com o tempo salvo.</p></div>
+    <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 2v7c0 1.1.9 2 2 2h2a2 2 0 0 0 2-2V2"/><path d="M6 2v20"/><path d="M18 2c-1.7 1-3 3.5-3 6.5 0 2.5 1 4 3 4.5v9"/></svg></div><h3>A dieta de cada dia da semana</h3><p>Segunda é diferente de sábado. Carrega o PDF do nutricionista e o app separa o plano por dia. Você marca as refeições, a água, e vê a constância.</p></div>
   </div>
   <div class="telas-pc">
     <figure>
@@ -345,15 +354,25 @@ footer a.flink:hover{color:var(--txt)}
 </div></section>
 <!-- Depoimentos: só entram aqui quando forem de clientes reais, com autorização. Nada inventado. -->
 <section><div class="wrap">
-  <div class="sec-head"><div class="eyebrow">Sem risco</div><h2>Por que você pode assinar tranquilo</h2></div>
+  <div class="sec-head"><div class="eyebrow">Sem pegadinha</div><h2>O combinado é simples</h2></div>
   <div class="benefits">
-    <div class="bcard"><h3>7 dias de garantia</h3><p>Testou e não é pra você? Pede o reembolso dentro de 7 dias e devolvemos, sem burocracia.</p></div>
-    <div class="bcard"><h3>Paga uma vez, usa pra sempre</h3><p>Sem mensalidade e sem renovação. Pagamento único, com 7 dias de garantia pela Kiwify.</p></div>
-    <div class="bcard"><h3>Seus dados são seus</h3><p>Tudo salvo na sua conta na nuvem, e você baixa backup, planilha ou PDF quando quiser. Sem rastreadores e sem venda de dados.</p></div>
+    <div class="bcard"><h3>7 dias pra desistir</h3><p>Comprou, usou uma semana, não gostou? Pede o reembolso e a Kiwify devolve o valor inteiro. Sem formulário e sem ter que explicar o motivo.</p></div>
+    <div class="bcard"><h3>R$ 49,90 e acabou</h3><p>Não tem mensalidade, não tem renovação automática, não tem plano "pro" escondido pra depois. As atualizações que eu lançar entram na sua conta sem custo.</p></div>
+    <div class="bcard"><h3>Seus dados são seus</h3><p>Ficam na sua conta, na nuvem, e você baixa tudo em planilha, PDF ou backup quando quiser. Eu não vendo dado de ninguém e o app não tem rastreador.</p></div>
+  </div>
+</div></section>
+<section class="nota"><div class="wrap">
+  <div class="nota-box">
+    <div class="nota-ic"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#fLogo"/></svg></div>
+    <div>
+      <div class="eyebrow">Quem fez</div>
+      <p>Eu sou o Marcos. Fui eu que fiz o FinanceOS, e sou eu que respondo no WhatsApp. Não tem central de atendimento nem robô: se alguma coisa não funcionar do jeito que você esperava, me chama que eu arrumo. É assim que o app melhora, com quem usa reclamando pra mim.</p>
+      <p class="nota-ass">Marcos Rodrigues · <a href="https://wa.me/5561991674530">(61) 99167-4530</a></p>
+    </div>
   </div>
 </div></section>
 <section id="planos"><div class="wrap">
-  <div class="sec-head"><div class="eyebrow">Acesso vitalício</div><h2>Paga uma vez. Usa pra sempre.</h2><p>Oferta de lançamento: acesso vitalício ao FinanceOS por R$ 49,90, em pagamento único. Sem mensalidade, sem renovação, com 7 dias de garantia.</p></div>
+  <div class="sec-head"><div class="eyebrow">Acesso vitalício</div><h2>Paga uma vez. Usa pra sempre.</h2><p>Esse é o preço de lançamento. Ele vai subir, e quem comprou antes não paga nada depois. R$ 49,90 uma vez, sem mensalidade, com 7 dias pra desistir.</p></div>
   <div class="plans one">
     <div class="plan best">
       <div class="tag">OFERTA DE LANÇAMENTO</div>
@@ -365,7 +384,7 @@ footer a.flink:hover{color:var(--txt)}
         <li><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg> Dinheiro, rotina, treino e dieta no mesmo lugar</li>
         <li><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg> Computador e celular, com seus dados na nuvem</li>
         <li><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg> Todas as atualizações futuras incluídas</li>
-        <li><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg> Suporte no WhatsApp</li>
+        <li><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg> Suporte comigo, no WhatsApp</li>
       </ul>
       <a class="btn btn-orbita" href="https://pay.kiwify.com.br/ZLpUxIS">Garantir meu acesso vitalício</a>
       <div style="text-align:center;color:#cdd2ee;font-size:13px;margin-top:10px">7 dias de garantia · devolução integral</div>
@@ -379,7 +398,7 @@ footer a.flink:hover{color:var(--txt)}
   <div class="guar">
     <div class="badge"><svg fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div>
     <h3>7 dias de garantia</h3>
-    <p>Compre sem medo. Se em 7 dias você achar que não é pra você, é só pedir o reembolso, sem burocracia.</p>
+    <p>Usa por uma semana. Se não fizer diferença no seu mês, pede o reembolso e pronto. Devolução integral, sem perguntas.</p>
   </div>
 </div></section>
 
@@ -388,13 +407,13 @@ footer a.flink:hover{color:var(--txt)}
   <div class="faq">
     <div class="qa"><h4>Posso testar antes de comprar?</h4><p>Pode, e sem cadastro. A <a href="#demo" style="color:#a5b4fc;text-decoration:underline">demonstração no topo desta página</a> é o app de verdade com dados de exemplo: lança gasto, abre as telas, mexe à vontade. O que você fizer ali fica só no seu navegador.</p></div>
     <div class="qa"><h4>Preciso instalar alguma coisa?</h4><p>Não. O FinanceOS abre no navegador, no computador e no celular. Se quiser, você adiciona à tela inicial do celular e ele vira um app, com ícone e tudo, sem loja e sem download.</p></div>
-    <div class="qa"><h4>Como recebo o acesso depois de pagar?</h4><p>Na hora. Você cria sua conta no app com o <b>mesmo e-mail</b> da compra e já entra com seu login e senha.</p></div>
+    <div class="qa"><h4>Como recebo o acesso depois de pagar?</h4><p>Na hora. Depois do pagamento você cria a conta no app com o <b>mesmo e-mail</b> que usou na compra, e já entra. Se usar outro e-mail, o app não vai te achar: aí é só me chamar no WhatsApp que eu ajusto.</p></div>
     <div class="qa"><h4>Quais as formas de pagamento?</h4><p>Pix ou cartão de crédito, tudo pela Kiwify, com pagamento seguro e criptografado. São R$ 49,90 à vista. No cartão dá pra parcelar em até 12x, com o acréscimo do parcelamento; o valor de cada parcela e o total aparecem no checkout antes de confirmar.</p></div>
     <div class="qa"><h4>Tem mensalidade ou renovação?</h4><p>Não. É pagamento único: você paga R$ 49,90 uma vez e o acesso é vitalício, com todas as atualizações futuras incluídas. Nenhuma cobrança depois.</p></div>
     <div class="qa"><h4>Parcelei no cartão. E se eu pedir reembolso?</h4><p>Nos primeiros 7 dias vale a garantia: você pede o reembolso e a Kiwify estorna o valor inteiro no cartão, e a operadora cancela as parcelas que faltam. Depois dos 7 dias a compra é definitiva, como qualquer compra parcelada.</p></div>
     <div class="qa"><h4>Como funciona a garantia de 7 dias?</h4><p>Se em até 7 dias você não gostar, pede o reembolso e devolvemos o valor. Sem burocracia e sem perguntas.</p></div>
-    <div class="qa"><h4>Preciso entender de finanças pra usar?</h4><p>Não. Se você sabe quanto ganha e quanto gasta, já sabe usar. Em minutos você lança a primeira entrada.</p></div>
-    <div class="qa"><h4>Dá trabalho pra começar?</h4><p>Não. Você cadastra as contas fixas uma vez e elas entram sozinhas todo mês. O resto é só lançar na hora, pelo celular.</p></div>
+    <div class="qa"><h4>Preciso entender de finanças pra usar?</h4><p>Não. Se você sabe quanto ganha e quanto gasta, já sabe usar. A primeira coisa que você faz é lançar o salário e as contas fixas, leva uns cinco minutos.</p></div>
+    <div class="qa"><h4>Dá trabalho pra começar?</h4><p>Pouco. As contas fixas você cadastra uma vez e elas aparecem sozinhas todo mês. O resto é lançar o gasto na hora, pelo celular, que leva menos tempo do que pagar no Pix.</p></div>
     <div class="qa"><h4>Funciona no computador e no celular?</h4><p>Nos dois. Abre no navegador do computador e dá pra instalar como app na tela inicial do celular, iPhone ou Android.</p></div>
     <div class="qa"><h4>O app monta meu treino e minha dieta?</h4><p>Não, e isso é proposital. Ele guarda e acompanha o plano que você ou o seu profissional montou. Você carrega o PDF do professor ou do nutricionista e o app organiza tudo pra marcar no dia. Os modelos prontos são só referência pra começar.</p></div>
     <div class="qa"><h4>Como funciona o PDF de treino e de dieta?</h4><p>Você toca em carregar PDF, o app lê o arquivo e mostra o que encontrou pra você conferir e ajustar. No treino ele separa os blocos A, B e C com os exercícios. Na dieta ele reconhece as refeições e até os dias da semana, quando o seu plano tem segunda, quarta e sexta separado de terça e quinta.</p></div>
@@ -404,8 +423,8 @@ footer a.flink:hover{color:var(--txt)}
 </div></section>
 
 <section class="final"><div class="wrap">
-  <h2>Termine o próximo mês sabendo pra onde foi cada real</h2>
-  <p>Garanta hoje o acesso vitalício pelo preço de lançamento: R$ 49,90, uma vez só. Em 5 minutos você lança suas contas e já vê quanto sobra. E ainda leva rotina, treino e dieta no mesmo app, com 7 dias de garantia.</p>
+  <h2>O dia 20 do mês que vem pode ser diferente</h2>
+  <p>Em cinco minutos você cadastra as contas fixas e lança os gastos de hoje. Daí pra frente, toda vez que abrir o app, já sabe quanto pode gastar. R$ 49,90, uma vez, com 7 dias pra desistir.</p>
   <a class="btn btn-orbita btn-lg" href="https://pay.kiwify.com.br/ZLpUxIS">Garantir meu acesso vitalício · R$ 49,90</a>
   <div style="color:#cdd2ee;font-size:13.5px;margin-top:12px">7 dias de garantia · pagamento único</div>
 </div></section>
