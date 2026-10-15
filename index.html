@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FinanceOS · Seu controle financeiro completo</title>
-<meta name="description" content="O app que te diz quanto ainda dá pra gastar hoje, antes de passar da conta. Gastos, cartões, metas e dívidas, e ainda rotina, treino e dieta no mesmo login. R$ 49,90 uma vez, sem mensalidade.">
+<meta name="description" content="O único app que sabe como você acordou e quanto você tem até o dia 20. Ele te diz quanto dá pra gastar hoje e segura sua mão no dia ruim. Gastos, metas, rotina, treino e dieta no mesmo login. R$ 49,90 uma vez.">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta name="theme-color" content="#0b0b1e">
@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://www.financeosapp.com.br/">
 <link rel="canonical" href="https://www.financeosapp.com.br/">
 <meta property="og:title" content="FinanceOS · Seu controle financeiro completo">
-<meta property="og:description" content="Quanto sobra, contas em dia e, de quebra, sua rotina, seu treino e sua dieta no mesmo app. Acesso vitalício por R$ 49,90, em pagamento único.">
+<meta property="og:description" content="Seu dinheiro protegido do seu pior dia. O app que sabe como você acordou, diz quanto dá pra gastar hoje e segura sua mão antes da compra errada. R$ 49,90 uma vez, sem mensalidade.">
 <meta property="og:image" content="https://www.financeosapp.com.br/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -116,6 +116,22 @@ a{color:inherit;text-decoration:none}
 @media(max-width:1000px){.demo-frame:not(.on) iframe{display:none}.demo-frame:not(.on) .demo-poster{display:block}.demo-poster img{max-height:520px;object-fit:cover;object-position:top}}
 .demo-foot{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:16px}
 .demo-foot .hint{color:var(--muted);font-size:13.5px}
+/* PROTECAO: os 4 recursos novos */
+.prot{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:720px){.prot{grid-template-columns:1fr}}
+.pcard{padding:24px;border-radius:18px;background:var(--panel);border:1px solid var(--line);display:flex;gap:16px;align-items:flex-start;transition:transform .18s,border-color .18s}
+.pcard:hover{transform:translateY(-3px);border-color:rgba(124,58,237,.5)}
+.pcard .pic{width:52px;height:52px;flex:0 0 auto;border-radius:14px;display:grid;place-items:center;font-size:26px;background:rgba(124,58,237,.14);border:1px solid rgba(124,58,237,.3)}
+.pcard.red .pic{background:rgba(244,63,94,.14);border-color:rgba(244,63,94,.35)}
+.pcard.green .pic{background:rgba(34,197,94,.14);border-color:rgba(34,197,94,.35)}
+.pcard.aqua .pic{background:rgba(6,182,212,.14);border-color:rgba(6,182,212,.35)}
+.pcard h3{font-size:18px;font-weight:800}
+.pcard h3 small{display:block;font-family:var(--font);font-size:12px;letter-spacing:1.2px;text-transform:uppercase;color:var(--aqua);margin-bottom:4px}
+.pcard p{color:var(--muted);font-size:14.5px;margin-top:7px;line-height:1.55}
+.pcard p b{color:#fff}
+.pcard .ex{margin-top:10px;padding:10px 12px;border-radius:12px;background:rgba(0,0,0,.25);border:1px solid var(--line);font-size:13.5px;color:#dfe2f5}
+.pcard .ex.red{border-color:rgba(244,63,94,.45);color:#fb7185;font-weight:700}
+.pcard .ex.green{border-color:rgba(34,197,94,.45);color:#4ade80;font-weight:700}
 /* CTA repetido entre as secoes */
 .cta-rep{text-align:center;margin-top:40px;display:flex;flex-direction:column;align-items:center;gap:10px}
 .cta-rep .g7{display:inline-flex;align-items:center;gap:7px;color:#cdd2ee;font-size:13.5px}
@@ -267,6 +283,7 @@ window.__fosEv=function(n,p){ try{ fbq('trackCustom',n,p||{}); }catch(e){} };
   <a class="brand" href="#top"><span class="tile"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#fLogo"/></svg></span><span class="wordmark">Finance<b>OS</b></span></a>
   <span class="sp"></span>
   <a class="lnk" data-hide-mobile href="#demo">Testar grátis</a>
+  <a class="lnk" data-hide-mobile href="#protecao">Novidades</a>
   <a class="lnk" data-hide-mobile href="#vida">Rotina e saúde</a>
   <a class="lnk" data-hide-mobile href="#planos">Planos</a>
   <a class="lnk" href="/app">Entrar</a>
@@ -323,7 +340,7 @@ window.__fosEv=function(n,p){ try{ fbq('trackCustom',n,p||{}); }catch(e){} };
   <div class="benefits">
     <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><line x1="12" x2="12" y1="20" y2="10"/><line x1="18" x2="18" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="16"/></svg></div><h3>Abriu o app, viu quanto sobra</h3><p>Entradas, saídas e o saldo do mês na primeira tela. Sem aba, sem fórmula, sem somar nada de cabeça. O ano inteiro fica um toque ao lado.</p></div>
     <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg></div><h3>A fatura, antes de ela chegar</h3><p>Quanto já passou em cada cartão e quanto ainda tem de limite, dia a dia. Aquele susto no fechamento some.</p></div>
-    <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.6"/></svg></div><h3>Reserva, dívidas e patrimônio com número</h3><p>Diz quanto guarda por mês e o app calcula quando a reserva fica pronta. Mostra qual dívida quitar primeiro (a mais cara) e quanto o seu patrimônio mudou desde o mês passado.</p></div>
+    <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.6"/></svg></div><h3>Reserva, dívidas e patrimônio com número</h3><p>Diz quanto guarda por mês (ou por dia) e o app calcula quando a reserva fica pronta. Mostra qual dívida quitar primeiro (a mais cara) e quanto o seu patrimônio mudou desde o mês passado.</p></div>
     <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div><h3>Conta fixa entra sozinha</h3><p>Aluguel, internet, Netflix, salário: cadastra uma vez e todo mês elas já aparecem. Você só marca quando pagou.</p></div>
     <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></svg></div><h3>Pagou o café, lançou na hora</h3><p>Dois toques no celular e pronto. Dá pra instalar na tela inicial como qualquer outro app, e também funciona no computador.</p></div>
     <div class="bcard"><div class="ic"><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div><h3>Aviso antes de vencer</h3><p>Conta chegando no vencimento? Orçamento do mês no limite? O app avisa no celular. E se você travar em alguma coisa, me chama no WhatsApp que eu resolvo.</p></div>
@@ -345,6 +362,23 @@ window.__fosEv=function(n,p){ try{ fbq('trackCustom',n,p||{}); }catch(e){} };
       <img src="img/pc-faturas.jpg" width="1100" height="238" loading="lazy" alt="Faturas dos cartões com valor atual, limite disponível e dia de fechamento">
       <figcaption>Suas faturas: quanto já tem em cada cartão e quanto ainda sobra de limite</figcaption>
     </figure>
+  </div>
+  <div class="cta-rep">
+    <a class="btn btn-orbita btn-lg" href="https://pay.kiwify.com.br/ZLpUxIS">Garantir meu acesso vitalício · R$ 49,90</a>
+    <span class="g7"><svg fill="none" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg> 7 dias de garantia · pagamento único, sem mensalidade</span>
+  </div>
+</div></section>
+
+<!-- ============================================================
+     PROTECAO: o app age antes do gasto (Prontidao do dia, vila, trava, R$ por dia)
+     ============================================================ -->
+<section id="protecao"><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">O que nenhum outro app faz</div><h2>O único app que sabe como você acordou</h2><p>Todo app de finanças te mostra o estrago depois. O FinanceOS age antes. Ele junta como você dormiu, como está o humor e quanto sobrou pra hoje, e muda o próprio comportamento no dia ruim. É o seu dinheiro protegido do seu pior dia.</p></div>
+  <div class="prot">
+    <div class="pcard red"><div class="pic">🌅</div><div><h3><small>Prontidão do dia</small>Dia ruim, compra grande? Ele segura sua mão.</h3><p>De manhã, duas perguntas de um toque: como você acordou e se dormiu bem. Dia verde: "sobrou folga, guarda R$ 20 agora". Dia vermelho: compra acima do teto pede confirmação, e você pode <b>deixar pra amanhã</b>. No dia seguinte o app pergunta se ainda quer.</p><div class="ex red">🔴 Hoje não decida nada grande. Compra acima de R$ 120 pede confirmação.</div></div></div>
+    <div class="pcard"><div class="pic">🚫</div><div><h3><small>Categoria vilã</small>Marcou bet ou delivery como vilã? A casa perde.</h3><p>Cada gasto numa categoria vilã vira <b>R$ 10 no pote da reserva</b>, no máximo um por dia. No fim do mês você guarda o pote inteiro. O deslize não some, mas vira patrimônio.</p><div class="ex">🚫 Delivery é vilã: R$ 10 pro pote. Pote do mês: R$ 70.</div></div></div>
+    <div class="pcard aqua"><div class="pic">🔒</div><div><h3><small>Trava de 48 horas</small>Tranca a reserva. Pra mexer, espera.</h3><p>Tranque a reserva ou qualquer meta por 30, 90, 180 ou 365 dias. Para mexer antes do prazo, você pede o destrave e <b>espera 48 horas</b>. Tempo suficiente pra vontade passar. Seu eu de dezembro agradece.</p><div class="ex">🔒 Trancada até 14/01. Pedir destrave (48 h)</div></div></div>
+    <div class="pcard green"><div class="pic">📅</div><div><h3><small>Metas em R$ por dia</small>R$ 5 por dia, não R$ 150 por mês.</h3><p>Pensar por dia é mais fácil de cumprir. Toda meta, dívida e reserva mostra o <b>valor diário</b>, e o Início diz quanto guardar hoje. Num teste com milhares de pessoas, mostrar a meta por dia quadruplicou quem aderiu.</p><div class="ex green">🎯 Guardar hoje: R$ 16,67. É o que suas metas pedem por dia.</div></div></div>
   </div>
   <div class="cta-rep">
     <a class="btn btn-orbita btn-lg" href="https://pay.kiwify.com.br/ZLpUxIS">Garantir meu acesso vitalício · R$ 49,90</a>
@@ -444,6 +478,7 @@ window.__fosEv=function(n,p){ try{ fbq('trackCustom',n,p||{}); }catch(e){} };
   <div class="sec-head"><div class="eyebrow">Dúvidas</div><h2>Perguntas frequentes</h2></div>
   <div class="faq">
     <div class="qa"><h4>Posso testar antes de comprar?</h4><p>Pode, e sem cadastro. A <a href="#demo" style="color:#a5b4fc;text-decoration:underline">demonstração no topo desta página</a> é o app de verdade com dados de exemplo: lança gasto, abre as telas, mexe à vontade. O que você fizer ali fica só no seu navegador.</p></div>
+    <div class="qa"><h4>O app me impede de gastar?</h4><p>Não, e nem poderia: ele não tem conexão com o seu banco. O que ele faz é agir no momento certo. Em dia vermelho, uma compra grande pede confirmação e ganha o botão "deixar pra amanhã". A trava da reserva é um combinado com você mesmo: o app só pede 48 horas pra destravar. O dinheiro continua seu o tempo todo.</p></div>
     <div class="qa"><h4>Preciso instalar alguma coisa?</h4><p>Não. O FinanceOS abre no navegador, no computador e no celular. Se quiser, você adiciona à tela inicial do celular e ele vira um app, com ícone e tudo, sem loja e sem download.</p></div>
     <div class="qa"><h4>Como recebo o acesso depois de pagar?</h4><p>Na hora. Depois do pagamento você cria a conta no app com o <b>mesmo e-mail</b> que usou na compra, e já entra. Se usar outro e-mail, o app não vai te achar: aí é só me chamar no WhatsApp que eu ajusto.</p></div>
     <div class="qa"><h4>Quais as formas de pagamento?</h4><p>Pix ou cartão de crédito, tudo pela Kiwify, com pagamento seguro e criptografado. São R$ 49,90 à vista. No cartão dá pra parcelar em até 12x, com o acréscimo do parcelamento; o valor de cada parcela e o total aparecem no checkout antes de confirmar.</p></div>
