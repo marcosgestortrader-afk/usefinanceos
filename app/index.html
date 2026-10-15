@@ -7346,7 +7346,7 @@ const SUPABASE_ANON_KEY = "sb_publishable_UT3JXTS5_4iSN8dFidy_5Q_YaM-Y6Ul";   //
    Preencha com SEU contato. Deixe vazio p/ esconder o botão.
    WhatsApp: só números, com DDI 55. Ex: "5511999998888" */
 const APP_NOME         = "FinanceOS";                          // <-- NOME DO APP (sua marca). Só você muda aqui; o cliente não altera.
-const APP_VERSION      = "2026-10-15.241";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
+const APP_VERSION      = "2026-10-15.242";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
 const SUPORTE_WHATSAPP = "5561991674530";                      // WhatsApp do suporte (Marco)
 const SUPORTE_EMAIL    = "atendimento@thrustmarketing.com.br"; // e-mail do suporte
 const KIWIFY_CHECKOUT_URL = "/";       // nossa página de vendas (raiz do site) com os 3 planos
@@ -12991,8 +12991,9 @@ function confetti(){
 }
 function countUp(el,target){
   if(!el)return;
-  const cur=parseFloat(String(el.textContent||'').replace(/[^\d,-]/g,'').replace(',','.'))||0;
-  if(Math.abs(cur-target)<0.5){ el.textContent=money(target); return; }
+  // o valor de partida vem do ultimo alvo guardado no elemento, nunca do texto (texto formatado em outro locale virava 100x a cada render)
+  const cur=(el.dataset.v!=null)?(+el.dataset.v||0):0; el.dataset.v=String(target);
+  if(Math.abs(cur-target)<0.5||document.hidden){ el.textContent=money(target); return; }
   const dur=650,t0=performance.now();
   (function step(now){ const p=Math.min(1,(now-t0)/dur); if(p>=1){el.textContent=money(target);return;} const e=1-Math.pow(1-p,3); el.textContent=money(cur+(target-cur)*e); requestAnimationFrame(step); })(performance.now());
   setTimeout(function(){ el.textContent=money(target); }, dur+250); // garante o valor final mesmo se a animação for pausada em 2º plano
