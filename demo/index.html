@@ -906,6 +906,21 @@ tbody tr:hover{background:var(--panel2)}
 .tx-mais:hover{color:var(--txt)}
 #viewMonth.sem-dados:not(.editando) .ini-bloco[data-bloco="hero"],#viewMonth.sem-dados:not(.editando) .ini-bloco[data-bloco="orcamento"],#viewMonth.sem-dados:not(.editando) .ini-bloco[data-bloco="graficos"]{display:none}
 #lphCta{margin-top:10px}
+/* primeiros passos: checklist de quem acabou de entrar */
+.pp{margin:14px 0 18px;padding:16px 18px;border-radius:16px;background:linear-gradient(135deg,rgba(124,58,237,.14),rgba(6,182,212,.08));border:1px solid rgba(124,58,237,.35)}
+.pp-head{display:flex;align-items:flex-start;gap:10px}
+.pp-head .icon-btn{margin-left:auto}
+.pp-t{font-family:var(--font-head);font-weight:800;font-size:16px}
+.pp-s{font-size:12.5px;color:var(--muted);margin-top:2px}
+.pp-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px;margin-top:12px}
+.pp-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:rgba(0,0,0,.18);border:1px solid var(--line);text-align:left;color:var(--txt);cursor:pointer;font:inherit;min-width:0}
+.pp-item:hover{border-color:rgba(124,58,237,.6)}
+.pp-item.done{opacity:.62;cursor:default}
+.pp-item .pp-chk{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;flex:0 0 auto;font-size:12px;font-weight:800}
+.pp-item.done .pp-chk{background:var(--pos);border-color:var(--pos);color:#fff}
+.pp-item b{display:block;font-size:13.5px;line-height:1.25}
+.pp-item small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+#iniChip{cursor:pointer}
 .modal-actions{display:flex;gap:10px;margin-top:20px;position:sticky;bottom:0;background:var(--panel);padding-top:12px;margin-bottom:-4px;padding-bottom:4px}
 /* botões Salvar/Cancelar sempre visíveis quando o modal rola (celular com teclado aberto) */
 .modal-actions button{flex:1;padding:12px;border-radius:12px;font-weight:700;font-size:14px}
@@ -5559,7 +5574,12 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
       <button type="button" class="btn-ghost sm" id="iniOrgReset">Voltar ao padrão</button>
       <button type="button" class="btn-add sm" id="iniOrgDone">Pronto</button>
     </div>
-  </div>  <section class="ini-bloco" data-bloco="topo" data-nome="Livre pra hoje e Dia registrado">
+  </div>
+  <section class="pp hidden" id="primeirosPassos">
+    <div class="pp-head"><div><div class="pp-t">Primeiros passos</div><div class="pp-s" id="ppSub"></div></div><button type="button" class="icon-btn" id="ppFechar" title="Esconder">✕</button></div>
+    <div class="pp-list" id="ppList"></div>
+  </section>
+  <section class="ini-bloco" data-bloco="topo" data-nome="Livre pra hoje e Dia registrado">
   <!-- TOPO EM UMA LINHA: Livre pra hoje | Dia registrado (a saudação fica na linha do título, #greetTop) -->
   <div class="topo3">
   <!-- LIVRE PRA HOJE (gancho diário) -->
@@ -7252,7 +7272,7 @@ const SUPABASE_ANON_KEY = "sb_publishable_UT3JXTS5_4iSN8dFidy_5Q_YaM-Y6Ul";   //
    Preencha com SEU contato. Deixe vazio p/ esconder o botão.
    WhatsApp: só números, com DDI 55. Ex: "5511999998888" */
 const APP_NOME         = "FinanceOS";                          // <-- NOME DO APP (sua marca). Só você muda aqui; o cliente não altera.
-const APP_VERSION      = "2026-10-15.237";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
+const APP_VERSION      = "2026-10-15.238";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
 const SUPORTE_WHATSAPP = "5561991674530";                      // WhatsApp do suporte (Marco)
 const SUPORTE_EMAIL    = "atendimento@thrustmarketing.com.br"; // e-mail do suporte
 const KIWIFY_CHECKOUT_URL = "/";       // nossa página de vendas (raiz do site) com os 3 planos
@@ -7652,6 +7672,31 @@ function _hojeInfo(){
   const diaHoje=ehMesAtual?now.getDate():0;
   const diasRestantes=ehMesAtual?(diasNoMes-diaHoje+1):diasNoMes;
   return {ehMesAtual,diasNoMes,diaHoje,diasRestantes,hojeKey:monthKey(VIEW.year,VIEW.month)+'-'+String(diaHoje).padStart(2,'0')};
+}
+function renderPrimeirosPassos(){
+  const el=document.getElementById('primeirosPassos'); if(!el)return;
+  if(STATE.ppOk||_semDadosNenhum()){ el.classList.add('hidden'); return; }
+  const mk=monthKey(VIEW.year,VIEW.month), tx=((STATE.months||{})[mk]||{}).tx||[];
+  const abrir=(view,fn)=>{ switchView(view); setTimeout(()=>{ try{ fn(); }catch(e){} },180); };
+  const itens=[
+    {k:'renda',t:'Lançar o que entra',s:'O salário ou outra renda do mês',ok:tx.some(t=>t.tipo==='Renda'),go:()=>openTxModal()},
+    {k:'fixas',t:'Cadastrar as contas fixas',s:'Aluguel, internet, assinaturas: entram sozinhas todo mês',ok:!!(STATE.fixas&&STATE.fixas.length),go:()=>abrir('fixas',()=>openFixaModal())},
+    {k:'gasto',t:'Lançar um gasto de hoje',s:'Qualquer um, só pra ver o Livre pra hoje mudar',ok:tx.some(t=>t.tipo!=='Renda'),go:()=>openTxModal()},
+    {k:'habito',t:'Criar um hábito',s:'Um só. Marcar todo dia vira sequência',ok:!!(STATE.habitos&&STATE.habitos.length),go:()=>abrir('rotina',()=>openHabitoModal())},
+    {k:'meta',t:'Definir uma meta',s:'Reserva de emergência ou um sonho com data',ok:!!(STATE.goals&&STATE.goals.length),go:()=>abrir('metas',()=>openGoalModal())}
+  ];
+  const feitos=itens.filter(i=>i.ok).length;
+  if(feitos===itens.length){ STATE.ppOk=true; el.classList.add('hidden'); return; }
+  el.classList.remove('hidden');
+  const sub=document.getElementById('ppSub'); if(sub)sub.textContent=feitos+' de '+itens.length+' · uns 5 minutos e o app começa a trabalhar pra você';
+  const list=document.getElementById('ppList');
+  list.innerHTML=itens.map(i=>'<button type="button" class="pp-item'+(i.ok?' done':'')+'" data-k="'+i.k+'"'+(i.ok?' disabled':'')+'><span class="pp-chk">'+(i.ok?'✓':'')+'</span><span><b>'+i.t+'</b><small>'+i.s+'</small></span></button>').join('');
+  list.querySelectorAll('.pp-item:not(.done)').forEach(b=>b.onclick=()=>{ const it=itens.find(x=>x.k===b.dataset.k); if(it)it.go(); });
+  const x=document.getElementById('ppFechar'); if(x)x.onclick=()=>{ STATE.ppOk=true; saveState(); el.classList.add('hidden'); };
+}
+function renderNivelInicio(){
+  const c=document.getElementById('iniChip'); if(!c)return;
+  try{ const n=nivelCalc(); c.textContent='Nível '+n.nivel+' · '+n.xp.toLocaleString('pt-BR')+' pontos'; c.title='Pontos por hábito feito, dia registrado, treino e semana fechada. Faltam '+n.faltam+' pro nível '+(n.nivel+1)+'.'; c.onclick=()=>switchView('rotina'); }catch(e){}
 }
 function _semDadosNenhum(){ try{ return !(STATE.fixas&&STATE.fixas.length)&&!Object.values(STATE.months||{}).some(m=>m&&m.tx&&m.tx.length); }catch(e){ return false; } }
 document.getElementById('lphCta')?.addEventListener('click',()=>showOnboarding());
@@ -8085,6 +8130,8 @@ function render(){
   renderRetroMes();
   renderStreak();
   renderSuaSemana();
+  try{ renderPrimeirosPassos(); }catch(e){}
+  try{ renderNivelInicio(); }catch(e){}
   renderMonthPicker();
   document.getElementById('yearInput').value = VIEW.year;
   document.getElementById('brandName').textContent = STATE.brand;
