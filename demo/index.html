@@ -721,6 +721,24 @@ h1,h2,h3,h4,h5,.wordmark,#brandName,.k-val,.panel h3,.greet-txt h2,.dp-title,.mo
 .hab-av.no.on{background:#f43f5e;border-color:#f43f5e;color:#fff}
 .hab-card.fail{border-color:rgba(244,63,94,.45);background:linear-gradient(135deg,rgba(244,63,94,.08),transparent)}
 .hab-dot.bad{background:#f43f5e;opacity:.85}
+.hab-dot.ice{background:rgba(56,189,248,.25);border:1px solid rgba(56,189,248,.8)!important;box-shadow:inset 0 0 0 2px rgba(56,189,248,.15)}
+.hab-rep{color:#38bdf8}
+.hab-gelo{color:#7dd3fc!important}
+.hab-min{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:6px;font-size:12.5px;color:#fbbf24}
+.hab-min b{color:var(--txt)}
+.hab-min-btn{padding:5px 10px;border-radius:8px;border:1px solid rgba(251,191,36,.6);background:rgba(251,191,36,.12);color:#fde68a;font-weight:800;font-size:12px;cursor:pointer;font-family:inherit}
+.hab-card.pacto{box-shadow:0 0 0 1px rgba(251,191,36,.45)}
+.hab-pacto-star{font-size:13px;margin-left:4px}
+.pacto{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:0 0 14px;padding:12px 16px;border-radius:14px;background:linear-gradient(135deg,rgba(251,191,36,.14),rgba(124,58,237,.08)),var(--panel);border:1px solid rgba(251,191,36,.4)}
+.pacto-l{flex:1 1 260px;min-width:0} .pacto-t{font-family:var(--font-head);font-weight:800;font-size:15px} .pacto-s{font-size:12.5px;color:var(--muted);margin-top:2px} .pacto-s b{color:var(--txt)}
+.pacto-r{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pacto-r select{padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--panel2);color:var(--txt);font:inherit}
+.pacto-bar{width:140px;height:8px;border-radius:8px;background:rgba(255,255,255,.08);overflow:hidden} .pacto-bar i{display:block;height:100%;background:linear-gradient(90deg,#fbbf24,#f59e0b);border-radius:8px}
+.pacto-x{background:none;border:0;color:var(--muted);font-size:12px;cursor:pointer;text-decoration:underline;font-family:inherit}
+.tw-prt{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 12px;padding:12px 14px;border-radius:14px;background:linear-gradient(135deg,rgba(56,189,248,.14),rgba(124,58,237,.08)),var(--panel);border:1px solid rgba(56,189,248,.45)}
+.tw-prt-ic{font-size:24px} .tw-prt-t{flex:1 1 260px;min-width:0;font-size:13px;color:var(--muted)} .tw-prt-t b{display:block;color:var(--txt);font-size:14.5px;margin-bottom:2px}
+.prt-dormir{margin-top:8px;font-size:12.5px;color:#c4b5fd;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.prt-dormir button{padding:5px 10px;border-radius:8px;border:1px solid rgba(167,139,250,.6);background:rgba(124,58,237,.14);color:#e9d5ff;font-weight:700;font-size:12px;cursor:pointer;font-family:inherit}
 .hab-card.obrig{border-color:rgba(245,158,11,.5)}
 .hab-dot.off{opacity:.3}
 .nivel-chip{background:linear-gradient(135deg,rgba(245,158,11,.16),rgba(124,58,237,.16))!important;color:var(--txt)!important;border-color:rgba(245,158,11,.4)!important}
@@ -6198,6 +6216,7 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
 
     <!-- PANE: HÁBITOS -->
     <div class="rt-pane" id="rtHabitos">
+      <div class="pacto hidden" id="pactoBox"></div>
       <div class="section-head tight">
         <h2><span data-ic="target"></span> Hábitos</h2>
         <div class="spacer"></div>
@@ -7020,6 +7039,7 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
       <div class="field"><label>Unidade</label><input type="text" id="hbUnidade" placeholder="copos, min, km..."></div>
     </div>
     <div style="font-size:11px;color:var(--muted);margin:-6px 0 12px" id="hbMetaHint">Sem meta = hábito simples (só marcar feito). Com meta, você registra a quantidade (ex: 6 de 8 copos) e conta quando bate a meta.</div>
+    <div class="field" id="hbMinimoField"><label>Versão de 2 minutos (opcional)</label><input type="text" id="hbMinimo" placeholder="Ex: 1 página, 10 agachamentos, 1 copo"><div class="ts-hint">No dia difícil o app oferece só isso. Fazer o mínimo conta como feito e segura a sequência.</div></div>
     <div class="field"><label>Prioridade</label>
       <div class="hb-freq hb-pri" id="hbPri">
         <button type="button" data-p="alta">Alta</button>
@@ -7346,7 +7366,7 @@ const SUPABASE_ANON_KEY = "sb_publishable_UT3JXTS5_4iSN8dFidy_5Q_YaM-Y6Ul";   //
    Preencha com SEU contato. Deixe vazio p/ esconder o botão.
    WhatsApp: só números, com DDI 55. Ex: "5511999998888" */
 const APP_NOME         = "FinanceOS";                          // <-- NOME DO APP (sua marca). Só você muda aqui; o cliente não altera.
-const APP_VERSION      = "2026-10-15.243";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
+const APP_VERSION      = "2026-10-15.244";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
 const SUPORTE_WHATSAPP = "5561991674530";                      // WhatsApp do suporte (Marco)
 const SUPORTE_EMAIL    = "atendimento@thrustmarketing.com.br"; // e-mail do suporte
 const KIWIFY_CHECKOUT_URL = "/";       // nossa página de vendas (raiz do site) com os 3 planos
@@ -7839,6 +7859,118 @@ function renderVilaPote(){
     registrarDia(); saveState(); render(); toast(money(p.total)+' guardados. A casa perdeu dessa vez 😄');
   };
 }
+/* ---------- habito que nunca zera: congelamento automatico (2/mes), reparo (2 dias seguidos) e versao de 2 minutos ---------- */
+function _ymOf(k){ return k.slice(0,7); }
+function _gelosNoMes(h,ym){ let n=0; Object.keys(h.historico||{}).forEach(k=>{ if(k.slice(0,7)===ym&&h.historico[k]==='gelo')n++; }); return n; }
+function _habMiss(h,k){ // o dia k foi uma falha "perdoavel"? (esperado, nao feito, nao congelado, nao "ocorreu" explicito)
+  const v=(h.historico||{})[k];
+  if(habitFeito(h,k)||v==='gelo')return false;
+  if(h.evitar&&v===-1)return false; // deslize assumido: nao se congela
+  return true;
+}
+function _habManutencao(habs){
+  const hoje=_rotKey(0), ontem=_rotKey(-1);
+  (habs||[]).forEach(h=>{
+    if(!h||!h.historico)h.historico={};
+    const f=habFreq(h); if(f.tipo==='semana')return; // sequencia por semana nao precisa
+    const desde=_habDesde(h); let k=ontem, g=0, feitosDesde=0, quebra=null, mudou=false;
+    for(let i=0;i<60;i++){
+      if(desde&&k<desde)break;
+      if(habDiaConta(h,k,desde)){
+        if(habitFeito(h,k)){ if(!quebra)feitosDesde++; }
+        else if(h.historico[k]==='gelo'){ /* ok */ }
+        else if(_habMiss(h,k)){
+          if(!quebra){
+            // congela automaticamente ate 2 vezes por mes; so dias de ate 3 dias atras (o passado distante fica como esta)
+            const ym=_ymOf(k);
+            if(g<3&&_gelosNoMes(h,ym)<2){ h.historico[k]='gelo'; mudou=true; }
+            else { quebra={dia:k}; }
+          }
+        }
+      }
+      if(quebra&&quebra.dia===k){ // a quebra pode ser uma sequencia de dias perdidos; quanto era a sequencia antes deles
+        quebra.dias=[k]; let kk=_stkAdd(k,-1), gg=0, n=0, pulando=true;
+        while(gg++<400){ if(desde&&kk<desde)break;
+          if(habDiaConta(h,kk,desde)){
+            if(pulando){ if(_habMiss(h,kk)){ if(quebra.dias.length<7)quebra.dias.push(kk); kk=_stkAdd(kk,-1); continue; } pulando=false; }
+            if(habitFeito(h,kk))n++; else if(h.historico[kk]==='gelo'){} else break;
+          }
+          kk=_stkAdd(kk,-1); }
+        quebra.anterior=n; break;
+      }
+      k=_stkAdd(k,-1); g++;
+    }
+    if(quebra&&quebra.anterior>=3){
+      const ym=_ymOf(hoje); if(!h.reparos)h.reparos={};
+      if(feitosDesde>=2&&!(h.reparos[ym])&&quebra.dias.length<=7){ quebra.dias.forEach(d=>{ h.historico[d]='gelo'; }); h.reparos[ym]=1; if(!h.reparoDias)h.reparoDias=[]; h.reparoDias=h.reparoDias.concat(quebra.dias).slice(-30); delete h.quebra; mudou=true; setTimeout(()=>toast('🔧 '+(h.nome||'Hábito')+': sequência de '+quebra.anterior+' dias recuperada!'),400); }
+      else if(!h.reparos[ym]){ h.quebra={dia:quebra.dia,anterior:quebra.anterior,feitos:feitosDesde}; }
+      else delete h.quebra;
+    } else delete h.quebra;
+    if(mudou)saveState();
+  });
+}
+function _habExtraHtml(h,feito,st,tk){
+  let out='';
+  const ym=_ymOf(tk), gel=_gelosNoMes(h,ym);
+  if(h.quebra&&!feito)out+='<div class="hab-warn hab-rep">🔧 Quebrou uma sequência de '+h.quebra.anterior+' dias. Dois dias seguidos e ela volta'+(h.quebra.feitos?(' (já vai '+h.quebra.feitos+' de 2)'):'')+'.</div>';
+  else if(h.quebra&&feito)out+='<div class="hab-warn hab-rep">🔧 Mais um dia e a sequência de '+h.quebra.anterior+' dias volta.</div>';
+  const rep=(h.reparoDias||[]).filter(d=>d.slice(0,7)===ym).length, gelAuto=Math.min(2,Math.max(0,gel-rep));
+  if(gelAuto>0||rep>0)out+='<div class="hab-sub hab-gelo">'+(gelAuto>0?('🧊 '+gelAuto+' de 2 congelamentos usados este mês'):'')+(gelAuto>0&&rep>0?' · ':'')+(rep>0?'🔧 reparo usado este mês':'')+'</div>';
+  const P=window.__prt; const difícil=P&&P.faixa!=='verde';
+  if(h.minimo&&!feito&&(difícil||st>=3))out+='<div class="hab-min">⚡ '+(difícil?'Dia difícil? Vale o mínimo: ':'Sem tempo? Vale o mínimo: ')+'<b>'+escapeHtml(h.minimo)+'</b><button type="button" class="hab-min-btn" data-id="'+h.id+'">Fiz o mínimo</button></div>';
+  return out;
+}
+function fazerMinimo(id){
+  const h=(STATE.habitos||[]).find(x=>x.id===id); if(!h)return; if(!h.historico)h.historico={}; const tk=_rotKey(0);
+  const meta=+h.meta||0; h.historico[tk]=meta>0?meta:true; if(!h.minimos)h.minimos={}; h.minimos[tk]=true; _habTs(h,tk);
+  registrarDia(); saveState(); renderRotina(); toast('Mínimo feito. Sequência mantida ✓ ('+(h.minimo||'')+')');
+}
+/* ---------- pacto da semana: um habito em foco ---------- */
+function _pactoAtual(){ const p=STATE.pacto; return (p&&p.semana===_weekMonday(0)&&(STATE.habitos||[]).some(h=>h.id===p.habitoId))?p:null; }
+function renderPacto(habs){
+  const box=document.getElementById('pactoBox'); if(!box)return;
+  if(!habs||!habs.length){ box.classList.add('hidden'); return; }
+  box.classList.remove('hidden');
+  const p=_pactoAtual(), wid=_weekMonday(0);
+  if(!p){
+    const opts=habs.map(h=>'<option value="'+h.id+'">'+(h.emoji||'')+' '+escapeHtml(h.nome||'')+'</option>').join('');
+    const ult=(STATE.pactos||{}); const ks=Object.keys(ult).sort(); const last=ks.length?ult[ks[ks.length-1]]:null;
+    box.innerHTML='<div class="pacto-l"><div class="pacto-t">⭐ Pacto da semana</div><div class="pacto-s">Escolha <b>um</b> hábito pra não falhar essa semana. Um foco funciona melhor que cinco.'+(last?(last.ok?' Semana passada: pacto cumprido ✓':' Semana passada: quase. Bora de novo.'):'')+'</div></div><div class="pacto-r"><select id="pactoSel">'+opts+'</select><button type="button" class="btn-add sm" id="pactoOk">Fechar pacto</button></div>';
+    document.getElementById('pactoOk').onclick=()=>{ STATE.pacto={semana:wid,habitoId:document.getElementById('pactoSel').value}; saveState(); renderRotina(); toast('Pacto fechado. Essa semana esse não falha ⭐'); };
+    if(typeof prettifyAllSelects==='function')try{ prettifyAllSelects(box); }catch(e){}
+    return;
+  }
+  const h=habs.find(x=>x.id===p.habitoId); const dias=_bsDias(wid,false); const pr=habProgresso(h,dias);
+  const gelos=dias.filter(k=>(h.historico||{})[k]==='gelo').length; const esperado=Math.max(0,pr.esperado-gelos);
+  const hojeFeito=habitFeito(h,_rotKey(0)); const wd=new Date().getDay();
+  const cumprido=pr.feito>=esperado&&esperado>0;
+  if(wd===0&&cumprido){ if(!STATE.pactos)STATE.pactos={}; if(!STATE.pactos[wid]){ STATE.pactos[wid]={habitoId:h.id,ok:true}; saveState(); setTimeout(()=>{ toast('⭐ Pacto da semana cumprido: '+(h.nome||'')+'!'); if(typeof confetti==='function')confetti(); },300); } }
+  box.innerHTML='<div class="pacto-l"><div class="pacto-t">⭐ Pacto da semana: '+(h.emoji||'')+' '+escapeHtml(h.nome||'')+'</div><div class="pacto-s">'+pr.feito+' de '+esperado+' dia'+(esperado===1?'':'s')+' até agora'+(hojeFeito?' · hoje feito ✓':' · hoje ainda não')+(cumprido&&wd===0?' · <b>cumprido ✓</b>':'')+'</div></div><div class="pacto-r"><div class="pacto-bar"><i style="width:'+(esperado?Math.min(100,Math.round(pr.feito/esperado*100)):0)+'%"></i></div><button type="button" class="pacto-x" id="pactoTrocar" title="Trocar">trocar</button></div>';
+  document.getElementById('pactoTrocar').onclick=()=>{ if(!confirm('Trocar o pacto desta semana?'))return; STATE.pacto=null; saveState(); renderRotina(); };
+}
+/* ---------- treino guiado pela prontidao ---------- */
+function _twDiasSeguidos(){ let n=0; for(let i=1;i<=14;i++){ const k=_rotKey(-i); const v=(STATE.treinos||{})[k]; if(v&&(v===true||v.feito!==false))n++; else break; } return n; }
+function _twPrtBanner(s,ss){
+  let b=document.getElementById('twPrt'); const hero=document.getElementById('twHero'); if(!hero)return;
+  if(!b){ b=document.createElement('div'); b.id='twPrt'; b.className='tw-prt hidden'; hero.parentNode.insertBefore(b,hero); }
+  const P=window.__prt; const seg=_twDiasSeguidos();
+  if(ss||(s&&s.feito)){ b.classList.add('hidden'); return; }
+  let html='';
+  if(P&&(P.sonoRuim||P.humorRuim)&&P.faixa!=='verde'){
+    html='<div class="tw-prt-ic">🛌</div><div class="tw-prt-t"><b>Hoje: treino leve ou descanso.</b><span>'+(P.sonoRuim?'Você dormiu pouco':'Você acordou mal')+(P.sonoRuim&&P.humorRuim?' e acordou mal':'')+'. Uma caminhada ou 15 minutos de alongamento contam como treino e seguram a sua semana. Sem culpa.</span></div><button type="button" class="btn-ghost sm" id="twPrtLeve">Registrar treino leve</button>';
+  } else if(seg>=3){
+    html='<div class="tw-prt-ic">🔋</div><div class="tw-prt-t"><b>'+seg+' dias seguidos de treino.</b><span>Descanso hoje também é treino: é no descanso que o músculo cresce. Se for treinar, vai leve.</span></div>';
+  }
+  if(!html){ b.classList.add('hidden'); return; }
+  b.innerHTML=html; b.classList.remove('hidden');
+  const l=document.getElementById('twPrtLeve'); if(l)l.onclick=()=>{ try{ abrirFolhaTreino(_rotKey(0)); }catch(e){ twHeroSecundario(); } };
+}
+/* ---------- rotina de dormir: 3 noites ruins seguidas -> sugere o habito a evitar ---------- */
+function _sugestaoDormir(P){
+  const ks=[_rotKey(0),_rotKey(-1),_rotKey(-2)]; const ruins=ks.filter(k=>P[k]&&P[k].sono===0).length;
+  if(ruins<3)return ''; if((STATE.habitos||[]).some(h=>/celular depois/i.test(h.nome||'')))return '';
+  return '<div class="prt-dormir">🌙 Três noites ruins seguidas. O que mais rouba sono é o celular na cama. <button type="button" id="prtDormir">Criar "Celular depois das 23h" como hábito a evitar</button></div>';
+}
 /* ---------- D) prontidao do dia ---------- */
 let _vermelhoOk=false;
 function _diasAtePagamento(){
@@ -7893,8 +8025,9 @@ function renderProntidao(d){
   const ruins=[humorRuim,sonoRuim,rotinaRuim,dinheiroRuim,prazoRuim].filter(Boolean).length;
   let faixa='verde'; if((humorRuim||sonoRuim)&&(dinheiroRuim||prazoRuim))faixa='vermelho'; else if(ruins>0)faixa='amarelo';
   const limiar=Math.max(50,Math.round(dn.porDia||50));
-  window.__prt={faixa,limiar};
+  window.__prt={faixa,limiar,humorRuim,sonoRuim};
   const meta=(STATE.goals||[]).find(g=>goalSaved(g.id)<(+g.alvo||0));
+  const dormir=_sugestaoDormir(P);
   const guardar=Math.max(10,Math.round((dn.porDia||0)*0.2/5)*5);
   const titulo={verde:'Dia de guardar.',amarelo:'Só o básico hoje.',vermelho:'Hoje não decida nada grande.'}[faixa];
   const motivo=[humorRuim?'você acordou mal':'',sonoRuim?'dormiu pouco':'',rotinaRuim?'ontem escapou da rotina':'',dinheiroRuim?'o livre pra hoje está baixo':'',prazoRuim?('o pagamento é só daqui a '+dp+' dia'+(dp===1?'':'s')):''].filter(Boolean);
@@ -7906,8 +8039,9 @@ function renderProntidao(d){
   }[faixa];
   const dots=[['Humor',!humorRuim],['Sono',!sonoRuim],['Rotina',!rotinaRuim],['Livre pra hoje',!dinheiroRuim],['Pagamento',!prazoRuim]].map(x=>'<span class="prt-dot'+(x[1]?' ok':' bad')+'"><i></i>'+x[0]+'</span>').join('');
   el.className='prt '+faixa;
-  el.innerHTML='<div class="prt-head"><div class="prt-main"><div class="prt-lbl">Prontidão do dia</div><div class="prt-t">'+titulo+'</div><div class="prt-a">'+acao+'</div></div><div class="prt-dots">'+dots+'</div><button type="button" class="prt-x" id="prtOff" title="Não mostrar">×</button></div>'+estHtml;
+  el.innerHTML='<div class="prt-head"><div class="prt-main"><div class="prt-lbl">Prontidão do dia</div><div class="prt-t">'+titulo+'</div><div class="prt-a">'+acao+'</div>'+dormir+'</div><div class="prt-dots">'+dots+'</div><button type="button" class="prt-x" id="prtOff" title="Não mostrar">×</button></div>'+estHtml;
   const g=document.getElementById('prtGuardar'); if(g)g.onclick=()=>_prtPrefill('Guardado na reserva',guardar,'Poupança',(cats().find(c=>/invest|reserva|poup/i.test(c.nome))||{nome:''}).nome);
+  const sd=document.getElementById('prtDormir'); if(sd)sd.onclick=()=>{ if(!STATE.habitos)STATE.habitos=[]; STATE.habitos.push({id:uid(),nome:'Celular depois das 23h',emoji:'📱',meta:0,unidade:'',freq:{tipo:'diario',vezes:3,dias:[]},regra2:true,prioridade:'alta',evitar:true,minimo:'',historico:{},criadoEm:_rotKey(0)}); saveState(); render(); toast('Criado em Rotina › Para evitar. Marque todo dia como foi 🌙'); };
   bindEst();
 }
 function _semDadosNenhum(){ try{ return !(STATE.fixas&&STATE.fixas.length)&&!Object.values(STATE.months||{}).some(m=>m&&m.tx&&m.tx.length); }catch(e){ return false; } }
@@ -10757,7 +10891,7 @@ function ensureYearFixas(y){let a=false;for(let m=0;m<12;m++){if(ensureMonthFixa
    ROTINA: hábitos (com sequência) + tarefas
    ============================================================ */
 function _rotKey(off){ const d=new Date(); if(off)d.setDate(d.getDate()+off); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
-function habitFeito(h,dia){ const v=(h.historico||{})[dia]; if(h&&h.evitar)return v===true; /* a evitar: true = evitei, -1 = ocorreu */ const meta=+h.meta||0; return meta>0 ? ((+v||0)>=meta) : !!v; }
+function habitFeito(h,dia){ const v=(h.historico||{})[dia]; if(h&&h.evitar)return v===true; /* a evitar: true = evitei, -1 = ocorreu */ const meta=+h.meta||0; return meta>0 ? ((+v||0)>=meta) : (!!v&&v!=='gelo'); }
 /* ---- frequência do hábito (todo dia / x vezes por semana / dias fixos), regra dos 2 dias, taxa e nível ---- */
 function habFreq(h){ const f=(h&&h.freq)||{}; const tipo=['diario','semana','dias'].includes(f.tipo)?f.tipo:'diario'; return {tipo,vezes:Math.max(1,Math.min(7,parseInt(f.vezes,10)||3)),dias:Array.isArray(f.dias)?f.dias.map(Number).filter(d=>d>=0&&d<=6):[]}; }
 function _wdOf(k){ const [y,m,d]=k.split('-').map(Number); return new Date(y,m-1,d).getDay(); }
@@ -10803,6 +10937,7 @@ function habitStreak(h){
     if(habDiaConta(h,k,desde)){
       if(habitFeito(h,k)){ n++; pulos=0; }
       else if(k===hoje){ /* hoje ainda dá tempo: não conta nem quebra */ }
+      else if((h.historico||{})[k]==='gelo'){ /* congelado (automatico ou reparo): nao conta, nao quebra */ }
       else if(h.regra2&&pulos===0){ pulos=1; } // um pulo isolado é perdoado
       else break;
     }
@@ -10864,6 +10999,8 @@ function drSalvar(porCarinha){
 }
 function renderRotina(){  const habs=STATE.habitos||[], tars=STATE.tarefas||[];
   const list=document.getElementById('habitosList'), hEmpty=document.getElementById('habitosEmpty');
+  try{ _habManutencao(habs); }catch(e){ console.warn('manutencao habitos',e); }
+  try{ renderPacto(habs); }catch(e){ console.warn('pacto',e); }
   if(list){
     list.innerHTML='';
     if(typeof _htm!=='undefined'&&_htm&&!habs.some(x=>x.id===_htm.id)){ _htm=null; _htmSalvar(); _htmWakeOff(); _htmFechar(); } // cronometro de habito que sumiu (excluido aqui, em Ajustes ou em outro aparelho): para tudo
@@ -10876,13 +11013,13 @@ function renderRotina(){  const habs=STATE.habitos||[], tars=STATE.tarefas||[];
       fazer.forEach(h=>{
         const meta=+h.meta||0, feito=habitFeito(h,tk), st=habitStreak(h), f=habFreq(h), desde=_habDesde(h);
         let week='';
-        for(let k=-6;k<=0;k++){ const kk=_rotKey(k); const on=habitFeito(h,kk); week+='<span class="hab-dot'+(on?' on':(habDiaConta(h,kk,desde)?'':' off'))+'"></span>'; }
+        for(let k=-6;k<=0;k++){ const kk=_rotKey(k); const on=habitFeito(h,kk); const gv=(h.historico||{})[kk]; week+='<span class="hab-dot'+(on?' on':(gv==='gelo'?' ice':(habDiaConta(h,kk,desde)?'':' off')))+'"'+(gv==='gelo'?' title="Dia congelado: não contou nem quebrou"':'')+'></span>'; }
         const semCount=(f.tipo==='semana')?habSemanaCount(h,_weekMonday(0)):0;
         const freqTxt=f.tipo==='semana'?(f.vezes+'x por semana · '+Math.min(semCount,f.vezes)+' de '+f.vezes+' esta semana'+(semCount>=f.vezes?' ✓':'')+(semCount>f.vezes?' (+'+(semCount-f.vezes)+')':'')):(f.tipo==='dias'?('Dias: '+[1,2,3,4,5,6,0].filter(d=>f.dias.includes(d)).map(d=>TW_WD[d]).join(', ')):'');
         const tx=habTaxa(h);
         const rate=tx.atual!=null?('<span class="hab-rate" title="Taxa das últimas 4 semanas'+(tx.ant!=null?' (4 semanas antes: '+Math.round(tx.ant*100)+'%)':'')+'">'+Math.round(tx.atual*100)+'%'+(tx.ant==null?'':(tx.atual>tx.ant+0.02?' ▲':(tx.atual<tx.ant-0.02?' ▼':' =')))+'</span>'):'';
         const obrig=!feito&&habObrigatorioHoje(h);
-        const subFreq=((freqTxt&&!(meta===0&&f.tipo==='semana'))?'<div class="hab-sub hab-freq-lbl">'+freqTxt+'</div>':'')+(obrig?'<div class="hab-warn">⚠️ Hoje é obrigatório pra manter '+st+(st===1?' dia':' dias')+' (regra dos 2 dias)</div>':'');
+        const subFreq=((freqTxt&&!(meta===0&&f.tipo==='semana'))?'<div class="hab-sub hab-freq-lbl">'+freqTxt+'</div>':'')+(obrig?'<div class="hab-warn">⚠️ Hoje é obrigatório pra manter '+st+(st===1?' dia':' dias')+' (regra dos 2 dias)</div>':'')+_habExtraHtml(h,feito,st,tk);
         let left, extra='';
         if(meta>0){
           const hoje=+((h.historico||{})[tk])||0, pct=Math.min(100,hoje/meta*100);
@@ -10906,9 +11043,10 @@ function renderRotina(){  const habs=STATE.habitos||[], tars=STATE.tarefas||[];
           }
         }
         const el=document.createElement('div');
-        el.className='hab-card'+(feito?' done':'')+(obrig?' obrig':'');
+        const ehPacto=_pactoAtual()&&_pactoAtual().habitoId===h.id;
+        el.className='hab-card'+(feito?' done':'')+(obrig?' obrig':'')+(ehPacto?' pacto':'');
         el.innerHTML=left+
-          '<div class="hab-info"><div class="hab-name">'+(meta>0?'':(h.emoji||'🔥')+' ')+escapeHtml(h.nome||'')+rate+(_htmEhMin(h)?_htmChipHtml(h):'')+'</div>'+extra+subFreq+'<div class="hab-week">'+week+'</div></div>'+
+          '<div class="hab-info"><div class="hab-name">'+(meta>0?'':(h.emoji||'🔥')+' ')+escapeHtml(h.nome||'')+(ehPacto?' <span class="hab-pacto-star" title="Pacto da semana">⭐</span>':'')+rate+(_htmEhMin(h)?_htmChipHtml(h):'')+'</div>'+extra+subFreq+'<div class="hab-week">'+week+'</div></div>'+
           '<div class="hab-streak">🔥 '+st+'<small>'+(f.tipo==='semana'?(st===1?'semana':'semanas'):(st===1?'dia':'dias'))+'</small></div>'+
           '<button class="icon-btn hab-edit" data-id="'+h.id+'" title="Editar">✏️</button>'+
           '<button class="icon-btn del" data-id="'+h.id+'">🗑️</button>';
@@ -10938,6 +11076,7 @@ function renderRotina(){  const habs=STATE.habitos||[], tars=STATE.tarefas||[];
         });
         list.querySelectorAll('.hab-av').forEach(b=>b.onclick=()=>marcarEvitar(b.dataset.id,b.dataset.v==='1'));
       }
+      list.querySelectorAll('.hab-min-btn').forEach(b=>b.onclick=()=>fazerMinimo(b.dataset.id));
       list.querySelectorAll('.hab-check').forEach(b=>b.onclick=()=>toggleHabito(b.dataset.id));
       list.querySelectorAll('.hab-tap').forEach(b=>b.onclick=()=>addHabitoQtd(b.dataset.id,1));
       list.querySelectorAll('.hab-minus').forEach(b=>b.onclick=()=>addHabitoQtd(b.dataset.id,-1));
@@ -11044,6 +11183,7 @@ function openHabitoModal(id){
   document.getElementById('hbNome').value=h?(h.nome||''):'';
   document.getElementById('hbMeta').value=(h&&h.meta)?h.meta:'';
   document.getElementById('hbUnidade').value=h?(h.unidade||''):'';
+  { const mi=document.getElementById('hbMinimo'); if(mi)mi.value=h?(h.minimo||''):''; }
   { const p=(h&&['alta','media','baixa'].includes(h.prioridade))?h.prioridade:'media';
     document.querySelectorAll('#hbPri button').forEach(b=>b.classList.toggle('on',b.dataset.p===p));
     document.querySelectorAll('#hbPri button').forEach(b=>b.onclick=()=>document.querySelectorAll('#hbPri button').forEach(x=>x.classList.toggle('on',x===b))); }
@@ -11056,12 +11196,12 @@ function openHabitoModal(id){
 }
 function closeHabitoModal(){ document.getElementById('habitoModal').classList.add('hidden'); editingHabitoId=null; }
 let hbTipoSel='fazer';
-const SUG_EVITAR=[['🍺','Álcool'],['🍬','Açúcar'],['📱','Rede social à toa'],['🚬','Cigarro'],['🛵','Delivery'],['☕','Café depois das 15h'],['🛒','Compra por impulso'],['🎰','Aposta'],['🍟','Fast food'],['🌙','Dormir depois da meia-noite']];
+const SUG_EVITAR=[['📱','Celular depois das 23h'],['🍺','Álcool'],['🍬','Açúcar'],['📱','Rede social à toa'],['🚬','Cigarro'],['🛵','Delivery'],['☕','Café depois das 15h'],['🛒','Compra por impulso'],['🎰','Aposta'],['🍟','Fast food'],['🌙','Dormir depois da meia-noite']];
 function hbSetTipo(t){
   hbTipoSel=(t==='evitar')?'evitar':'fazer'; const ev=hbTipoSel==='evitar';
   document.querySelectorAll('#hbTipo button').forEach(b=>b.classList.toggle('on',b.dataset.t===hbTipoSel));
   const q=id=>document.getElementById(id);
-  if(q('hbMetaRow'))q('hbMetaRow').classList.toggle('hidden',ev); if(q('hbMetaHint'))q('hbMetaHint').classList.toggle('hidden',ev);
+  if(q('hbMetaRow'))q('hbMetaRow').classList.toggle('hidden',ev); if(q('hbMetaHint'))q('hbMetaHint').classList.toggle('hidden',ev); if(q('hbMinimoField'))q('hbMinimoField').classList.toggle('hidden',ev);
   if(q('hbFreqField'))q('hbFreqField').classList.toggle('hidden',ev); if(ev)hbSetFreq('diario');
   if(q('hbNome'))q('hbNome').placeholder=ev?'Ex: Açúcar, Delivery, Rede social...':'Ex: Ler, Meditar, Dormir cedo...';
   const rg=document.querySelector('#hbRegraRow small'); if(rg)rg.textContent=ev?'Um deslize isolado não zera a contagem. Dois dias seguidos, sim.':'Pular um dia não quebra a sequência. Dois dias seguidos, sim. No dia seguinte ao pulo, o app avisa que é obrigatório.';
@@ -11094,7 +11234,8 @@ function saveHabito(){
   const freq={tipo:hbFreqSel,vezes:Math.max(1,Math.min(7,parseInt(document.getElementById('hbVezes').value,10)||3)),dias:Array.from(document.querySelectorAll('#hbDias button.on')).map(b=>+b.dataset.d)};
   if(freq.tipo==='dias'&&!freq.dias.length){ toast('Escolha pelo menos um dia da semana'); return; }
   const regra2=freq.tipo!=='semana'&&!!document.getElementById('hbRegra2').checked;
-  const evitar=hbTipoSel==='evitar'; const campos=evitar?{nome,emoji,meta:0,unidade:'',freq:{tipo:'diario',vezes:3,dias:[]},regra2:!!document.getElementById('hbRegra2').checked,prioridade,evitar:true}:{nome,emoji,meta,unidade,freq,regra2,prioridade,evitar:false};
+  const minimo=(document.getElementById('hbMinimo')||{value:''}).value.trim().slice(0,60);
+  const evitar=hbTipoSel==='evitar'; const campos=evitar?{nome,emoji,meta:0,unidade:'',freq:{tipo:'diario',vezes:3,dias:[]},regra2:!!document.getElementById('hbRegra2').checked,prioridade,evitar:true,minimo:''}:{nome,emoji,meta,unidade,freq,regra2,prioridade,evitar:false,minimo};
   if(!STATE.habitos)STATE.habitos=[];
   if(editingHabitoId){ const h=STATE.habitos.find(x=>x.id===editingHabitoId); if(h)Object.assign(h,campos); }
   else STATE.habitos.push(Object.assign({id:uid(),historico:{},criadoEm:_rotKey(0)},campos));
@@ -11232,6 +11373,7 @@ function renderTreino(){
   const s=treinoHojeStatus(), ss=_sessAtiva();
   const hero=document.getElementById('twHero'), ht=document.getElementById('twHeroTitle'), hs=document.getElementById('twHeroSub'), btn=document.getElementById('treinoHojeBtn'), sec=document.getElementById('twHeroSec');
   hero.className='tw-hero';
+  try{ _twPrtBanner(s,ss); }catch(e){ console.warn('tw prontidao',e); }
   if(ss){ hero.classList.add('sessao'); const pl=_twPlano(ss.nome); ht.textContent='Treino '+(ss.nome?_treinoNomeFmt(ss.nome).replace(/^Treino /,''):'')+' em andamento'; hs.innerHTML='<span class="tw-sess-timer" id="twSessTimer">'+_sessFmt()+'</span>'+(pl?' · '+(ss.exFeitos||[]).length+' de '+pl.exercicios.length+' exercícios':'')+' · começou às '+new Date(ss.inicio).toTimeString().slice(0,5); btn.textContent='Abrir treino'; btn.classList.remove('on-done'); if(sec){ sec.textContent='Finalizar treino'; sec.classList.remove('hidden'); } _sessGarantirTimer(); }
   else if(s.feito){ hero.classList.add('feito'); ht.textContent='Treino de hoje feito ✓'; const parts=[]; if(s.hoje.nome)parts.push(_treinoNomeFmt(s.hoje.nome)); if(s.hoje.min)parts.push(_fmtMin(s.hoje.min)); parts.push(s.semFeitos+' de '+s.meta+' nesta semana'); hs.textContent=parts.join(' · '); btn.textContent='Treino de hoje ✓ · editar'; btn.classList.add('on-done'); if(sec)sec.classList.add('hidden'); }
   else{ btn.classList.remove('on-done'); btn.textContent='Iniciar treino'+(s.proximo?' '+s.proximo:''); if(sec){ sec.textContent='Já treinei, só registrar'; sec.classList.remove('hidden'); }
