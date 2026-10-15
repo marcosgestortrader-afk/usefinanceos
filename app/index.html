@@ -1877,7 +1877,10 @@ html{scrollbar-gutter:stable} /* barra de rolagem sempre com espaço reservado: 
 .sw-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;font-size:13px;color:var(--muted);flex-wrap:wrap}
 .sw-cta{color:var(--txt);font-weight:800;font-family:var(--font-head);font-size:13px}
 /* faixa fina (qua a sáb): tudo em uma linha, sem o peso do card completo */
-.sw.compact{padding:12px 18px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;border-radius:16px}
+.sw.compact{padding:12px 18px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;border-radius:16px} /* flex com quebra: em tela de notebook (1000 a 1300px) o rodape desce em vez de espremer os tres mosaicos */
+.sw.compact .sw-head{flex:1 1 280px;min-width:0}
+.sw.compact .sw-grid{flex:999 1 480px;min-width:0}
+.sw.compact .sw-cell b{white-space:nowrap}
 .sw.compact .sw-head{gap:10px}
 .sw.compact .sw-emoji{width:38px;height:38px;font-size:18px;border-radius:11px}
 .sw.compact .sw-tit{font-size:14px;margin-top:2px}
@@ -1889,8 +1892,8 @@ html{scrollbar-gutter:stable} /* barra de rolagem sempre com espaço reservado: 
 .sw.compact .sw-cell b{font-size:13px}
 .sw.compact .sw-cell small{font-size:12px}
 .sw.compact .sw-i{font-size:16px}
-.sw.compact .sw-foot{margin-top:0;flex-direction:column;align-items:flex-end;gap:2px;text-align:right;font-size:12px}
-@media(max-width:980px){.sw.compact{grid-template-columns:1fr;gap:10px}.sw.compact .sw-foot{flex-direction:row;align-items:center;text-align:left}}
+.sw.compact .sw-foot{flex:1 1 240px;margin-top:0;flex-direction:row;align-items:center;justify-content:flex-end;gap:10px;text-align:right;font-size:12px}
+@media(max-width:980px){.sw.compact{gap:10px}.sw.compact .sw-foot{justify-content:flex-start;text-align:left}}
 @media(max-width:560px){.sw.compact .sw-grid{grid-template-columns:1fr 1fr}.sw.compact .sw-cell:nth-child(3){grid-column:1/-1}}
 @media(max-width:760px){.sw-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.sw{padding:14px}.sw-emoji{width:46px;height:46px;font-size:22px;border-radius:13px}.sw-tit{font-size:17px}.sw-grid{gap:8px}}
@@ -7272,7 +7275,7 @@ const SUPABASE_ANON_KEY = "sb_publishable_UT3JXTS5_4iSN8dFidy_5Q_YaM-Y6Ul";   //
    Preencha com SEU contato. Deixe vazio p/ esconder o botão.
    WhatsApp: só números, com DDI 55. Ex: "5511999998888" */
 const APP_NOME         = "FinanceOS";                          // <-- NOME DO APP (sua marca). Só você muda aqui; o cliente não altera.
-const APP_VERSION      = "2026-10-15.238";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
+const APP_VERSION      = "2026-10-15.239";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
 const SUPORTE_WHATSAPP = "5561991674530";                      // WhatsApp do suporte (Marco)
 const SUPORTE_EMAIL    = "atendimento@thrustmarketing.com.br"; // e-mail do suporte
 const KIWIFY_CHECKOUT_URL = "/";       // nossa página de vendas (raiz do site) com os 3 planos
