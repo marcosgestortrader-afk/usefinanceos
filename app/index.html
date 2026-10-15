@@ -929,6 +929,55 @@ tbody tr:hover{background:var(--panel2)}
 .pp-item b{display:block;font-size:13.5px;line-height:1.25}
 .pp-item small{display:block;color:var(--muted);font-size:12px;margin-top:3px;line-height:1.3}
 #iniChip{cursor:pointer}
+/* metas em diarias */
+.gr-dia{display:flex;align-items:baseline;justify-content:center;gap:5px;margin-top:4px}
+.gr-dia b{font-family:var(--font-head);font-size:15px;color:#22d3ee}
+.gr-dia small{font-size:11.5px;color:var(--muted)}
+.lph-dia{margin-top:6px;font-size:12.5px;color:var(--muted)} .lph-dia b{color:#22d3ee}
+.g-dia-hint{font-size:11px;color:var(--muted);margin:-6px 0 12px}
+/* trava com resfriamento */
+.gr-trava{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:6px;font-size:12px;color:var(--muted)}
+.gr-trava button{padding:5px 9px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--muted);font-size:11.5px;font-weight:700;cursor:pointer;font-family:inherit}
+.gr-trava button:hover{border-color:var(--purple);color:var(--txt)}
+.gr-trava.on{color:#fbbf24}
+.gr-lock-menu{display:inline-flex;gap:5px}
+.gr-lock-badge{font-size:14px;margin-left:4px}
+/* pote das vilas */
+.vila-pote{grid-column:1/-1;display:flex;align-items:center;gap:14px;margin:0 0 4px;padding:12px 16px;border-radius:16px;background:linear-gradient(135deg,rgba(244,63,94,.12),rgba(124,58,237,.08)),var(--panel);border:1px solid rgba(244,63,94,.35)}
+#viewMonth.editando .vila-pote{display:none}
+.vila-pote .vp-ic{font-size:26px;flex:0 0 auto}
+.vila-pote .vp-txt{flex:1;min-width:0} .vila-pote .vp-txt b{display:block;font-family:var(--font-head);font-size:15px} .vila-pote .vp-txt span{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
+.cat-vila-row{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);margin-top:6px} .cat-vila-row input[type=checkbox]{width:16px;height:16px}
+/* prontidao do dia */
+.prt{grid-column:1/-1;margin:0 0 4px;padding:14px 18px;border-radius:18px;border:1px solid var(--line);background:var(--panel);position:relative}
+#viewMonth.editando .prt{display:none}
+.prt.verde{border-color:rgba(34,197,94,.5);background:linear-gradient(135deg,rgba(34,197,94,.14),rgba(6,182,212,.06)),var(--panel)}
+.prt.amarelo{border-color:rgba(245,158,11,.5);background:linear-gradient(135deg,rgba(245,158,11,.14),rgba(124,58,237,.06)),var(--panel)}
+.prt.vermelho{border-color:rgba(244,63,94,.55);background:linear-gradient(135deg,rgba(244,63,94,.16),rgba(124,58,237,.06)),var(--panel)}
+.prt.ask{border-color:rgba(124,58,237,.4);background:linear-gradient(135deg,rgba(124,58,237,.12),rgba(6,182,212,.06)),var(--panel)}
+.prt-lbl{font-size:11.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);font-weight:800}
+.prt-t{font-family:var(--font-head);font-weight:800;font-size:19px;margin-top:2px;letter-spacing:-.3px}
+.prt.verde .prt-t{color:#4ade80} .prt.amarelo .prt-t{color:#fbbf24} .prt.vermelho .prt-t{color:#fb7185}
+.prt-s,.prt-a{font-size:13px;color:var(--muted);margin-top:4px;line-height:1.45} .prt-a b{color:var(--txt)}
+.prt-q,.prt-head{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding-right:30px}
+.prt-main{flex:1 1 320px;min-width:0}
+.prt-opts{display:flex;gap:8px;flex-wrap:wrap}
+.prt-opts button{padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(0,0,0,.16);color:var(--txt);font-weight:700;font-size:13.5px;cursor:pointer;font-family:inherit}
+.prt-opts button:hover{border-color:var(--purple)}
+.prt-act{margin-left:6px;padding:6px 11px;border-radius:9px;border:0;background:var(--grad-orbita);color:#fff;font-weight:800;font-size:12.5px;cursor:pointer;font-family:inherit}
+.prt-dots{display:flex;gap:10px;flex-wrap:wrap}
+.prt-dot{display:flex;align-items:center;gap:5px;font-size:11.5px;color:var(--muted)}
+.prt-dot i{width:9px;height:9px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,.5)} .prt-dot.bad i{background:#f43f5e;box-shadow:0 0 8px rgba(244,63,94,.5)}
+.prt-x{position:absolute;top:10px;right:10px;width:26px;height:26px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--muted);font-size:16px;line-height:1;cursor:pointer}
+.prt-est{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);display:flex;gap:8px 14px;flex-wrap:wrap;align-items:center;font-size:12.5px}
+.prt-est small{color:var(--muted);text-transform:uppercase;letter-spacing:.5px;font-size:10.5px;font-weight:800}
+.prt-est span{display:inline-flex;align-items:center;gap:6px}
+.prt-est button{padding:4px 8px;border-radius:7px;border:1px solid var(--line);background:transparent;color:var(--txt);font-size:11.5px;font-weight:700;cursor:pointer;font-family:inherit}
+.m-vermelho{margin:4px 0 12px;padding:12px 14px;border-radius:12px;background:rgba(244,63,94,.12);border:1px solid rgba(244,63,94,.5)}
+.m-vermelho .mv-t{font-weight:800;color:#fb7185;font-size:14px} .m-vermelho .mv-s{font-size:13px;color:var(--txt);margin-top:4px;line-height:1.45} .m-vermelho .mv-s b{color:#fff}
+.m-vermelho .mv-acts{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.m-vermelho .mv-acts button{flex:1;padding:9px 10px;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--txt);font-weight:700;cursor:pointer;font-family:inherit;font-size:13px}
+.m-vermelho .mv-acts #mvAmanha{background:var(--grad-orbita);border-color:transparent;color:#fff}
 .modal-actions{display:flex;gap:10px;margin-top:20px;position:sticky;bottom:0;background:var(--panel);padding-top:12px;margin-bottom:-4px;padding-bottom:4px}
 /* botões Salvar/Cancelar sempre visíveis quando o modal rola (celular com teclado aberto) */
 .modal-actions button{flex:1;padding:12px;border-radius:12px;font-weight:700;font-size:14px}
@@ -5588,10 +5637,12 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
       <button type="button" class="btn-add sm" id="iniOrgDone">Pronto</button>
     </div>
   </div>
+  <section class="prt hidden" id="prontidao"></section>
   <section class="pp hidden" id="primeirosPassos">
     <div class="pp-head"><div class="pp-tt"><div class="pp-t">Primeiros passos</div><div class="pp-s" id="ppSub"></div></div><div class="pp-bar"><i id="ppBar"></i></div><button type="button" class="pp-x" id="ppFechar" title="Esconder" aria-label="Esconder">×</button></div>
     <div class="pp-list" id="ppList"></div>
   </section>
+  <section class="vila-pote hidden" id="vilaPote"></section>
   <section class="ini-bloco" data-bloco="topo" data-nome="Livre pra hoje e Dia registrado">
   <!-- TOPO EM UMA LINHA: Livre pra hoje | Dia registrado (a saudação fica na linha do título, #greetTop) -->
   <div class="topo3">
@@ -6625,6 +6676,11 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
       <button data-ajt="dados">Conta e dados</button>
     </div>
     <div class="aj-pane" id="ajOrcamento">
+    <div class="panel" style="margin-bottom:16px">
+      <h3>Prontidão do dia</h3>
+      <div class="panel-sub">A faixa no Início que cruza como você acordou com o seu dinheiro</div>
+      <label class="hb-regra" style="margin-top:10px"><input type="checkbox" id="ajPrtOn" checked><span><b>Mostrar a Prontidão do dia no Início</b><small>De manhã o app pergunta como você acordou e se dormiu bem, junta com o livre pra hoje e os hábitos, e diz se é dia de guardar, de segurar ou de não decidir nada grande. Em dia vermelho, compras acima do teto pedem confirmação. Humor e sono ficam só na sua conta e nunca saem dela.</small></span></label>
+    </div>
     <!-- Regra 50-30-20 -->
     <div class="panel" style="margin-bottom:16px">
       <h3>Seu orçamento</h3>
@@ -6803,6 +6859,7 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
     <div class="field"><label>Observações</label><input type="text" id="mObs" placeholder="Opcional"></div>
     <div class="field"><label>Comprovante (foto, opcional)</label><input type="file" id="mAnexo" accept="image/*"><div id="mAnexoPreview" style="margin-top:8px"></div></div>
     </div>
+    <div class="m-vermelho hidden" id="mVermelho"></div>
     <div class="modal-actions">
       <button class="btn-cancel" id="mCancel">Cancelar</button>
       <button class="btn-save" id="mSave">Salvar</button>
@@ -7184,7 +7241,11 @@ button.ts-cg-ant:hover{background:rgba(108,126,255,.14);color:var(--txt)}
     <h3 id="goalModalTitle">＋ Nova meta</h3>
     <div class="field"><label>Nome da meta</label><input type="text" id="gNome" placeholder="Ex: carro novo, viagem, reserva de emergência"></div>
     <div class="field"><label>Quanto você quer juntar (R$)</label><input type="number" id="gAlvo" step="0.01" placeholder="Ex: 20000"></div>
-    <div class="field"><label>Quanto você guarda por mês? (R$, opcional)</label><input type="number" id="gAporte" step="0.01" placeholder="Ex: 500"></div>
+    <div class="row2">
+      <div class="field"><label>Quanto você guarda por mês? (R$, opcional)</label><input type="number" id="gAporte" step="0.01" placeholder="Ex: 500"></div>
+      <div class="field"><label>Ou por dia (R$)</label><input type="number" id="gDia" step="0.01" placeholder="Ex: 16,67"></div>
+    </div>
+    <div class="g-dia-hint" id="gDiaHint">Pensar por dia é mais fácil de cumprir: R$ 5 por dia são R$ 150 no mês.</div>
     <div class="field"><label>Rendimento anual esperado (%, opcional)</label><input type="number" id="gRend" step="0.1" placeholder="Ex: 10,5"><div style="font-size:11px;color:var(--muted);margin-top:4px">A poupança rende perto de 7%, Tesouro e CDB perto de 10 a 12% ao ano. Preencha os dois campos pra o app projetar a data da conquista.</div></div>
     <div class="modal-actions">
       <button class="btn-cancel" id="gCancel">Cancelar</button>
@@ -7285,7 +7346,7 @@ const SUPABASE_ANON_KEY = "sb_publishable_UT3JXTS5_4iSN8dFidy_5Q_YaM-Y6Ul";   //
    Preencha com SEU contato. Deixe vazio p/ esconder o botão.
    WhatsApp: só números, com DDI 55. Ex: "5511999998888" */
 const APP_NOME         = "FinanceOS";                          // <-- NOME DO APP (sua marca). Só você muda aqui; o cliente não altera.
-const APP_VERSION      = "2026-10-15.240";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
+const APP_VERSION      = "2026-10-15.241";                       // <-- VERSÃO visível no app (login, Ajustes > Dados, Minha Conta). Mude a cada upload.
 const SUPORTE_WHATSAPP = "5561991674530";                      // WhatsApp do suporte (Marco)
 const SUPORTE_EMAIL    = "atendimento@thrustmarketing.com.br"; // e-mail do suporte
 const KIWIFY_CHECKOUT_URL = "/";       // nossa página de vendas (raiz do site) com os 3 planos
@@ -7712,6 +7773,143 @@ function renderNivelInicio(){
   const c=document.getElementById('iniChip'); if(!c)return;
   try{ const n=nivelCalc(); c.textContent='Nível '+n.nivel+' · '+n.xp.toLocaleString('pt-BR')+' pontos'; c.title='Pontos por hábito feito, dia registrado, treino e semana fechada. Faltam '+n.faltam+' pro nível '+(n.nivel+1)+'.'; c.onclick=()=>switchView('rotina'); }catch(e){}
 }
+/* ---------- A) metas em diarias ---------- */
+function _grDiaHtml(g,pct){ const ap=+g.aporteMensal||0; if(pct>=100||ap<=0)return ''; return '<div class="gr-dia"><b>'+money(ap/30)+'</b><small>por dia</small></div>'; }
+function _resDiaHtml(){ const r=STATE.reserva||{}; const gasto=+r.gasto||0, meses=Math.max(1,+r.meses||6), guardado=+r.guardado||0, prazo=Math.max(1,+r.prazo||12); const meta=gasto*meses, falta=Math.max(0,meta-guardado); if(meta<=0||falta<=0)return ''; return '<div class="gr-dia"><b>'+money(falta/prazo/30)+'</b><small>por dia</small></div>'; }
+function _metasPorDia(){ let mes=0; (STATE.goals||[]).forEach(g=>{ const ap=+g.aporteMensal||0, alvo=+g.alvo||0; if(ap>0&&(alvo<=0||goalSaved(g.id)<alvo))mes+=ap; }); const r=STATE.reserva||{}; const meta=(+r.gasto||0)*Math.max(1,+r.meses||6), falta=Math.max(0,meta-(+r.guardado||0)); if(meta>0&&falta>0)mes+=falta/Math.max(1,+r.prazo||12); return mes/30; }
+function _gDiaBind(){
+  const a=document.getElementById('gAporte'), d=document.getElementById('gDia'); if(!a||!d)return;
+  const fmt=v=>v>0?(Math.round(v*100)/100):'';
+  d.value=fmt((+a.value||0)/30);
+  if(!a.dataset.dia){ a.dataset.dia='1';
+    a.addEventListener('input',()=>{ d.value=fmt((+a.value||0)/30); });
+    d.addEventListener('input',()=>{ a.value=fmt((+d.value||0)*30); }); }
+}
+/* ---------- C) trava com resfriamento de 48 h (metas e reserva) ---------- */
+const TRAVA_H=48;
+function _travada(o){ const t=o&&o.trava; return !!(t&&t.ate&&t.ate>=_rotKey(0)); }
+function _travaFmt(o){ const t=o&&o.trava; if(!t||!t.ate)return ''; const [y,m,d]=t.ate.split('-'); return d+'/'+m+'/'+y.slice(2); }
+function _grTravaHtml(o){
+  if(!o)return '';
+  if(_travada(o)){
+    const t=o.trava; const ped=+t.pedido||0; const h=ped?Math.max(0,TRAVA_H-(Date.now()-ped)/36e5):null;
+    if(ped&&h<=0)return '<div class="gr-trava on"><span>🔒 Trancada até '+_travaFmt(o)+'</span><button type="button" class="gr-unlock-now">Destravar agora</button></div>';
+    if(ped)return '<div class="gr-trava on"><span>⏳ Destrave liberado em '+Math.ceil(h)+' h</span><button type="button" class="gr-unlock-cancel">Desistir do destrave</button></div>';
+    return '<div class="gr-trava on"><span>🔒 Trancada até '+_travaFmt(o)+'</span><button type="button" class="gr-unlock-req">Pedir destrave (48 h)</button></div>';
+  }
+  return '<div class="gr-trava"><button type="button" class="gr-lock-btn">🔒 Trancar</button><span class="gr-lock-menu hidden"><button type="button" data-dias="30">30 dias</button><button type="button" data-dias="90">90 dias</button><button type="button" data-dias="180">6 meses</button><button type="button" data-dias="365">1 ano</button></span></div>';
+}
+function _bindTrava(el,o,done){
+  const q=s=>el.querySelector(s);
+  const lb=q('.gr-lock-btn'); if(lb)lb.onclick=()=>{ q('.gr-lock-menu').classList.toggle('hidden'); };
+  el.querySelectorAll('.gr-lock-menu button').forEach(b=>b.onclick=()=>{ const n=+b.dataset.dias; const d=new Date(); d.setDate(d.getDate()+n); o.trava={ate:d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'),pedido:null}; toast('Trancada até '+_travaFmt(o)+'. Pra mexer antes, o app espera 48 horas.'); done(); });
+  const rq=q('.gr-unlock-req'); if(rq)rq.onclick=()=>{ o.trava.pedido=Date.now(); toast('Pedido feito. Em 48 horas você pode destravar. Se mudar de ideia, é só desistir.'); done(); };
+  const rc=q('.gr-unlock-cancel'); if(rc)rc.onclick=()=>{ o.trava.pedido=null; toast('Boa. Continua trancada 🔒'); done(); };
+  const rn=q('.gr-unlock-now'); if(rn)rn.onclick=()=>{ if(!confirm('Destravar agora? Você perde o selo deste ciclo, o dinheiro continua seu.'))return; o.trava=null; toast('Destravada.'); done(); };
+}
+/* ---------- B) categoria vila: cada gasto nela vira aporte sugerido no pote ---------- */
+function _catVila(nome){ return (cats()||[]).find(c=>c.nome===nome&&c.vila); }
+function _vilaChecar(obj){
+  try{
+    if(!obj||!(obj.tipo==='Necessidades'||obj.tipo==='Desejos'))return;
+    const c=_catVila(obj.categoria); if(!c)return;
+    const dia=obj.date||_rotKey(0); if(!STATE.multas)STATE.multas=[];
+    if(STATE.multas.some(m=>m.dia===dia&&m.categoria===c.nome))return; // uma multa por dia por vila
+    const valor=Math.max(1,+c.multa||10);
+    STATE.multas.push({id:uid(),dia,categoria:c.nome,valor,txId:obj.id||null,aplicada:false});
+    const pote=_potePendente();
+    setTimeout(()=>toast('🚫 '+c.nome+' é vilã: '+money(valor)+' pro pote. Pote do mês: '+money(pote.total)+'.'),1200);
+  }catch(e){ console.warn('vila',e); }
+}
+function _potePendente(){ const k=monthKey(VIEW.year,VIEW.month); const lista=(STATE.multas||[]).filter(m=>!m.aplicada&&m.dia&&m.dia.slice(0,7)===k); return {lista,total:lista.reduce((a,m)=>a+(+m.valor||0),0)}; }
+function _vilaRecentes(n){ const lim=_rotKey(-n); return (STATE.multas||[]).filter(m=>m.dia>=lim).length; }
+function renderVilaPote(){
+  const el=document.getElementById('vilaPote'); if(!el)return;
+  const vilas=(cats()||[]).filter(c=>c.vila);
+  const p=_potePendente();
+  if(!vilas.length||!p.lista.length){ el.classList.add('hidden'); return; }
+  el.classList.remove('hidden');
+  const porCat={}; p.lista.forEach(m=>{ porCat[m.categoria]=(porCat[m.categoria]||0)+1; });
+  const det=Object.keys(porCat).map(k=>k+' '+porCat[k]).join(' · ');
+  el.innerHTML='<div class="vp-ic">🚫</div><div class="vp-txt"><b>Pote das vilãs: '+money(p.total)+' este mês</b><span>'+p.lista.length+' deslize'+(p.lista.length===1?'':'s')+' ('+det+'). Cada um virou aporte sugerido. Transfira pro seu cofrinho e marque aqui.</span></div><button type="button" class="btn-add sm" id="vpGuardar">Guardei na reserva</button>';
+  document.getElementById('vpGuardar').onclick=()=>{
+    const m=curMonth(); const meta=(STATE.goals||[]).find(g=>/reserva/i.test(g.nome||''))||null;
+    m.tx.push({id:uid(),desc:'Pote das vilãs → reserva',date:_rotKey(0),valor:Math.round(p.total*100)/100,tipo:'Poupança',categoria:(cats().find(c=>/invest|reserva|poup/i.test(c.nome))||{nome:'Investimento'}).nome,forma:'Pix',pago:true,obs:p.lista.length+' deslizes em '+MESES[VIEW.month].toLowerCase(),metaId:meta?meta.id:null});
+    p.lista.forEach(x=>x.aplicada=true);
+    registrarDia(); saveState(); render(); toast(money(p.total)+' guardados. A casa perdeu dessa vez 😄');
+  };
+}
+/* ---------- D) prontidao do dia ---------- */
+let _vermelhoOk=false;
+function _diasAtePagamento(){
+  const rendas=(STATE.fixas||[]).filter(f=>f.tipo==='Renda'&&+f.dia>0); if(!rendas.length)return null;
+  const hoje=new Date(); const d=hoje.getDate(); let melhor=null;
+  rendas.forEach(f=>{ const dia=+f.dia; let n; if(dia>=d)n=dia-d; else { const dm=new Date(hoje.getFullYear(),hoje.getMonth()+1,0).getDate(); n=dm-d+dia; } if(melhor===null||n<melhor)melhor=n; });
+  return melhor;
+}
+function _prtDinheiro(d){
+  const info=_hojeInfo(); const bud=STATE.budget||{poup:20}; const metaPoup=d.entradas*(+bud.poup||0)/100; const restante=d.entradas-metaPoup-d.saidas;
+  const porDia=Math.max(0,restante/Math.max(1,info.diasRestantes)); const alvoDia=d.entradas>0?d.entradas/info.diasNoMes:0;
+  return {info,restante,porDia,alvoDia,ruim:d.entradas>0&&(restante<0||porDia<alvoDia*0.5)};
+}
+function _vermelhoPrecisa(obj){ const P=window.__prt; return !!(P&&P.faixa==='vermelho'&&(obj.tipo==='Necessidades'||obj.tipo==='Desejos')&&(+obj.valor||0)>P.limiar); }
+function _vermelhoAviso(obj){
+  const box=document.getElementById('mVermelho'); if(!box){ _vermelhoOk=true; saveTx(); return; }
+  const meta=(STATE.goals||[]).find(g=>goalSaved(g.id)<(+g.alvo||0));
+  box.innerHTML='<div class="mv-t">🔴 Dia vermelho</div><div class="mv-s">Você não acordou bem e o mês está apertado. '+money(+obj.valor||0)+' é mais que o seu teto de hoje.'+(meta?' Faltam <b>'+money(Math.max(0,(+meta.alvo||0)-goalSaved(meta.id)))+'</b> pra <b>'+escapeHtml(meta.nome)+'</b>.':'')+'</div><div class="mv-acts"><button type="button" id="mvAmanha">Deixar pra amanhã</button><button type="button" id="mvOk">Salvar mesmo assim</button></div>';
+  box.classList.remove('hidden'); try{ box.scrollIntoView({block:'nearest'}); }catch(e){}
+  document.getElementById('mvOk').onclick=()=>{ _vermelhoOk=true; saveTx(); };
+  document.getElementById('mvAmanha').onclick=()=>{ if(!STATE.estacionadas)STATE.estacionadas=[]; STATE.estacionadas.push({id:uid(),desc:obj.desc,valor:+obj.valor||0,tipo:obj.tipo,categoria:obj.categoria,forma:obj.forma,criadoEm:_rotKey(0)}); saveState(); closeTxModal(); render(); toast('Estacionada. Amanhã o app pergunta de novo.'); };
+}
+function _prtPrefill(desc,valor,tipo,cat){
+  openTxModal();
+  setTimeout(()=>{ try{ const q=id=>document.getElementById(id); q('mDesc').value=desc; q('mVal').value=valor; if(tipo){ const t=q('mTipo'); if([...t.options].some(o=>o.value===tipo))t.value=tipo; t.dispatchEvent(new Event('change',{bubbles:true})); } if(cat){ const c=q('mCat'); if([...c.options].some(o=>o.value===cat))c.value=cat; c.dispatchEvent(new Event('change',{bubbles:true})); } if(typeof refreshPrettySelects==='function')refreshPrettySelects(q('txModal')); }catch(e){} },80);
+}
+function renderProntidao(d){
+  const el=document.getElementById('prontidao'); if(!el)return;
+  { const chk=document.getElementById('ajPrtOn'); if(chk){ if(!chk.dataset.b){ chk.dataset.b='1'; chk.onchange=()=>{ STATE.prontidaoOff=!chk.checked; saveState(); render(); toast(chk.checked?'Prontidão do dia ligada':'Prontidão do dia desligada'); }; } chk.checked=!STATE.prontidaoOff; } }
+  window.__prt=null;
+  if(STATE.prontidaoOff||_semDadosNenhum()){ el.classList.add('hidden'); return; }
+  const dn=_prtDinheiro(d); if(!dn.info.ehMesAtual){ el.classList.add('hidden'); return; }
+  el.classList.remove('hidden');
+  const k=_rotKey(0); const P=STATE.prontidao=STATE.prontidao||{}; let p=P[k]||null;
+  if(!p||p.humor==null){ const ent=(STATE.diario||[]).find(x=>x.dia===k); if(ent&&ent.mood!=null){ p=P[k]=Object.assign({},p||{},{humor:ent.mood<=1?0:(ent.mood===2?1:2)}); } }
+  const est=(STATE.estacionadas||[]);
+  const estHtml=est.length?('<div class="prt-est"><small>Compras estacionadas</small>'+est.map(e=>'<span><b>'+escapeHtml(e.desc)+'</b> '+money(e.valor)+' <button type="button" data-est-ok="'+e.id+'">Lançar</button><button type="button" data-est-no="'+e.id+'">Desistir</button></span>').join('')+'</div>'):'';
+  const bindEst=()=>{ el.querySelectorAll('[data-est-ok]').forEach(b=>b.onclick=()=>{ const e=est.find(x=>x.id===b.dataset.estOk); if(!e)return; STATE.estacionadas=est.filter(x=>x.id!==e.id); saveState(); _prtPrefill(e.desc,e.valor,e.tipo,e.categoria); }); el.querySelectorAll('[data-est-no]').forEach(b=>b.onclick=()=>{ const e=est.find(x=>x.id===b.dataset.estNo); STATE.estacionadas=est.filter(x=>x.id!==b.dataset.estNo); saveState(); render(); toast(e?(money(e.valor)+' que ficaram no bolso 👏'):'Ok'); }); const x=document.getElementById('prtOff'); if(x)x.onclick=()=>{ if(!confirm('Esconder a Prontidão do dia? Dá pra ligar de novo em Ajustes.'))return; STATE.prontidaoOff=true; saveState(); render(); }; };
+  if(!p||p.humor==null||p.sono==null){
+    const perg=(p&&p.humor!=null);
+    el.className='prt ask';
+    el.innerHTML='<div class="prt-q"><div><div class="prt-lbl">Prontidão do dia</div><div class="prt-t">'+(perg?'E dormiu bem?':'Bom dia. Como você acordou?')+'</div><div class="prt-s">Dois toques. O app usa isso pra te proteger no dia ruim.</div></div><div class="prt-opts">'+(perg?'<button type="button" data-sono="1">😴 Sim</button><button type="button" data-sono="0">🥱 Não</button>':'<button type="button" data-humor="2">😀 Bem</button><button type="button" data-humor="1">😐 Mais ou menos</button><button type="button" data-humor="0">😣 Mal</button>')+'</div><button type="button" class="prt-x" id="prtOff" title="Não mostrar">×</button></div>'+estHtml;
+    el.querySelectorAll('[data-humor]').forEach(b=>b.onclick=()=>{ P[k]=Object.assign({},P[k]||{},{humor:+b.dataset.humor}); saveState(); render(); });
+    el.querySelectorAll('[data-sono]').forEach(b=>b.onclick=()=>{ P[k]=Object.assign({},P[k]||{},{sono:+b.dataset.sono}); saveState(); render(); });
+    bindEst(); return;
+  }
+  const dp=_diasAtePagamento();
+  const ontem=_rotKey(-1);
+  const humorRuim=p.humor===0, sonoRuim=p.sono===0;
+  const rotinaRuim=(STATE.habitos||[]).some(h=>h.evitar&&(h.historico||{})[ontem]===-1)||_vilaRecentes(2)>0;
+  const dinheiroRuim=dn.ruim; const prazoRuim=dp!=null&&dp<=4&&d.entradas>0&&dn.porDia<dn.alvoDia*0.75;
+  const ruins=[humorRuim,sonoRuim,rotinaRuim,dinheiroRuim,prazoRuim].filter(Boolean).length;
+  let faixa='verde'; if((humorRuim||sonoRuim)&&(dinheiroRuim||prazoRuim))faixa='vermelho'; else if(ruins>0)faixa='amarelo';
+  const limiar=Math.max(50,Math.round(dn.porDia||50));
+  window.__prt={faixa,limiar};
+  const meta=(STATE.goals||[]).find(g=>goalSaved(g.id)<(+g.alvo||0));
+  const guardar=Math.max(10,Math.round((dn.porDia||0)*0.2/5)*5);
+  const titulo={verde:'Dia de guardar.',amarelo:'Só o básico hoje.',vermelho:'Hoje não decida nada grande.'}[faixa];
+  const motivo=[humorRuim?'você acordou mal':'',sonoRuim?'dormiu pouco':'',rotinaRuim?'ontem escapou da rotina':'',dinheiroRuim?'o livre pra hoje está baixo':'',prazoRuim?('o pagamento é só daqui a '+dp+' dia'+(dp===1?'':'s')):''].filter(Boolean);
+  const mot=motivo.length?(motivo.join(', ').replace(/^./,c=>c.toUpperCase())+'.'):'';
+  const acao={
+    verde:'Tudo em dia e sobrou folga. Manda <b>'+money(guardar)+'</b> pra reserva agora, que hoje é o dia fácil. <button type="button" class="prt-act" id="prtGuardar">Guardar '+money(guardar)+'</button>',
+    amarelo:mot+' Mercado e transporte, sim. O resto fica pra amanhã.',
+    vermelho:mot+' Compra acima de <b>'+money(limiar)+'</b> pede confirmação hoje.'+(meta?' Lembra: faltam <b>'+money(Math.max(0,(+meta.alvo||0)-goalSaved(meta.id)))+'</b> pra '+escapeHtml(meta.nome)+'.':'')
+  }[faixa];
+  const dots=[['Humor',!humorRuim],['Sono',!sonoRuim],['Rotina',!rotinaRuim],['Livre pra hoje',!dinheiroRuim],['Pagamento',!prazoRuim]].map(x=>'<span class="prt-dot'+(x[1]?' ok':' bad')+'"><i></i>'+x[0]+'</span>').join('');
+  el.className='prt '+faixa;
+  el.innerHTML='<div class="prt-head"><div class="prt-main"><div class="prt-lbl">Prontidão do dia</div><div class="prt-t">'+titulo+'</div><div class="prt-a">'+acao+'</div></div><div class="prt-dots">'+dots+'</div><button type="button" class="prt-x" id="prtOff" title="Não mostrar">×</button></div>'+estHtml;
+  const g=document.getElementById('prtGuardar'); if(g)g.onclick=()=>_prtPrefill('Guardado na reserva',guardar,'Poupança',(cats().find(c=>/invest|reserva|poup/i.test(c.nome))||{nome:''}).nome);
+  bindEst();
+}
 function _semDadosNenhum(){ try{ return !(STATE.fixas&&STATE.fixas.length)&&!Object.values(STATE.months||{}).some(m=>m&&m.tx&&m.tx.length); }catch(e){ return false; } }
 document.getElementById('lphCta')?.addEventListener('click',()=>showOnboarding());
 function _lphFit(el){ if(!el)return; const f=()=>el.classList.toggle('fit',(el.textContent||'').replace(/\s/g,'').length>9); f(); setTimeout(f,950); } // valor grande cabe na bolinha
@@ -7749,6 +7947,7 @@ function renderLivreHoje(d){
   } else {
     subEl.innerHTML='Neste mês sobraram <b>'+_mF(restante)+'</b> pra gastar depois de guardar a meta.';
   }
+  if(info.ehMesAtual){ const gd=_metasPorDia(); if(gd>0)subEl.innerHTML+='<div class="lph-dia">🎯 Guardar hoje: <b>'+money(gd)+'</b> <small>é o que suas metas pedem por dia</small></div>'; }
   const pct=porDia>0?Math.min(100,usadoHoje/porDia*100):(usadoHoje>0?100:0);
   ring.style.setProperty('--rc',usadoHoje>porDia?'#f43f5e':'#7c3aed');
   ring.style.setProperty('--p',info.ehMesAtual?pct:100*(1-info.diasRestantes/info.diasNoMes));
@@ -7945,7 +8144,9 @@ function _reservaCard(){
   el.innerHTML='<div class="gr-name">Reserva de emergência</div>'+
     '<div class="gr-ring" style="background:conic-gradient('+col+' '+(pct*3.6)+'deg, '+ringTrack+' 0deg)"><div class="gr-ring-in" style="color:'+col+'"><span class="gr-icon">🛡️</span><b>'+pct+'%</b></div></div>'+
     (meta>0?('<div class="gr-vals"><b class="green">'+money(guardado)+'</b><span> de '+money(meta)+'</span></div>'+(pct>=100?'<div class="gr-done">✓ Completa!</div>':'<div class="gr-left">Faltam '+money(Math.max(0,meta-guardado))+' · '+meses+' meses de folga</div>')):'<div class="gr-left">Seu colchão pra imprevistos</div>')+
+    _resDiaHtml()+_grTravaHtml(STATE.reserva||{})+
     '<div class="gr-acts"><button type="button" class="gr-proj gr-link gr-res-btn">'+(meta>0?'Ajustar minha reserva':'Montar minha reserva')+'</button></div>';
+  _bindTrava(el,STATE.reserva||(STATE.reserva={}),()=>{ saveState(); renderGoals(); });
   el.querySelector('.gr-res-btn').onclick=()=>{ const d=document.getElementById('resWrap'); if(d){ d.open=true; try{ d.scrollIntoView({behavior:'smooth',block:'start'}); }catch(e){} const i=document.getElementById('resGasto'); if(i)setTimeout(()=>i.focus(),200); } };
   return el;
 }
@@ -8146,6 +8347,8 @@ function render(){
   renderSuaSemana();
   try{ renderPrimeirosPassos(); }catch(e){}
   try{ renderNivelInicio(); }catch(e){}
+  try{ renderProntidao(d); }catch(e){ console.warn('prontidao',e); }
+  try{ renderVilaPote(); }catch(e){ console.warn('pote',e); }
   renderMonthPicker();
   document.getElementById('yearInput').value = VIEW.year;
   document.getElementById('brandName').textContent = STATE.brand;
@@ -8874,6 +9077,7 @@ function drawDailyChart(d){
 let editingId=null;
 function fillSelect(id,arr){const s=document.getElementById(id);s.innerHTML=arr.map(v=>`<option value="${v}">${tipoLbl(v)}</option>`).join('');}
 function openTxModal(id){
+  _vermelhoOk=false; { const _vn=document.getElementById('mVermelho'); if(_vn){ _vn.classList.add('hidden'); _vn.innerHTML=''; } }
   editingId=id||null;
   const m=curMonth();
   const formas=[...FORMAS_BASE,...cardNames()];
@@ -8907,7 +9111,7 @@ function openTxModal(id){
   setTimeout(()=>mDesc.focus(),50);
   _txHist=null; _txSugTocado=false; _txSugUltK=''; try{ _txSugRender(); }catch(e){}
 }
-function closeTxModal(){document.getElementById('txModal').classList.add('hidden');editingId=null;}
+function closeTxModal(){document.getElementById('txModal').classList.add('hidden');editingId=null;_vermelhoOk=false;const _vn=document.getElementById('mVermelho');if(_vn){_vn.classList.add('hidden');_vn.innerHTML='';}}
 function _txMais(aberto){ const box=document.getElementById('mMaisBox'), btn=document.getElementById('mMaisBtn'); if(!box||!btn)return; box.classList.toggle('hidden',!aberto); btn.textContent=aberto?'Menos opções ▴':'Mais opções ▾'; btn.setAttribute('aria-expanded',aberto?'true':'false'); }
 document.getElementById('mMaisBtn')?.addEventListener('click',()=>_txMais(document.getElementById('mMaisBox').classList.contains('hidden')));
 /* ---- Lançar por voz (Web Speech API) ---- */
@@ -8966,6 +9170,7 @@ function _vozAplicar(txt){
   if(!desc){toast("Digite uma descrição");return;}
   if(isNaN(valor)||valor<=0){toast("Digite um valor válido");return;}
   const obj={desc,date:document.getElementById('mDataTx').value||todayISO(),valor,tipo:mTipo.value,categoria:mCat.value,forma:mForma.value,pago:mPago.value==="true",obs:mObs.value.trim(),metaId:document.getElementById('mMeta').value||null,subcategoria:(document.getElementById('mSub')?document.getElementById('mSub').value:''),anexo:pendingAnexo||null};
+  if(!editingId&&!_vermelhoOk&&_vermelhoPrecisa(obj)){ _vermelhoAviso(obj); return; }
   const m=curMonth();
   if(editingId){
     const t=findTx(editingId);
@@ -8997,7 +9202,8 @@ function _vozAplicar(txt){
         STATE.months[k].tx.push({...obj,id:uid(),date:dt,valor:vParcela,desc:`${desc} (${i+1}/${nP})`,parcelaId,pago:i===0?obj.pago:false,anexo:i===0?(obj.anexo||null):null});
       }
       toast(`Parcelado em ${nP}x de ${money(per)}`);
-    } else { obj.id=uid(); const kd=monthKey(+obj.date.slice(0,4),+obj.date.slice(5,7)-1); if(!STATE.months[kd])STATE.months[kd]=blankMonth(); STATE.months[kd].tx.push(obj); toast(kd===monthKey(VIEW.year,VIEW.month)?"Lançamento adicionado":("Lançamento adicionado em "+MESES[+obj.date.slice(5,7)-1]+" de "+obj.date.slice(0,4))); }
+      _vilaChecar(obj);
+    } else { obj.id=uid(); const kd=monthKey(+obj.date.slice(0,4),+obj.date.slice(5,7)-1); if(!STATE.months[kd])STATE.months[kd]=blankMonth(); STATE.months[kd].tx.push(obj); toast(kd===monthKey(VIEW.year,VIEW.month)?"Lançamento adicionado":("Lançamento adicionado em "+MESES[+obj.date.slice(5,7)-1]+" de "+obj.date.slice(0,4))); _vilaChecar(obj); }
   }
   registrarDia();
   saveState();closeTxModal();render();
@@ -10495,6 +10701,7 @@ function renderCategoriasConfig(){
         <div class="field" style="width:150px"><label>Nome</label><input data-i="${i}" data-k="nome" value="${escapeHtml(c.nome)}"></div>
         <div class="field" style="flex:1;min-width:180px"><label>Subcategorias / descrição</label><input data-i="${i}" data-k="desc" value="${escapeHtml(c.desc||'')}" placeholder="Ex: Alimentos, bebidas, limpeza"></div>
         <div class="field" style="width:62px"><label>Cor</label><input data-i="${i}" data-k="cor" type="color" value="${c.cor||'#7c3aed'}"></div>
+        <div class="field cat-vila" style="width:150px"><label>Vilã?</label><label class="cat-vila-row"><input type="checkbox" data-i="${i}" data-k="vila" ${c.vila?'checked':''}> <span>multa R$</span><input type="number" min="1" step="1" data-i="${i}" data-k="multa" value="${c.multa||10}" style="width:56px"></label></div>
       </div>
       <button class="cc-del" data-del="${i}" title="Remover">🗑️</button>`;
     box.appendChild(el);
@@ -10502,6 +10709,8 @@ function renderCategoriasConfig(){
   box.querySelectorAll('input').forEach(inp=>inp.addEventListener('change',e=>{
     const i=+e.target.dataset.i,k=e.target.dataset.k,cat=STATE.categorias[i];
     if(k==='nome'){const nv=e.target.value.trim()||cat.nome;renameCategoria(cat.nome,nv);cat.nome=nv;}
+    else if(k==='vila'){ cat.vila=!!e.target.checked; if(cat.vila&&!cat.multa)cat.multa=10; toast(cat.vila?('"'+cat.nome+'" virou vilã: cada gasto nela manda '+money(cat.multa||10)+' pro pote da reserva.'):('"'+cat.nome+'" deixou de ser vilã.')); }
+    else if(k==='multa'){ cat.multa=Math.max(1,parseInt(e.target.value,10)||10); }
     else cat[k]=e.target.value;
     saveState();renderCategoriasConfig();
   }));
@@ -13383,7 +13592,7 @@ function renderDividas(){
   r.plano.debts.forEach((d,i)=>{
     const orig=(STATE.dividas||[]).find(x=>x.id===d.id)||{};
     const n=dividaNorm(orig);
-    const detalhe=orig.tipo==='fixa'?((+orig.parcelas||0)+'x de '+money(+orig.parcela||0)):((+orig.juros||0)+'% ao mês');
+    const detalhe=orig.tipo==='fixa'?((+orig.parcelas||0)+'x de '+money(+orig.parcela||0)+' · '+money((+orig.parcela||0)/30)+' por dia'):((+orig.juros||0)+'% ao mês');
     const quita=d.quitadoMes?('quita em '+_mesExt(d.quitadoMes)):'não quita no ritmo atual';
     ord+='<div class="step"><div class="n">'+(i+1)+'</div><div class="info"><b>'+escapeHtml(d.nome||orig.nome||'-')+(i===0?'<span class="dv-agora">atacar agora</span>':'')+'</b><span>'+money(n.saldo)+' · '+detalhe+' · '+quita+'</span></div><div class="acts"><button class="icon-btn edit" data-id="'+(orig.id||d.id)+'" title="Editar">✏️</button><button class="icon-btn del" data-id="'+(orig.id||d.id)+'" title="Excluir">🗑️</button></div></div>';
   });
@@ -13685,18 +13894,19 @@ function renderGoals(){
     const col=pct>=100?'#22c55e':pct>=75?'#06b6d4':pct>=40?'#7c3aed':'#f59e0b';
     const el=document.createElement('div');el.className="goal-ringcard";
     el.innerHTML=`
-      <div class="gr-actions">
+      ${_travada(g)?'':`<div class="gr-actions">
         <button class="icon-btn edit" data-id="${g.id}" title="Editar">✏️</button>
         <button class="icon-btn del" data-id="${g.id}" title="Excluir">🗑️</button>
-      </div>
-      <div class="gr-name">${escapeHtml(g.nome)}</div>
+      </div>`}
+      <div class="gr-name">${escapeHtml(g.nome)}${_travada(g)?' <span class="gr-lock-badge" title="Trancada">🔒</span>':''}</div>
       <div class="gr-ring" style="background:conic-gradient(${col} ${pct*3.6}deg, ${ringTrack} 0deg)">
         <div class="gr-ring-in" style="color:${col}"><span class="gr-icon">${goalEmoji(g.nome)}</span><b>${pct}%</b></div>
       </div>
-      <div class="gr-vals"><b class="green">${money(saved)}</b><span> de ${money(alvo)}</span></div>
+      <div class="gr-vals"><b class="green">${money(saved)}</b><span> de ${money(alvo)}</span></div>${_grDiaHtml(g,pct)}${_grTravaHtml(g)}
       ${pct>=100?'<div class="gr-done">✓ Concluída!</div>':(saved<=0?'<div class="gr-left">Lance um <b>Guardado</b> pra essa meta</div>':`<div class="gr-left">Faltam ${money(Math.max(0,alvo-saved))}</div>`)}
       <div class="gr-acts">${(()=>{ if(pct>=100)return''; if((+g.aporteMensal||0)<=0)return `<button class="gr-proj gr-link" data-id="${g.id}">Ver quando fica pronta</button>`; const p=goalProjecao(g); return (p&&!p.travou&&!p.semDados)?`<div class="gr-proj">No ritmo de hoje, chega em ${_mesExt(p.meses)}</div>`:''; })()}${_grAporteHtml(g,pct)}</div>`;
     grid.appendChild(el);
+    _bindTrava(el,g,()=>{ saveState(); renderGoals(); });
   });
   grid.querySelectorAll('.edit').forEach(b=>b.onclick=()=>openGoalModal(b.dataset.id));
   grid.querySelectorAll('.gr-link').forEach(b=>b.onclick=()=>openGoalModal(b.dataset.id));
@@ -13727,6 +13937,7 @@ function renderReserva(){
       <div><small>Meta da reserva</small><b>${money(meta)}</b></div>
       <div><small>Falta juntar</small><b>${money(falta)}</b></div>
       <div class="hi"><small>Guarde por mês</small><b>${money(aporte)}</b></div>
+      <div><small>Dá por dia</small><b>${money(aporte/30)}</b></div>
     </div>
     <div class="res-bar"><div style="width:${pct}%"></div></div>
     <div class="res-note">${pct}% da reserva · guardando ${money(aporte)} por ${prazo} ${prazo>1?'meses':'mês'} você atinge ${money(meta)}</div>`;
@@ -13765,10 +13976,12 @@ function obNextStep(){
 }
 let editingGoalId=null;
 function openGoalModal(id){
+  { const g=id?(STATE.goals||[]).find(x=>x.id===id):null; if(g&&_travada(g)){ toast('Meta trancada até '+_travaFmt(g)+'. Pra editar, peça o destrave no cartão.'); return; } }
   editingGoalId=id||null;
   document.getElementById('goalModalTitle').textContent=id?"Editar meta":"＋ Nova meta";
   if(id){const g=STATE.goals.find(x=>x.id===id);gNome.value=g.nome;gAlvo.value=g.alvo;document.getElementById('gAporte').value=g.aporteMensal||'';document.getElementById('gRend').value=g.rendimentoAnual||'';}
   else{gNome.value="";gAlvo.value="";document.getElementById('gAporte').value="";document.getElementById('gRend').value="";}
+  _gDiaBind();
   refreshPrettySelects(document.getElementById('goalModal'));
   document.getElementById('goalModal').classList.remove('hidden');
   setTimeout(()=>gNome.focus(),50);
@@ -13786,6 +13999,7 @@ function saveGoal(){
   saveState();closeGoalModal();renderGoals();
 }
 function deleteGoal(id){
+  { const g=(STATE.goals||[]).find(x=>x.id===id); if(g&&_travada(g)){ toast('Essa meta está trancada. Peça o destrave no cartão dela.'); return; } }
   if(!confirm("Excluir esta meta? (os lançamentos vinculados continuam, só perdem o vínculo)"))return;
   STATE.goals=STATE.goals.filter(g=>g.id!==id);
   Object.values(STATE.months).forEach(mo=>mo.tx.forEach(t=>{if(t.metaId===id)t.metaId=null;}));
