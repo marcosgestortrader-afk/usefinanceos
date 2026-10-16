@@ -112,7 +112,7 @@ a{color:inherit;text-decoration:none}
 .demo-poster{display:none;position:relative;width:100%;border:0;padding:0;margin:0;background:#080816;cursor:pointer;text-align:center;font:inherit;color:inherit}
 .demo-poster img{display:block;width:100%;max-width:390px;height:auto;margin:0 auto;opacity:.55;-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,#000 55%,transparent 100%)}
 .demo-poster-cta{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 16px}
-.demo-poster-cta small{color:#cdd2ee;font-size:13px}
+.demo-poster-cta small{color:#cdd2ee;font-size:13px;background:rgba(8,8,22,.88);padding:6px 12px;border-radius:999px}
 @media(max-width:1000px){.demo-frame:not(.on) iframe{display:none}.demo-frame:not(.on) .demo-poster{display:block}.demo-poster img{max-height:520px;object-fit:cover;object-position:top}}
 .demo-foot{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:16px}
 .demo-foot .hint{color:var(--muted);font-size:13.5px}
@@ -240,6 +240,9 @@ footer a.flink{color:var(--muted)}
 footer a.flink:hover{color:var(--txt)}
 
 @media(max-width:640px){
+  .sub-more{display:none} /* celular: subtitulo curto, botao acima da dobra */
+  .nav-long{display:none} /* "Comecar" curto pra caber ao lado de "Entrar" */
+  .nav .btn-sm{white-space:nowrap;padding:9px 12px;font-size:13px}
   .nav .wrap{gap:10px;height:58px}
   .nav .lnk[data-hide-mobile]{display:none}
   .wordmark{font-size:18px}
@@ -287,13 +290,13 @@ window.__fosEv=function(n,p){ try{ fbq('trackCustom',n,p||{}); }catch(e){} };
   <a class="lnk" data-hide-mobile href="#vida">Rotina e saúde</a>
   <a class="lnk" data-hide-mobile href="#planos">Planos</a>
   <a class="lnk" href="/app">Entrar</a>
-  <a class="btn btn-orbita btn-sm" href="#planos">Começar agora</a>
+  <a class="btn btn-orbita btn-sm" href="#planos">Começar<span class="nav-long"> agora</span></a>
 </div></nav>
 
 <header class="hero" id="top"><div class="wrap">
   <div class="eyebrow">Acesso vitalício por R$ 49,90 · paga uma vez</div>
   <h1>Chegou no dia 20 e o dinheiro <span class="g">já acabou</span> de novo?</h1>
-  <p class="sub">Todo mundo sabe quanto ganha. O que ninguém te mostra é <b style="color:#fff">quanto ainda dá pra gastar hoje</b>, antes de passar da conta. O FinanceOS mostra. Você lança o gasto em dois toques e ele faz a conta por você. E como rotina bagunçada vira dinheiro bagunçado, ele também guarda seus hábitos, seu treino e sua dieta, no mesmo login.</p>
+  <p class="sub">Todo mundo sabe quanto ganha. O que ninguém te mostra é <b style="color:#fff">quanto ainda dá pra gastar hoje</b>, antes de passar da conta. O FinanceOS mostra. Você lança o gasto em dois toques e ele faz a conta por você.<span class="sub-more"> E como rotina bagunçada vira dinheiro bagunçado, ele também guarda seus hábitos, seu treino e sua dieta, no mesmo login.</span></p>
   <div class="cta">
     <a class="btn btn-orbita btn-lg" href="https://pay.kiwify.com.br/ZLpUxIS">Garantir meu acesso vitalício</a>
     <a class="btn btn-ghost btn-lg" href="#demo">Testar agora, sem cadastro</a>
@@ -310,7 +313,7 @@ window.__fosEv=function(n,p){ try{ fbq('trackCustom',n,p||{}); }catch(e){} };
     <div class="demo-frame">
       <iframe data-src="/demo" title="Demonstração do FinanceOS com dados de exemplo" allow="clipboard-write"></iframe>
       <button type="button" class="demo-poster" id="demoPoster" aria-label="Carregar a demonstração">
-        <img src="img/demo-cel.jpg" width="390" height="844" alt="Tela de Início do FinanceOS no celular" loading="lazy">
+        <img src="img/demo-cel.jpg" width="375" height="812" alt="Tela de Início do FinanceOS no celular" loading="lazy">
         <span class="demo-poster-cta"><span class="btn btn-orbita btn-lg">Testar agora, sem cadastro</span><small>Carrega em segundos. Não precisa instalar nada.</small></span>
       </button>
     </div>

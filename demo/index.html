@@ -14945,6 +14945,7 @@ boot();
 #demoBar button{background:none;border:0;color:#9aa0c7;font-size:18px;line-height:1;cursor:pointer;padding:4px}
 @media(max-width:1000px){#demoBar{right:10px;left:10px;bottom:auto;top:10px;padding:8px 10px}#demoBar .t{font-size:12px}#demoBar .t span{display:none}#demoBar a{padding:9px 12px;font-size:12.5px}}
 body.demo-embed #demoBar{display:none}
+@media(max-width:1000px){body:has(#demoBar):not(.demo-embed){padding-top:64px}} /* celular: a barra nao cobre o cabecalho do app */
 </style>
 <div id="demoBar" role="note">
   <div class="t"><b>Modo demonstração</b><span>Dados de exemplo. Clique, lance um gasto, abra as telas.</span></div>
@@ -14952,7 +14953,7 @@ body.demo-embed #demoBar{display:none}
   <button type="button" aria-label="Fechar aviso" onclick="document.getElementById('demoBar').remove()">×</button>
 </div>
 <script>
-try{ if(window.self!==window.top)document.body.classList.add('demo-embed'); }catch(e){}
+try{ if(window.self!==window.top||/[?&]poster=1/.test(location.search))document.body.classList.add('demo-embed'); }catch(e){}
 try{ window._consTem=function(){ return true; }; }catch(e){} /* demo: sem o aviso de LGPD (dados de exemplo) */
 </script>
 </body>
