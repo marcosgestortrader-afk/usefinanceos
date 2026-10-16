@@ -264,7 +264,6 @@ fbq('track','ViewContent',{content_name:'FinanceOS acesso vitalicio',content_ids
 /* eventos proprios: DemoView (demo apareceu na tela), DemoInteract (primeiro clique dentro da demo), ClickComprar (clicou num botao de compra).
    O InitiateCheckout e a Compra continuam vindo da Kiwify, pra nao contar duas vezes. */
 window.__fosEv=function(n,p){ try{ fbq('trackCustom',n,p||{}); }catch(e){} };
-document.addEventListener("DOMContentLoaded",function(){ var fim=new Date(2026,9,31,23,59,59); var d=Math.ceil((fim-new Date())/864e5); document.querySelectorAll("[data-prazo]").forEach(function(e){ if(d<1){ e.remove(); } }); document.querySelectorAll("[data-dias]").forEach(function(e){ e.textContent=d===1?"último dia":"faltam "+d+" dias"; }); });
 </script>
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1122015093680711&ev=PageView&noscript=1"></noscript>
 </head>
@@ -292,7 +291,7 @@ document.addEventListener("DOMContentLoaded",function(){ var fim=new Date(2026,9
 </div></nav>
 
 <header class="hero" id="top"><div class="wrap">
-  <div class="eyebrow">Acesso vitalício por R$ 49,90 · paga uma vez<span data-prazo> · só até <b>31 de outubro</b></span></div>
+  <div class="eyebrow">Acesso vitalício por R$ 49,90 · paga uma vez</div>
   <h1>Chegou no dia 20 e o dinheiro <span class="g">já acabou</span> de novo?</h1>
   <p class="sub">Todo mundo sabe quanto ganha. O que ninguém te mostra é <b style="color:#fff">quanto ainda dá pra gastar hoje</b>, antes de passar da conta. O FinanceOS mostra. Você lança o gasto em dois toques e ele faz a conta por você. E como rotina bagunçada vira dinheiro bagunçado, ele também guarda seus hábitos, seu treino e sua dieta, no mesmo login.</p>
   <div class="cta">
@@ -456,12 +455,12 @@ document.addEventListener("DOMContentLoaded",function(){ var fim=new Date(2026,9
 </div></section>
 -->
 <section id="planos"><div class="wrap">
-  <div class="sec-head"><div class="eyebrow">Acesso vitalício</div><h2>Paga uma vez. Usa pra sempre.</h2><p>Preço de lançamento<span data-prazo> até <b>31 de outubro</b>. Depois volta a R$ 89,90</span>, e quem comprou antes não paga nada depois. R$ 49,90 uma vez, sem mensalidade, com 7 dias pra desistir.</p></div>
+  <div class="sec-head"><div class="eyebrow">Acesso vitalício</div><h2>Paga uma vez. Usa pra sempre.</h2><p>Preço fixo, sem "lançamento" e sem pegadinha: quem compra hoje paga o mesmo que quem comprar daqui a um ano. R$ 49,90 uma vez, sem mensalidade, com 7 dias pra desistir.</p></div>
   <div class="plans one">
     <div class="plan best">
-      <div class="tag">OFERTA DE LANÇAMENTO<span data-prazo> · <span data-dias></span></span></div>
+      <div class="tag">PREÇO ÚNICO · PAGA UMA VEZ</div>
       <h3>Acesso vitalício</h3>
-      <div class="price"><span class="strike" title="Preço anterior">R$ 89,90</span><span class="big">R$ 49,90</span><span class="per">pagamento único</span></div>
+      <div class="price"><span class="big">R$ 49,90</span><span class="per">pagamento único</span></div>
       <div class="sub">À vista no Pix ou no cartão · ou em até 12x no cartão (com acréscimo do parcelamento)</div>
       <ul>
         <li><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg> Acesso completo ao app, pra sempre</li>
@@ -509,7 +508,7 @@ document.addEventListener("DOMContentLoaded",function(){ var fim=new Date(2026,9
 
 <section class="final"><div class="wrap">
   <h2>O dia 20 do mês que vem pode ser diferente</h2>
-  <p>Em cinco minutos você cadastra as contas fixas e lança os gastos de hoje. Daí pra frente, toda vez que abrir o app, já sabe quanto pode gastar. R$ 49,90, uma vez, com 7 dias pra desistir<span data-prazo>. Esse preço vale até <b>31 de outubro</b></span>.</p>
+  <p>Em cinco minutos você cadastra as contas fixas e lança os gastos de hoje. Daí pra frente, toda vez que abrir o app, já sabe quanto pode gastar. R$ 49,90, uma vez, com 7 dias pra desistir.</p>
   <a class="btn btn-orbita btn-lg" href="https://pay.kiwify.com.br/ZLpUxIS">Garantir meu acesso vitalício · R$ 49,90</a>
   <div style="color:#cdd2ee;font-size:13.5px;margin-top:12px">7 dias de garantia · pagamento único</div>
 </div></section>
