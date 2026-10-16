@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pagamento confirmado · FinanceOS</title>
+<meta name="description" content="Seu acesso vitalício ao FinanceOS está liberado. Crie a conta com o mesmo e-mail da compra e entre.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="app/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070a16;--card:#0f1530;--line:rgba(148,163,184,.18);--txt:#e8ecff;--muted:#94a3b8;--ok:#22c55e;--orb1:#6d5dfc;--orb2:#22d3ee}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--txt);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;line-height:1.55}
+body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 16px;background:radial-gradient(900px 500px at 50% -10%,rgba(109,93,252,.25),transparent 60%),var(--bg)}
+.card{width:100%;max-width:560px;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:30px 26px;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.ok{width:60px;height:60px;border-radius:50%;background:rgba(34,197,94,.15);display:flex;align-items:center;justify-content:center;margin:0 0 16px}
+.ok svg{width:30px;height:30px;stroke:var(--ok);stroke-width:2.5;fill:none}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ok);margin-bottom:8px}
+h1{font-family:'Sora',Inter,sans-serif;font-size:clamp(24px,5vw,32px);line-height:1.15;margin:0 0 10px;letter-spacing:-.01em}
+p{margin:0 0 14px;color:#cdd2ee}
+.passos{list-style:none;padding:0;margin:18px 0 22px;display:grid;gap:12px}
+.passos li{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start}
+.n{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--orb1),var(--orb2));display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:15px}
+.passos b{display:block;color:#fff}
+.passos small{color:var(--muted);font-size:13.5px}
+.email{display:inline-block;background:rgba(109,93,252,.14);border:1px solid rgba(109,93,252,.5);border-radius:8px;padding:2px 8px;color:#c7d2fe;font-weight:700}
+.btn{display:block;text-align:center;padding:16px 20px;border-radius:14px;font-weight:800;font-size:17px;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--orb1),var(--orb2));box-shadow:0 10px 30px rgba(109,93,252,.35)}
+.btn.ghost{background:transparent;border:1px solid var(--line);box-shadow:none;color:#cdd2ee;font-size:15px;padding:13px;margin-top:10px}
+.aviso{margin-top:18px;padding:12px 14px;border-radius:12px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.35);color:#fde68a;font-size:13.5px}
+.aviso a{color:#fff}
+.rod{margin-top:18px;font-size:12.5px;color:var(--muted);text-align:center}
+.rod a{color:#a5b4fc}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="ok"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>
+  <div class="eyebrow">Pagamento confirmado</div>
+  <h1>Seu acesso vitalício está liberado.</h1>
+  <p>Agora é só criar a sua conta. Leva um minuto e você já entra no app.</p>
+  <ol class="passos">
+    <li><span class="n">1</span><div><b>Abra o app e toque em "Criar conta"</b><small>Funciona no celular e no computador, sem instalar nada.</small></div></li>
+    <li><span class="n">2</span><div><b>Use o <span class="email">mesmo e-mail da compra</span></b><small>É por ele que o app reconhece o seu pagamento. Com outro e-mail, ele não vai te achar.</small></div></li>
+    <li><span class="n">3</span><div><b>Lance o salário e as contas fixas</b><small>Cinco minutos. A partir daí o Início já diz quanto dá pra gastar hoje.</small></div></li>
+  </ol>
+  <a class="btn" href="/app?bemvindo=1">Criar minha conta agora</a>
+  <a class="btn ghost" href="https://wa.me/5561991674530?text=Oi%20Marcos%2C%20acabei%20de%20comprar%20o%20FinanceOS%20e%20preciso%20de%20ajuda">Travou em algo? Me chama no WhatsApp</a>
+  <div class="aviso">Pagou no Pix e caiu aqui antes de aparecer como pago? Espere uns minutos e crie a conta normalmente. Se o app disser que o acesso está inativo, é só me chamar que eu libero na hora.</div>
+  <div class="rod">Dica: no celular, depois de entrar, use "Adicionar à tela de início" para o FinanceOS virar um app com ícone. · <a href="/">Voltar ao site</a></div>
+</main>
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1122015093680711'); fbq('track','PageView'); fbq('trackCustom','ObrigadoView');
+</script>
+</body>
+</html>

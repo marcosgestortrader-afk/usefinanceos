@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FinanceOS · Seu controle financeiro completo</title>
+<title>FinanceOS · O app que sabe como você acordou</title>
 <meta name="description" content="O único app que sabe como você acordou e quanto você tem até o dia 20. Ele te diz quanto dá pra gastar hoje e segura sua mão no dia ruim. Gastos, metas, rotina, treino e dieta no mesmo login. R$ 49,90 uma vez.">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
@@ -12,14 +12,14 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.financeosapp.com.br/">
 <link rel="canonical" href="https://www.financeosapp.com.br/">
-<meta property="og:title" content="FinanceOS · Seu controle financeiro completo">
+<meta property="og:title" content="FinanceOS · O app que sabe como você acordou">
 <meta property="og:description" content="Seu dinheiro protegido do seu pior dia. O app que sabe como você acordou, diz quanto dá pra gastar hoje e segura sua mão antes da compra errada. R$ 49,90 uma vez, sem mensalidade.">
 <meta property="og:image" content="https://www.financeosapp.com.br/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="FinanceOS · Seu controle financeiro completo">
-<meta name="twitter:description" content="Saiba exatamente quanto sobra antes de acabar o mês.">
+<meta name="twitter:title" content="FinanceOS · O app que sabe como você acordou">
+<meta name="twitter:description" content="Seu dinheiro protegido do seu pior dia. Diz quanto dá pra gastar hoje e segura sua mão antes da compra errada. R$ 49,90 uma vez.">
 <meta name="twitter:image" content="https://www.financeosapp.com.br/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -264,6 +264,7 @@ fbq('track','ViewContent',{content_name:'FinanceOS acesso vitalicio',content_ids
 /* eventos proprios: DemoView (demo apareceu na tela), DemoInteract (primeiro clique dentro da demo), ClickComprar (clicou num botao de compra).
    O InitiateCheckout e a Compra continuam vindo da Kiwify, pra nao contar duas vezes. */
 window.__fosEv=function(n,p){ try{ fbq('trackCustom',n,p||{}); }catch(e){} };
+document.addEventListener("DOMContentLoaded",function(){ var fim=new Date(2026,9,31,23,59,59); var d=Math.ceil((fim-new Date())/864e5); document.querySelectorAll("[data-prazo]").forEach(function(e){ if(d<1){ e.remove(); } }); document.querySelectorAll("[data-dias]").forEach(function(e){ e.textContent=d===1?"último dia":"faltam "+d+" dias"; }); });
 </script>
 <noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=1122015093680711&ev=PageView&noscript=1"></noscript>
 </head>
@@ -291,7 +292,7 @@ window.__fosEv=function(n,p){ try{ fbq('trackCustom',n,p||{}); }catch(e){} };
 </div></nav>
 
 <header class="hero" id="top"><div class="wrap">
-  <div class="eyebrow">Acesso vitalício por R$ 49,90 · paga uma vez</div>
+  <div class="eyebrow">Acesso vitalício por R$ 49,90 · paga uma vez<span data-prazo> · só até <b>31 de outubro</b></span></div>
   <h1>Chegou no dia 20 e o dinheiro <span class="g">já acabou</span> de novo?</h1>
   <p class="sub">Todo mundo sabe quanto ganha. O que ninguém te mostra é <b style="color:#fff">quanto ainda dá pra gastar hoje</b>, antes de passar da conta. O FinanceOS mostra. Você lança o gasto em dois toques e ele faz a conta por você. E como rotina bagunçada vira dinheiro bagunçado, ele também guarda seus hábitos, seu treino e sua dieta, no mesmo login.</p>
   <div class="cta">
@@ -438,18 +439,29 @@ window.__fosEv=function(n,p){ try{ fbq('trackCustom',n,p||{}); }catch(e){} };
     <div class="nota-ic"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><use href="#fLogo"/></svg></div>
     <div>
       <div class="eyebrow">Quem fez</div>
+      <!-- <img src="img/marcos.jpg" width="96" height="96" alt="Marcos, criador do FinanceOS" style="border-radius:50%;display:block;margin:0 0 12px"> -->
       <p>Eu sou o Marcos. Fui eu que fiz o FinanceOS, e sou eu que respondo no WhatsApp. Não tem central de atendimento nem robô: se alguma coisa não funcionar do jeito que você esperava, me chama que eu arrumo. É assim que o app melhora, com quem usa reclamando pra mim.</p>
       <p class="nota-ass">Marcos Rodrigues · <a href="https://wa.me/5561991674530">(61) 99167-4530</a></p>
     </div>
   </div>
 </div></section>
+<!-- DEPOIMENTOS: quando tiver 3 reais, troque os textos, as iniciais e a cidade abaixo e remova o atributo hidden da section.
+<section id="depoimentos" hidden><div class="wrap">
+  <div class="sec-head"><div class="eyebrow">Quem já usa</div><h2>O que mudou no mês de quem comprou</h2></div>
+  <div class="feats" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+    <div class="feat"><p>"TEXTO DO DEPOIMENTO 1, do jeito que a pessoa escreveu."</p><p class="nota-ass">NOME · CIDADE</p></div>
+    <div class="feat"><p>"TEXTO DO DEPOIMENTO 2."</p><p class="nota-ass">NOME · CIDADE</p></div>
+    <div class="feat"><p>"TEXTO DO DEPOIMENTO 3."</p><p class="nota-ass">NOME · CIDADE</p></div>
+  </div>
+</div></section>
+-->
 <section id="planos"><div class="wrap">
-  <div class="sec-head"><div class="eyebrow">Acesso vitalício</div><h2>Paga uma vez. Usa pra sempre.</h2><p>Esse é o preço de lançamento. Ele vai subir, e quem comprou antes não paga nada depois. R$ 49,90 uma vez, sem mensalidade, com 7 dias pra desistir.</p></div>
+  <div class="sec-head"><div class="eyebrow">Acesso vitalício</div><h2>Paga uma vez. Usa pra sempre.</h2><p>Preço de lançamento<span data-prazo> até <b>31 de outubro</b>. Depois volta a R$ 89,90</span>, e quem comprou antes não paga nada depois. R$ 49,90 uma vez, sem mensalidade, com 7 dias pra desistir.</p></div>
   <div class="plans one">
     <div class="plan best">
-      <div class="tag">OFERTA DE LANÇAMENTO</div>
+      <div class="tag">OFERTA DE LANÇAMENTO<span data-prazo> · <span data-dias></span></span></div>
       <h3>Acesso vitalício</h3>
-      <div class="price"><span class="strike">R$ 179,90/ano</span><span class="big">R$ 49,90</span><span class="per">pagamento único</span></div>
+      <div class="price"><span class="strike" title="Preço anterior">R$ 89,90</span><span class="big">R$ 49,90</span><span class="per">pagamento único</span></div>
       <div class="sub">À vista no Pix ou no cartão · ou em até 12x no cartão (com acréscimo do parcelamento)</div>
       <ul>
         <li><svg fill="none" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg> Acesso completo ao app, pra sempre</li>
@@ -497,7 +509,7 @@ window.__fosEv=function(n,p){ try{ fbq('trackCustom',n,p||{}); }catch(e){} };
 
 <section class="final"><div class="wrap">
   <h2>O dia 20 do mês que vem pode ser diferente</h2>
-  <p>Em cinco minutos você cadastra as contas fixas e lança os gastos de hoje. Daí pra frente, toda vez que abrir o app, já sabe quanto pode gastar. R$ 49,90, uma vez, com 7 dias pra desistir.</p>
+  <p>Em cinco minutos você cadastra as contas fixas e lança os gastos de hoje. Daí pra frente, toda vez que abrir o app, já sabe quanto pode gastar. R$ 49,90, uma vez, com 7 dias pra desistir<span data-prazo>. Esse preço vale até <b>31 de outubro</b></span>.</p>
   <a class="btn btn-orbita btn-lg" href="https://pay.kiwify.com.br/ZLpUxIS">Garantir meu acesso vitalício · R$ 49,90</a>
   <div style="color:#cdd2ee;font-size:13.5px;margin-top:12px">7 dias de garantia · pagamento único</div>
 </div></section>
